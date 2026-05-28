@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — 9bitts</title>
+<meta name="description" content="Daily reflections on art, music, philosophy and depth. Contemplations from thinkers who looked closely.">
+<meta property="og:title" content="Blog — 9bitts">
+<meta property="og:description" content="Daily reflections on art, music, philosophy and depth.">
+<meta property="og:url" content="https://9bitts.com/blog.html">
+<link rel="canonical" href="https://9bitts.com/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--bg-card:#fff;--ink:#1a1a1a;--ink-soft:#4a4a48;--ink-mute:#8a8a85;--line:#e8e6e0;--accent:#2d5f3f;--accent-soft:#3d7a52;--shadow-sm:0 1px 2px rgba(20,20,18,.04),0 2px 4px rgba(20,20,18,.04);--shadow-md:0 4px 12px rgba(20,20,18,.06),0 2px 4px rgba(20,20,18,.04);--shadow-lg:0 12px 32px rgba(20,20,18,.08),0 4px 8px rgba(20,20,18,.04);--shadow-xl:0 24px 60px rgba(20,20,18,.1),0 8px 16px rgba(20,20,18,.06);--radius-md:16px;--radius-lg:24px;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--bg)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(250,250,247,.7);border-bottom:1px solid transparent;transition:border-color .3s ease,padding .3s ease}
+nav.scrolled{border-bottom-color:var(--line);padding:1rem 2rem}
+.logo{font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-mark{width:28px;height:28px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:.85rem;font-weight:600;font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.9rem;font-weight:400;transition:color .2s ease;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{color:var(--ink)}
+@media(max-width:768px){.nav-links{display:none}nav{padding:1rem 1.25rem}}
+.hero{padding:8rem 2rem 4rem;max-width:1240px;margin:0 auto}
+.hero-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.25em;color:var(--accent);margin-bottom:1.25rem;font-weight:500}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5rem);font-weight:300;line-height:1;letter-spacing:-.03em;margin-bottom:1.5rem;color:var(--ink)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-lead{font-size:1.15rem;color:var(--ink-soft);max-width:580px;font-weight:300;line-height:1.6}
+.blog-grid{padding:2rem 2rem 8rem;max-width:1240px;margin:0 auto}
+.posts-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin-top:3rem}
+.post-card{background:var(--bg-card);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--line);transition:all .4s cubic-bezier(.16,1,.3,1);text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl)}
+.post-card-image{width:100%;aspect-ratio:1;object-fit:cover;background:linear-gradient(135deg,var(--accent),var(--accent-soft))}
+.post-card-image-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--accent),var(--accent-soft));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--serif);font-size:3rem;font-style:italic}
+.post-card-body{padding:1.75rem;flex:1;display:flex;flex-direction:column}
+.post-card-meta{font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:500;margin-bottom:.75rem}
+.post-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.75rem;line-height:1.3;letter-spacing:-.01em}
+.post-card-excerpt{color:var(--ink-mute);font-size:.9rem;line-height:1.6;flex:1;font-style:italic}
+.post-card-footer{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.post-card-author{font-size:.78rem;color:var(--ink-soft)}
+.post-card-link{font-size:.85rem;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:.3rem;transition:gap .3s ease}
+.post-card:hover .post-card-link{gap:.6rem}
+.loading{text-align:center;padding:4rem;color:var(--ink-mute);font-style:italic}
+.empty{text-align:center;padding:6rem 2rem;color:var(--ink-mute)}
+.empty h3{font-family:var(--serif);font-size:1.5rem;font-weight:300;margin-bottom:1rem;color:var(--ink)}
+.pagination{display:flex;justify-content:center;gap:1rem;margin-top:4rem}
+.pagination button{padding:.75rem 1.5rem;border-radius:100px;border:1px solid var(--line);background:var(--bg-card);color:var(--ink);font-family:var(--sans);font-size:.9rem;cursor:pointer;transition:all .3s ease}
+.pagination button:hover{border-color:var(--accent);color:var(--accent)}
+.pagination button:disabled{opacity:.4;cursor:not-allowed}
+footer{background:var(--ink);color:#b8b6b0;padding:3rem 2rem;text-align:center}
+.footer-inner{max-width:1240px;margin:0 auto}
+.footer-inner p{font-size:.85rem;margin-bottom:.5rem}
+.footer-inner a{color:#b8b6b0;text-decoration:none;margin:0 .75rem}
+.footer-inner a:hover{color:#fff}
+@media(max-width:768px){.posts-container{grid-template-columns:1fr}.hero{padding:6rem 1.5rem 2rem}.blog-grid{padding:1rem 1.5rem 5rem}}
+</style>
+</head>
+<body>
+<nav id="nav">
+<a href="/" class="logo"><span class="logo-mark">9b</span><span>9bitts</span></a>
+<ul class="nav-links">
+<li><a href="/#about">About</a></li>
+<li><a href="/#music">Music</a></li>
+<li><a href="/#mixes">Mixes</a></li>
+<li><a href="/#words">Words</a></li>
+<li><a href="/blog.html" class="active">Blog</a></li>
+<li><a href="/#connect">Connect</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<div class="hero-eyebrow">Blog</div>
+<h1>Daily reflections on<br><em>art and depth.</em></h1>
+<p class="hero-lead">Contemplations drawn from thinkers who looked closely. One post per day, inspired by music, philosophy, and the quiet work of paying attention.</p>
+</div>
+
+<div class="blog-grid">
+<div id="posts-container" class="posts-container">
+<div class="loading">Loading posts...</div>
+</div>
+<div class="pagination">
+<button id="prev-btn" disabled onclick="changePage(-1)">← Previous</button>
+<button id="next-btn" onclick="changePage(1)">Next →</button>
+</div>
+</div>
+
+<footer>
+<div class="footer-inner">
+<p>© 2026 9bitts. Made in Leipzig.</p>
+<div style="margin-top:.75rem">
+<a href="/terms.html">Terms</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/">Home</a>
+</div>
+</div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+const POSTS_PER_PAGE = 9;
+let currentPage = 0;
+let allPosts = [];
+
+async function loadPosts() {
+  const container = document.getElementById('posts-container');
+  try {
+    const response = await fetch('/posts/index.json');
+    if (!response.ok) throw new Error('No posts yet');
+    const data = await response.json();
+    allPosts = data.posts || [];
+    allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    renderPage();
+  } catch (e) {
+    container.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <h3>The first post is on its way.</h3>
+        <p>Daily reflections start soon. Come back tomorrow.</p>
+      </div>`;
+    document.getElementById('prev-btn').disabled = true;
+    document.getElementById('next-btn').disabled = true;
+  }
+}
+
+function renderPage() {
+  const container = document.getElementById('posts-container');
+  const start = currentPage * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+  const pagePosts = allPosts.slice(start, end);
+
+  if (pagePosts.length === 0) {
+    container.innerHTML = `<div class="empty" style="grid-column:1/-1"><h3>No posts yet.</h3></div>`;
+    return;
+  }
+
+  container.innerHTML = pagePosts.map(post => `
+    <a href="/posts/${post.slug}.html" class="post-card">
+      ${post.image
+        ? `<img class="post-card-image" src="${post.image}" alt="${post.author}" loading="lazy">`
+        : `<div class="post-card-image-placeholder">9b</div>`
+      }
+      <div class="post-card-body">
+        <div class="post-card-meta">${post.territory || 'reflection'} · ${formatDate(post.date)}</div>
+        <h2 class="post-card-title">${post.title}</h2>
+        <p class="post-card-excerpt">${post.excerpt}</p>
+        <div class="post-card-footer">
+          <span class="post-card-author">inspired by ${post.author}</span>
+          <span class="post-card-link">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+  `).join('');
+
+  document.getElementById('prev-btn').disabled = currentPage === 0;
+  document.getElementById('next-btn').disabled = end >= allPosts.length;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function changePage(dir) {
+  currentPage += dir;
+  renderPage();
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+loadPosts();
+</script>
+</body>
+</html>
