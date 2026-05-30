@@ -492,22 +492,43 @@ const ARTISTS = [
   },
 ];
 
-// Photo cache
+// Spotify Integration
+const SPOTIFY_CLIENT_ID = 'f024d778068e4438bb25b9952d48efdf';
+const SPOTIFY_CLIENT_SECRET = '4d643a0dc49340bc8c2c80415c566212';
 const photoCache = {};
+let spotifyToken = null;
+
+async function getSpotifyToken() {
+  if (spotifyToken) return spotifyToken;
+  try {
+    const res = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + btoa(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET)
+      },
+      body: 'grant_type=client_credentials'
+    });
+    const data = await res.json();
+    spotifyToken = data.access_token;
+    return spotifyToken;
+  } catch(e) { return null; }
+}
 
 async function getPhoto(name) {
-  if (photoCache[name]) return photoCache[name];
+  if (photoCache[name] !== undefined) return photoCache[name];
   try {
-    const q = encodeURIComponent(name + ' DJ');
-    const res = await fetch(`https://musicbrainz.org/ws/2/artist/?query=${encodeURIComponent(name)}&fmt=json&limit=1`);
+    const token = await getSpotifyToken();
+    if (!token) { photoCache[name] = null; return null; }
+    const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(name)}&type=artist&limit=1`, {
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
     const data = await res.json();
-    if (data.artists && data.artists[0]) {
-      const mbid = data.artists[0].id;
-      const rel = await fetch(`https://musicbrainz.org/ws/2/artist/${mbid}?inc=url-rels&fmt=json`);
-      const artist = await rel.json();
-      // Try to get image from relations
-      const imgRel = artist.relations && artist.relations.find(r => r.type === 'image');
-      if (imgRel) { photoCache[name] = imgRel.url.resource; return imgRel.url.resource; }
+    const artist = data.artists && data.artists.items && data.artists.items[0];
+    if (artist && artist.images && artist.images.length > 0) {
+      const img = artist.images[0].url;
+      photoCache[name] = img;
+      return img;
     }
   } catch(e) {}
   photoCache[name] = null;
@@ -557,11 +578,11 @@ document.getElementById('modal-overlay').addEventListener('click', e => {
 // Render featured
 const featuredArtists = ARTISTS.filter(a => a.featured);
 const featuredGrid = document.getElementById('featured-grid');
-featuredArtists.forEach(artist => {
+featuredArtists.forEach(async artist => {
   const card = document.createElement('div');
   card.className = 'featured-card';
   card.innerHTML = `
-    <div class="artist-initials" style="aspect-ratio:3/4;font-size:4rem;">${getInitials(artist.name)}</div>
+    <div class="artist-initials" style="aspect-ratio:3/4;font-size:4rem;" id="feat-${artist.name.replace(/\s+/g,'-')}">${getInitials(artist.name)}</div>
     <div class="featured-card-overlay">
       <div class="featured-card-genre">${artist.genre}</div>
       <div class="featured-card-name">${artist.name}</div>
@@ -569,6 +590,19 @@ featuredArtists.forEach(artist => {
     </div>`;
   card.addEventListener('click', () => openModal(artist));
   featuredGrid.appendChild(card);
+  // Load photo async
+  const photo = await getPhoto(artist.name);
+  if (photo) {
+    artist.photoUrl = photo;
+    const placeholder = card.querySelector('.artist-initials');
+    if (placeholder) {
+      const img = document.createElement('img');
+      img.src = photo;
+      img.alt = artist.name;
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .4s,transform .4s;aspect-ratio:3/4;';
+      placeholder.replaceWith(img);
+    }
+  }
 });
 
 // Render grid (non-featured, alphabetical)
@@ -585,17 +619,31 @@ function renderGrid() {
   });
   document.getElementById('grid-count').textContent = `${filtered.length} artist${filtered.length !== 1 ? 's' : ''}`;
   grid.innerHTML = '';
-  filtered.forEach(artist => {
+  filtered.forEach(async artist => {
     const card = document.createElement('div');
     card.className = 'artist-card';
+    const initials = getInitials(artist.name);
     card.innerHTML = `
-      <div class="artist-initials">${getInitials(artist.name)}</div>
+      <div class="artist-initials" data-artist="${artist.name}">${initials}</div>
       <div class="artist-info">
         <div class="artist-name">${artist.name}</div>
         <div class="artist-genre">${artist.genre}</div>
       </div>`;
     card.addEventListener('click', () => openModal(artist));
     grid.appendChild(card);
+    // Load photo async
+    const photo = await getPhoto(artist.name);
+    if (photo) {
+      artist.photoUrl = photo;
+      const placeholder = card.querySelector('.artist-initials');
+      if (placeholder) {
+        const img = document.createElement('img');
+        img.src = photo;
+        img.alt = artist.name;
+        img.className = 'artist-photo';
+        placeholder.replaceWith(img);
+      }
+    }
   });
 }
 
