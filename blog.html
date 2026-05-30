@@ -1,184 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — 9bitts</title>
-<meta name="description" content="Daily reflections on art, music, philosophy and depth. Contemplations from thinkers who looked closely.">
-<meta property="og:title" content="Blog — 9bitts">
-<meta property="og:description" content="Daily reflections on art, music, philosophy and depth.">
-<meta property="og:url" content="https://9bitts.com/blog.html">
-<link rel="canonical" href="https://9bitts.com/blog.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#fafaf7;--bg-card:#fff;--ink:#1a1a1a;--ink-soft:#4a4a48;--ink-mute:#8a8a85;--line:#e8e6e0;--accent:#2d5f3f;--accent-soft:#3d7a52;--shadow-sm:0 1px 2px rgba(20,20,18,.04),0 2px 4px rgba(20,20,18,.04);--shadow-md:0 4px 12px rgba(20,20,18,.06),0 2px 4px rgba(20,20,18,.04);--shadow-lg:0 12px 32px rgba(20,20,18,.08),0 4px 8px rgba(20,20,18,.04);--shadow-xl:0 24px 60px rgba(20,20,18,.1),0 8px 16px rgba(20,20,18,.06);--radius-md:16px;--radius-lg:24px;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-::selection{background:var(--accent);color:var(--bg)}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(250,250,247,.7);border-bottom:1px solid transparent;transition:border-color .3s ease,padding .3s ease}
-nav.scrolled{border-bottom-color:var(--line);padding:1rem 2rem}
-.logo{font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem}
-.logo-mark{width:28px;height:28px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:.85rem;font-weight:600;font-style:italic}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.9rem;font-weight:400;transition:color .2s ease;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-links a.active{color:var(--ink)}
-@media(max-width:768px){.nav-links{display:none}nav{padding:1rem 1.25rem}}
-.hero{padding:8rem 2rem 4rem;max-width:1240px;margin:0 auto}
-.hero-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.25em;color:var(--accent);margin-bottom:1.25rem;font-weight:500}
-.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5rem);font-weight:300;line-height:1;letter-spacing:-.03em;margin-bottom:1.5rem;color:var(--ink)}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-lead{font-size:1.15rem;color:var(--ink-soft);max-width:580px;font-weight:300;line-height:1.6}
-.blog-grid{padding:2rem 2rem 8rem;max-width:1240px;margin:0 auto}
-.posts-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin-top:3rem}
-.post-card{background:var(--bg-card);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--line);transition:all .4s cubic-bezier(.16,1,.3,1);text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
-.post-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl)}
-.post-card-image{width:100%;aspect-ratio:1;object-fit:cover;background:linear-gradient(135deg,var(--accent),var(--accent-soft))}
-.post-card-image-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--accent),var(--accent-soft));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--serif);font-size:3rem;font-style:italic}
-.post-card-body{padding:1.75rem;flex:1;display:flex;flex-direction:column}
-.post-card-meta{font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:500;margin-bottom:.75rem}
-.post-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.75rem;line-height:1.3;letter-spacing:-.01em}
-.post-card-excerpt{color:var(--ink-mute);font-size:.9rem;line-height:1.6;flex:1;font-style:italic}
-.post-card-footer{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.post-card-author{font-size:.78rem;color:var(--ink-soft)}
-.post-card-link{font-size:.85rem;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:.3rem;transition:gap .3s ease}
-.post-card:hover .post-card-link{gap:.6rem}
-.loading{text-align:center;padding:4rem;color:var(--ink-mute);font-style:italic}
-.empty{text-align:center;padding:6rem 2rem;color:var(--ink-mute)}
-.empty h3{font-family:var(--serif);font-size:1.5rem;font-weight:300;margin-bottom:1rem;color:var(--ink)}
-.pagination{display:flex;justify-content:center;gap:1rem;margin-top:4rem}
-.pagination button{padding:.75rem 1.5rem;border-radius:100px;border:1px solid var(--line);background:var(--bg-card);color:var(--ink);font-family:var(--sans);font-size:.9rem;cursor:pointer;transition:all .3s ease}
-.pagination button:hover{border-color:var(--accent);color:var(--accent)}
-.pagination button:disabled{opacity:.4;cursor:not-allowed}
-footer{background:var(--ink);color:#b8b6b0;padding:3rem 2rem;text-align:center}
-.footer-inner{max-width:1240px;margin:0 auto}
-.footer-inner p{font-size:.85rem;margin-bottom:.5rem}
-.footer-inner a{color:#b8b6b0;text-decoration:none;margin:0 .75rem}
-.footer-inner a:hover{color:#fff}
-@media(max-width:768px){.posts-container{grid-template-columns:1fr}.hero{padding:6rem 1.5rem 2rem}.blog-grid{padding:1rem 1.5rem 5rem}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — 9bitts</title>
+  <meta name="description" content="Reflections on music, art, philosophy and technology. One thought at a time.">
+  <link rel="canonical" href="https://9bitts.com/blog.html">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #fafaf7;
+      --green: #2d5f3f;
+      --green-light: #e8f0eb;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: #e8e8e4;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 300; font-style: italic;
+      color: var(--green); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    /* HERO */
+    .blog-hero {
+      max-width: 780px; margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+    .blog-hero-tag {
+      display: inline-block;
+      background: var(--green-light); color: var(--green);
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .blog-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.15; color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .blog-hero p {
+      font-size: 1.05rem; color: var(--text-muted);
+      max-width: 500px;
+    }
+
+    /* GRID */
+    .blog-grid {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    /* CARD */
+    .post-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .post-card-image {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: var(--green-light);
+    }
+    .post-card-image-placeholder {
+      width: 100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--green-light), #d4e8d9);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-card-image-placeholder span {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem; font-style: italic;
+      color: var(--green); opacity: 0.5;
+    }
+    .post-card-body {
+      padding: 1.5rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .post-card-date {
+      font-size: 0.72rem; color: var(--text-muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .post-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 300; font-style: italic;
+      line-height: 1.3; color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .post-card-excerpt {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.6; flex: 1;
+    }
+    .post-card-footer {
+      margin-top: 1.25rem; padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .post-card-tag {
+      background: var(--green-light); color: var(--green);
+      font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border-radius: 99px;
+    }
+    .post-card-arrow {
+      font-size: 0.8rem; color: var(--green);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+
+    /* LOADING & STATES */
+    .loading-state {
+      max-width: 1200px; margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center; color: var(--text-muted);
+    }
+    .loading-spinner {
+      width: 32px; height: 32px;
+      border: 2px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+    .empty-state p { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .empty-state small { font-size: 0.85rem; }
+
+    /* PAGINATION */
+    .pagination {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: flex; justify-content: center; gap: 1rem;
+    }
+    .pagination button {
+      background: none; border: 1px solid var(--border);
+      color: var(--text); font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; padding: 0.6rem 1.2rem;
+      border-radius: 8px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pagination button:hover:not(:disabled) {
+      border-color: var(--green); color: var(--green);
+    }
+    .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text); color: rgba(255,255,255,0.5);
+      text-align: center; padding: 2rem; font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; padding: 0 1.2rem 4rem; }
+      .blog-hero { padding: 3rem 1.2rem 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-<nav id="nav">
-<a href="/" class="logo"><span class="logo-mark">9b</span><span>9bitts</span></a>
-<ul class="nav-links">
-<li><a href="/#about">About</a></li>
-<li><a href="/#music">Music</a></li>
-<li><a href="/#mixes">Mixes</a></li>
-<li><a href="/#words">Words</a></li>
-<li><a href="/blog.html" class="active">Blog</a></li>
-<li><a href="/#connect">Connect</a></li>
-</ul>
+
+<nav>
+  <a href="https://9bitts.com" class="nav-logo">9bitts</a>
+  <ul class="nav-links">
+    <li><a href="https://9bitts.com">Home</a></li>
+    <li><a href="https://9bitts.com/blog.html" class="active">Blog</a></li>
+    <li><a href="https://9bitts.com/about.html">About</a></li>
+  </ul>
 </nav>
 
-<div class="hero">
-<div class="hero-eyebrow">Blog</div>
-<h1>Daily reflections on<br><em>art and depth.</em></h1>
-<p class="hero-lead">Contemplations drawn from thinkers who looked closely. One post per day, inspired by music, philosophy, and the quiet work of paying attention.</p>
+<div class="blog-hero">
+  <span class="blog-hero-tag">Reflections</span>
+  <h1>Music, art,<br>and the examined life.</h1>
+  <p>One thought at a time. Paired with the music that makes it land.</p>
 </div>
 
-<div class="blog-grid">
-<div id="posts-container" class="posts-container">
-<div class="loading">Loading posts...</div>
+<div id="blog-container">
+  <div class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading posts...</p>
+  </div>
 </div>
-<div class="pagination">
-<button id="prev-btn" disabled onclick="changePage(-1)">← Previous</button>
-<button id="next-btn" onclick="changePage(1)">Next →</button>
-</div>
+
+<div class="pagination" id="pagination" style="display:none">
+  <button id="prev-btn" onclick="changePage(-1)" disabled>← Previous</button>
+  <span id="page-info" style="display:flex;align-items:center;font-size:0.85rem;color:var(--text-muted)"></span>
+  <button id="next-btn" onclick="changePage(1)">Next →</button>
 </div>
 
 <footer>
-<div class="footer-inner">
-<p>© 2026 9bitts. Made in Leipzig.</p>
-<div style="margin-top:.75rem">
-<a href="/terms.html">Terms</a>
-<a href="/privacy.html">Privacy</a>
-<a href="/">Home</a>
-</div>
-</div>
+  <p>© 2025 9bitts · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
 </footer>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
+  const GITHUB_API = 'https://api.github.com/repos/9bitts/9bitts-site/contents/music';
+  const POSTS_PER_PAGE = 9;
+  let allPosts = [];
+  let currentPage = 1;
 
-const POSTS_PER_PAGE = 9;
-let currentPage = 0;
-let allPosts = [];
+  async function loadPosts() {
+    try {
+      // 1. Lista todos os arquivos da pasta /music/
+      const res = await fetch(GITHUB_API);
+      if (!res.ok) throw new Error('Failed to fetch file list');
+      const files = await res.json();
 
-async function loadPosts() {
-  const container = document.getElementById('posts-container');
-  try {
-    const response = await fetch('/posts/index.json');
-    if (!response.ok) throw new Error('No posts yet');
-    const data = await response.json();
-    allPosts = data.posts || [];
-    allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    renderPage();
-  } catch (e) {
-    container.innerHTML = `
-      <div class="empty" style="grid-column:1/-1">
-        <h3>The first post is on its way.</h3>
-        <p>Daily reflections start soon. Come back tomorrow.</p>
-      </div>`;
-    document.getElementById('prev-btn').disabled = true;
-    document.getElementById('next-btn').disabled = true;
-  }
-}
+      // 2. Filtra só os .json (exceto index.json)
+      const jsonFiles = files
+        .filter(f => f.name.endsWith('.json') && f.name !== 'index.json')
+        .sort((a, b) => b.name.localeCompare(a.name)); // mais recente primeiro
 
-function renderPage() {
-  const container = document.getElementById('posts-container');
-  const start = currentPage * POSTS_PER_PAGE;
-  const end = start + POSTS_PER_PAGE;
-  const pagePosts = allPosts.slice(start, end);
-
-  if (pagePosts.length === 0) {
-    container.innerHTML = `<div class="empty" style="grid-column:1/-1"><h3>No posts yet.</h3></div>`;
-    return;
-  }
-
-  container.innerHTML = pagePosts.map(post => `
-    <a href="/posts/${post.slug}.html" class="post-card">
-      ${post.image
-        ? `<img class="post-card-image" src="${post.image}" alt="${post.author}" loading="lazy">`
-        : `<div class="post-card-image-placeholder">9b</div>`
+      if (jsonFiles.length === 0) {
+        showEmpty();
+        return;
       }
-      <div class="post-card-body">
-        <div class="post-card-meta">${post.territory || 'reflection'} · ${formatDate(post.date)}</div>
-        <h2 class="post-card-title">${post.title}</h2>
-        <p class="post-card-excerpt">${post.excerpt}</p>
-        <div class="post-card-footer">
-          <span class="post-card-author">inspired by ${post.author}</span>
-          <span class="post-card-link">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+      // 3. Busca todos os JSONs em paralelo
+      const posts = await Promise.all(
+        jsonFiles.map(async (file) => {
+          try {
+            const r = await fetch(file.download_url);
+            if (!r.ok) return null;
+            return await r.json();
+          } catch { return null; }
+        })
+      );
+
+      allPosts = posts.filter(Boolean);
+      renderPage(1);
+
+    } catch (err) {
+      document.getElementById('blog-container').innerHTML = `
+        <div class="empty-state">
+          <p>Couldn't load posts right now.</p>
+          <small>Check back soon.</small>
+        </div>`;
+    }
+  }
+
+  function renderPage(page) {
+    currentPage = page;
+    const start = (page - 1) * POSTS_PER_PAGE;
+    const pagePosts = allPosts.slice(start, start + POSTS_PER_PAGE);
+    const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+    const container = document.getElementById('blog-container');
+    container.innerHTML = `<div class="blog-grid">${pagePosts.map(renderCard).join('')}</div>`;
+
+    // Paginação
+    if (totalPages > 1) {
+      document.getElementById('pagination').style.display = 'flex';
+      document.getElementById('prev-btn').disabled = page <= 1;
+      document.getElementById('next-btn').disabled = page >= totalPages;
+      document.getElementById('page-info').textContent = `${page} / ${totalPages}`;
+    }
+  }
+
+  function renderCard(post) {
+    const imageHtml = post.image
+      ? `<img class="post-card-image" src="${post.image}" alt="${escHtml(post.title)}" loading="lazy">`
+      : `<div class="post-card-image-placeholder"><span>9b</span></div>`;
+
+    const date = post.date
+      ? new Date(post.date).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
+      : '';
+
+    const excerpt = post.excerpt
+      ? post.excerpt.substring(0, 120) + (post.excerpt.length > 120 ? '...' : '')
+      : '';
+
+    return `
+      <a class="post-card" href="https://9bitts.com/music/${escHtml(post.slug)}.html">
+        ${imageHtml}
+        <div class="post-card-body">
+          <div class="post-card-date">${date}</div>
+          <div class="post-card-title">${escHtml(post.title)}</div>
+          <div class="post-card-excerpt">${escHtml(excerpt)}</div>
+          <div class="post-card-footer">
+            <span class="post-card-tag">Reflection</span>
+            <span class="post-card-arrow">Read →</span>
+          </div>
         </div>
-      </div>
-    </a>
-  `).join('');
+      </a>`;
+  }
 
-  document.getElementById('prev-btn').disabled = currentPage === 0;
-  document.getElementById('next-btn').disabled = end >= allPosts.length;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  function escHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
 
-function changePage(dir) {
-  currentPage += dir;
-  renderPage();
-}
+  function showEmpty() {
+    document.getElementById('blog-container').innerHTML = `
+      <div class="empty-state">
+        <p>The first post is on its way.</p>
+        <small>Come back soon.</small>
+      </div>`;
+  }
 
-function formatDate(dateStr) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-}
+  function changePage(dir) {
+    const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+    const newPage = currentPage + dir;
+    if (newPage >= 1 && newPage <= totalPages) renderPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-loadPosts();
+  loadPosts();
 </script>
+
 </body>
 </html>
