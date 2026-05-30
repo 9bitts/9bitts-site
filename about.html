@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — 9bitts</title>
+  <meta name="description" content="9bitts is a project about music, attention and depth. Electronic music curation, contemplative reflections, and the slow craft of making meaning through sound.">
+  <meta property="og:title" content="About — 9bitts">
+  <meta property="og:description" content="A project about music, attention and depth. Built in Leipzig.">
+  <meta property="og:url" content="https://9bitts.com/about.html">
+  <link rel="canonical" href="https://9bitts.com/about.html">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf7;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a48;
+      --ink-mute: #8a8a85;
+      --green: #2d5f3f;
+      --green-soft: #e8f0eb;
+      --line: #e8e6e0;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--green); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .85rem; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) { .hero { grid-template-columns: 1fr; min-height: auto; } }
+
+    .hero-left {
+      padding: 8rem 4rem 6rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 768px) { .hero-left { padding: 6rem 2rem 3rem; } }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--green); background: var(--green-soft);
+      padding: .3rem .9rem; border-radius: 99px;
+      margin-bottom: 2rem; width: fit-content;
+    }
+
+    .hero-left h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.0; letter-spacing: -.03em;
+      margin-bottom: 2rem; color: var(--ink);
+    }
+    .hero-left h1 em { color: var(--green); font-style: italic; }
+
+    .hero-lead {
+      font-size: 1.1rem; color: var(--ink-soft);
+      line-height: 1.8; font-weight: 300;
+      max-width: 480px;
+      border-left: 3px solid var(--green);
+      padding-left: 1.25rem;
+    }
+
+    .hero-right {
+      background: var(--ink);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (max-width: 768px) { .hero-right { min-height: 320px; } }
+
+    .hero-right-inner {
+      position: relative; z-index: 1;
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .hero-logo-big {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 10vw, 10rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .hero-stats {
+      display: flex; flex-direction: column; gap: 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .stat { text-align: center; }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 3.5rem; font-weight: 300; font-style: italic;
+      color: white; line-height: 1;
+      margin-bottom: .25rem;
+    }
+    .stat-label {
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .stat-divider {
+      width: 1px; height: 40px;
+      background: rgba(255,255,255,.1);
+      margin: 0 auto;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+    .section + .section { padding-top: 0; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+    .section-label-col { position: sticky; top: 6rem; }
+    .section-number {
+      font-family: var(--serif);
+      font-size: 5rem; font-weight: 300; font-style: italic;
+      color: var(--line); line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .section-label {
+      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .section-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.15; letter-spacing: -.02em;
+      margin-bottom: 1.5rem; color: var(--ink);
+    }
+    .section-body p {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.85; margin-bottom: 1.25rem;
+    }
+    .section-body p strong { color: var(--ink); font-weight: 500; }
+    .section-body p:last-child { margin-bottom: 0; }
+
+    /* DIVIDER */
+    .divider {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* PLATFORMS */
+    .platforms-section {
+      background: var(--ink);
+      padding: 6rem 2rem;
+      margin-top: 4rem;
+    }
+    .platforms-inner { max-width: 1100px; margin: 0 auto; }
+    .platforms-header {
+      margin-bottom: 3rem;
+    }
+    .platforms-header span {
+      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); display: block; margin-bottom: .75rem;
+    }
+    .platforms-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300; font-style: italic;
+      color: white; line-height: 1.1;
+    }
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .platform-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      display: flex; flex-direction: column; gap: .5rem;
+    }
+    .platform-card:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.15);
+      transform: translateY(-3px);
+    }
+    .platform-icon { font-size: 1.4rem; }
+    .platform-name { font-size: .9rem; font-weight: 500; color: white; }
+    .platform-handle { font-size: .78rem; color: rgba(255,255,255,.4); }
+
+    /* CLOSING */
+    .closing {
+      max-width: 680px; margin: 0 auto;
+      padding: 6rem 2rem 8rem;
+      text-align: center;
+    }
+    .closing-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.4; color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .closing-sub { font-size: .9rem; color: var(--ink-mute); }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,.4); text-align: center; padding: 2rem; font-size: .8rem; }
+    footer a { color: rgba(255,255,255,.5); text-decoration: none; margin: 0 .75rem; }
+    footer a:hover { color: white; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://9bitts.com" class="nav-logo">9bitts</a>
+  <ul class="nav-links">
+    <li><a href="https://9bitts.com">Home</a></li>
+    <li><a href="https://9bitts.com/music/">Music</a></li>
+    <li><a href="https://9bitts.com/artists.html">Artists</a></li>
+    <li><a href="https://9bitts.com/blog.html">Blog</a></li>
+    <li><a href="https://9bitts.com/about.html" class="active">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left reveal">
+    <span class="hero-tag">About the project</span>
+    <h1>Music,<br>attention<br>and <em>depth.</em></h1>
+    <p class="hero-lead">9bitts began as a curation of electronic music. Over time, it grew into something wider — a space where sound, image, and thought meet.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-logo-big">9bitts</div>
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Tracks listened</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Platforms</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Person behind it</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section reveal">
+  <div class="section-grid">
+    <div class="section-label-col">
+      <div class="section-number">01</div>
+      <div class="section-label">The project</div>
+    </div>
+    <div class="section-body">
+      <h2>Not a radio. Not a playlist.</h2>
+      <p>9bitts is a curatorial project about electronic music — and what it carries when it stops being just entertainment. Each set is chosen with intention: for the energy it has, the moment it evokes, the way its tracks speak to each other.</p>
+      <p>The blog explores the ideas the music raises. Philosophers, artists, thinkers who looked closely at life and left something that still resonates. <strong>Not quotes to consume. Questions to sit with.</strong></p>
+      <p>It is not a radio. It is not a playlist. It is a perspective — on sound, on culture, on what it means to pay attention.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 2 -->
+<div class="section reveal">
+  <div class="section-grid">
+    <div class="section-label-col">
+      <div class="section-number">02</div>
+      <div class="section-label">The person</div>
+    </div>
+    <div class="section-body">
+      <h2>One person, one city, one project.</h2>
+      <p>9bitts is a one-person project, built in Leipzig. Not a label. Not an agency. Someone who believes electronic music deserves to be taken seriously — as art, as culture, as a form of attention to the world.</p>
+      <p>Leipzig has its own relationship with electronic music — a city that has always made space for subculture, for the underground, for the kind of music that asks something of the people who listen to it.</p>
+      <p><strong>That is the context. That is the soil.</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 3 -->
+<div class="section reveal">
+  <div class="section-grid">
+    <div class="section-label-col">
+      <div class="section-number">03</div>
+      <div class="section-label">The technology</div>
+    </div>
+    <div class="section-body">
+      <h2>Automation in service of craft.</h2>
+      <p>9bitts uses a custom automation pipeline to publish content daily across multiple platforms. Not to replace curation — but to free it.</p>
+      <p>The real work happens in the selection: which music, which thinker, which idea is worth the attention of whoever is listening. <strong>The machine handles the rest.</strong></p>
+      <p>This is not a contradiction. It is a decision about where the human effort should go — and where it should not have to.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECTION 4 -->
+<div class="section reveal">
+  <div class="section-grid">
+    <div class="section-label-col">
+      <div class="section-number">04</div>
+      <div class="section-label">The name</div>
+    </div>
+    <div class="section-body">
+      <h2>A small signal that carries something large.</h2>
+      <p>The name 9bitts does not have a perfect explanation. It has to do with frequency, with bits of information, with the idea that a small signal can carry something large.</p>
+      <p>Electronic music works the same way — repetition with variation, structure with freedom, technique with feeling. <strong>Nine bits. Two t's. A small asymmetry.</strong> That is enough.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="platforms-section reveal">
+  <div class="platforms-inner">
+    <div class="platforms-header">
+      <span>Find 9bitts</span>
+      <h2>The same work,<br>across platforms.</h2>
+    </div>
+    <div class="platforms-grid">
+      <a href="https://www.youtube.com/@9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">▶</div>
+        <div class="platform-name">YouTube</div>
+        <div class="platform-handle">@9bitts</div>
+      </a>
+      <a href="https://www.instagram.com/9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">◈</div>
+        <div class="platform-name">Instagram</div>
+        <div class="platform-handle">@9bitts</div>
+      </a>
+      <a href="https://soundcloud.com/9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">☁</div>
+        <div class="platform-name">SoundCloud</div>
+        <div class="platform-handle">9bitts</div>
+      </a>
+      <a href="https://www.mixcloud.com/9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">◎</div>
+        <div class="platform-name">Mixcloud</div>
+        <div class="platform-handle">9bitts</div>
+      </a>
+      <a href="https://www.facebook.com/9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">◉</div>
+        <div class="platform-name">Facebook</div>
+        <div class="platform-handle">9bitts</div>
+      </a>
+      <a href="https://twitter.com/9bitts" target="_blank" rel="noopener" class="platform-card">
+        <div class="platform-icon">✕</div>
+        <div class="platform-name">X</div>
+        <div class="platform-handle">@9bitts</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing reveal">
+  <p class="closing-quote">"If you got here, you probably listen to music in a similar way."</p>
+  <p class="closing-sub">Welcome to 9bitts.</p>
+</div>
+
+<footer>
+  <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
