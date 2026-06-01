@@ -78,6 +78,28 @@ section{padding:8rem 2rem;max-width:1240px;margin:0 auto}
 .mix-title{font-family:var(--serif);font-size:1.2rem;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
 audio{width:100%;height:40px;border-radius:8px}
 @media(max-width:600px){.mix-item{grid-template-columns:1fr;text-align:center}.mix-cover{margin:0 auto}}
+
+/* ARTISTS SECTION */
+.artists-home{background:#0e0e0e;max-width:100%;margin:0;padding:8rem 2rem}
+.artists-home-inner{max-width:1240px;margin:0 auto}
+.artists-home .section-eyebrow{color:#c8a97e}
+.artists-home .section-title{color:#f0ede8}
+.artists-home .section-title em{color:#c8a97e}
+.artists-home .section-lead{color:rgba(255,255,255,.5)}
+.artists-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+@media(max-width:768px){.artists-preview-grid{grid-template-columns:1fr}}
+.artist-preview-card{position:relative;border-radius:20px;overflow:hidden;background:#161616;border:1px solid rgba(255,255,255,.07);aspect-ratio:3/4;cursor:pointer;text-decoration:none;transition:all .4s cubic-bezier(.16,1,.3,1);display:block}
+.artist-preview-card:hover{transform:translateY(-6px);border-color:rgba(200,169,126,.3);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.artist-preview-card img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .4s,transform .4s;display:block}
+.artist-preview-card:hover img{opacity:.9;transform:scale(1.03)}
+.artist-preview-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);font-family:var(--serif);font-size:5rem;font-weight:300;font-style:italic;color:#c8a97e}
+.artist-preview-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.5rem 1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.85) 50%)}
+.artist-preview-genre{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#c8a97e;margin-bottom:.4rem}
+.artist-preview-name{font-family:var(--serif);font-size:1.6rem;font-weight:300;font-style:italic;color:white;line-height:1.1}
+.artists-home-cta{margin-top:3rem;text-align:center}
+.btn-artists{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-radius:100px;font-family:var(--sans);font-size:.95rem;font-weight:500;text-decoration:none;background:rgba(200,169,126,.12);color:#c8a97e;border:1px solid rgba(200,169,126,.3);transition:all .3s ease}
+.btn-artists:hover{background:rgba(200,169,126,.2);border-color:#c8a97e;transform:translateY(-2px)}
+
 .words{background:linear-gradient(180deg,#f4f2eb 0%,var(--bg) 100%);max-width:100%;margin:0;padding:8rem 2rem}
 .words-inner{max-width:1240px;margin:0 auto}
 .words-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:4rem}
@@ -110,7 +132,6 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
-
 <!-- MailerLite Universal -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -128,11 +149,13 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <li><a href="#about">About</a></li>
 <li><a href="#music">Music</a></li>
 <li><a href="#mixes">Mixes</a></li>
+<li><a href="#artists">Artists</a></li>
 <li><a href="#words">Words</a></li>
 <li><a href="/blog.html">Blog</a></li>
 <li><a href="#connect">Connect</a></li>
 </ul>
 </nav>
+
 <section class="hero">
 <div class="hero-content">
 <div class="hero-eyebrow">art · music · depth</div>
@@ -140,10 +163,11 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <p class="hero-tagline">A space where sound, image, and thought meet. Curated mixes, contemplative reflections, and the slow craft of making meaning through music.</p>
 <div class="hero-cta">
 <a href="#music" class="btn btn-primary">Listen <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-<a href="#about" class="btn btn-secondary">About the project</a>
+<a href="/about.html" class="btn btn-secondary">About the project</a>
 </div>
 </div>
 </section>
+
 <section class="about" id="about">
 <div class="section-header reveal">
 <div class="section-eyebrow">About</div>
@@ -173,6 +197,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </div>
 </section>
+
 <section class="music" id="music">
 <div class="music-inner">
 <div class="section-header reveal">
@@ -222,7 +247,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <div class="music-card-body">
 <div class="music-card-meta">Raw Techno</div>
 <h4>Charlotte de Witte Tribute</h4>
-<p>A raw techno tribute mix — edited by 9bitts. No Mixcloud release yet.</p>
+<p>A raw techno tribute mix — edited by 9bitts.</p>
 <a href="https://www.youtube.com/watch?v=UNyLdABNCNc" target="_blank" rel="noopener" class="music-card-link">Watch on YouTube <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </article>
@@ -231,13 +256,14 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <div class="music-card-body">
 <div class="music-card-meta">Progressive House</div>
 <h4>A Tribute to Passenger 10</h4>
-<p>Melodic progressive house — a deep tribute to one of the genre's finest. No Mixcloud release yet.</p>
+<p>Melodic progressive house — a deep tribute to one of the genre's finest.</p>
 <a href="https://www.youtube.com/watch?v=PdxE43Q4noM" target="_blank" rel="noopener" class="music-card-link">Watch on YouTube <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </article>
 </div>
 </div>
 </section>
+
 <section class="mixes" id="mixes">
 <div class="section-header reveal">
 <div class="section-eyebrow">Mixes</div>
@@ -279,6 +305,47 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </div>
 </section>
+
+<!-- ARTISTS SECTION -->
+<div class="artists-home" id="artists">
+<div class="artists-home-inner">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Artists</div>
+    <h2 class="section-title" style="color:#f0ede8">The people<br>behind the <em>sound.</em></h2>
+    <p class="section-lead">54 producers and DJs shaping electronic music today — from melodic techno to afro house. A living guide, curated by 9bitts.</p>
+  </div>
+  <div class="artists-preview-grid" id="artists-preview-grid">
+    <a href="/artists.html" class="artist-preview-card reveal" id="card-anyma">
+      <div class="artist-preview-initials">An</div>
+      <div class="artist-preview-overlay">
+        <div class="artist-preview-genre">Melodic House & Techno</div>
+        <div class="artist-preview-name">Anyma</div>
+      </div>
+    </a>
+    <a href="/artists.html" class="artist-preview-card reveal" id="card-benbohmer">
+      <div class="artist-preview-initials">BB</div>
+      <div class="artist-preview-overlay">
+        <div class="artist-preview-genre">Deep House</div>
+        <div class="artist-preview-name">Ben Böhmer</div>
+      </div>
+    </a>
+    <a href="/artists.html" class="artist-preview-card reveal" id="card-charlotte">
+      <div class="artist-preview-initials">CW</div>
+      <div class="artist-preview-overlay">
+        <div class="artist-preview-genre">Techno</div>
+        <div class="artist-preview-name">Charlotte de Witte</div>
+      </div>
+    </a>
+  </div>
+  <div class="artists-home-cta reveal">
+    <a href="/artists.html" class="btn-artists">
+      Explore all 54 artists
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+</div>
+
 <section class="words" id="words">
 <div class="words-inner">
 <div class="section-header reveal">
@@ -310,6 +377,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </div>
 </section>
+
 <section class="connect" id="connect">
 <div class="section-header reveal" style="margin:0 auto;text-align:center">
 <div class="section-eyebrow">Connect</div>
@@ -352,39 +420,28 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </section>
 
-<!-- NEWSLETTER + SUPPORT -->
 <section style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);padding:6rem 2rem;margin-top:2rem;">
   <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-
-    <!-- Newsletter -->
     <div>
       <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#c8a97e;margin-bottom:1rem;">Stay connected</div>
       <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;font-style:italic;color:white;line-height:1.15;margin-bottom:1rem;">One thought.<br>One set.<br><em style="color:#c8a97e;">Every week.</em></h2>
       <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:2rem;font-weight:300;">Reflections on music, philosophy and sound — delivered to your inbox. No noise. Just the work.</p>
-
-      <!-- MailerLite Form -->
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.5rem;">
         <div class="ml-embedded" data-form="av8S2o"></div>
       </div>
     </div>
-
-    <!-- Support -->
     <div>
       <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#c8a97e;margin-bottom:1rem;">Support the project</div>
       <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;font-style:italic;color:white;line-height:1.15;margin-bottom:1rem;">If this music<br>means something<br><em style="color:#c8a97e;">to you.</em></h2>
       <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:2rem;font-weight:300;">9bitts is built by one person, with no label or sponsor behind it. If the sets, the blog or the curation has been worth something to you — any contribution keeps it going.</p>
-
-      <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener"
-         style="display:inline-flex;align-items:center;gap:.75rem;background:#c8a97e;color:#1a1a1a;text-decoration:none;padding:1rem 2rem;border-radius:99px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;transition:all .3s ease;margin-bottom:1rem;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.75rem;background:#c8a97e;color:#1a1a1a;text-decoration:none;padding:1rem 2rem;border-radius:99px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;transition:all .3s ease;margin-bottom:1rem;">
         Support via PayPal
       </a>
-
-      <p style="font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.6;">Secure payment via PayPal. Any amount is welcome.<br>Thank you for being here.</p>
+      <p style="font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.6;">Secure payment via PayPal. Any amount is welcome.</p>
     </div>
-
   </div>
 </section>
+
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
@@ -399,6 +456,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <li><a href="#about">About</a></li>
 <li><a href="#music">Music</a></li>
 <li><a href="#mixes">Mixes</a></li>
+<li><a href="#artists">Artists</a></li>
 <li><a href="#words">Words</a></li>
 <li><a href="/blog.html">Blog</a></li>
 <li><a href="#connect">Connect</a></li>
@@ -423,11 +481,57 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </div>
 </footer>
+
 <script>
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{if(window.scrollY>20)nav.classList.add('scrolled');else nav.classList.remove('scrolled')});
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.1,rootMargin:'0px 0px -80px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Load Spotify photos for artist preview cards
+const SPOTIFY_CLIENT_ID = 'f024d778068e4438bb25b9952d48efdf';
+const SPOTIFY_CLIENT_SECRET = 'b5a2811ed70a4e82becb745798a3e133';
+let spotifyToken = null;
+
+async function getSpotifyToken() {
+  try {
+    const res = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic ' + btoa(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET) },
+      body: 'grant_type=client_credentials'
+    });
+    const data = await res.json();
+    return data.access_token;
+  } catch(e) { return null; }
+}
+
+async function loadArtistPhoto(artistName, cardId) {
+  try {
+    if (!spotifyToken) spotifyToken = await getSpotifyToken();
+    if (!spotifyToken) return;
+    const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`, { headers: { 'Authorization': 'Bearer ' + spotifyToken } });
+    const data = await res.json();
+    const artist = data.artists && data.artists.items && data.artists.items[0];
+    if (artist && artist.images && artist.images.length > 0) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        const placeholder = card.querySelector('.artist-preview-initials');
+        if (placeholder) {
+          const img = document.createElement('img');
+          img.src = artist.images[0].url;
+          img.alt = artistName;
+          img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .4s,transform .4s;display:block;position:absolute;top:0;left:0;';
+          card.style.position = 'relative';
+          placeholder.replaceWith(img);
+        }
+      }
+    }
+  } catch(e) {}
+}
+
+loadArtistPhoto('Anyma', 'card-anyma');
+loadArtistPhoto('Ben Böhmer', 'card-benbohmer');
+loadArtistPhoto('Charlotte de Witte', 'card-charlotte');
 </script>
 </body>
 </html>
