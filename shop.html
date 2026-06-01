@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — 9bitts</title>
+  <meta name="description" content="Electronic music tools, resources and curated links — trusted by 9bitts.">
+  <meta property="og:title" content="Shop — 9bitts">
+  <meta property="og:url" content="https://9bitts.com/shop.html">
+  <link rel="canonical" href="https://9bitts.com/shop.html">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111;
+      --bg-card2: #161616;
+      --ink: #f0ede8;
+      --ink-soft: #a8a5a0;
+      --ink-mute: #555250;
+      --gold: #c8a97e;
+      --gold-soft: rgba(200,169,126,.12);
+      --gold-glow: rgba(200,169,126,.2);
+      --green: #2d5f3f;
+      --line: rgba(255,255,255,.06);
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; opacity: .4;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(10,10,10,.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--gold); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .85rem; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      position: relative; z-index: 1;
+      padding: 8rem 2rem 5rem;
+      max-width: 900px; margin: 0 auto;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(200,169,126,.25);
+      padding: .35rem 1.1rem; border-radius: 99px; margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.0; letter-spacing: -.02em;
+      color: var(--ink); margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--gold); }
+    .hero-lead {
+      font-size: 1.05rem; color: var(--ink-soft);
+      max-width: 520px; margin: 0 auto;
+      font-weight: 300; line-height: 1.75;
+    }
+
+    /* COMING SOON BANNER */
+    .coming-soon-banner {
+      position: relative; z-index: 1;
+      max-width: 760px; margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+    .coming-soon-inner {
+      background: linear-gradient(135deg, rgba(200,169,126,.08), rgba(200,169,126,.04));
+      border: 1px solid rgba(200,169,126,.2);
+      border-radius: 20px;
+      padding: 2.5rem 3rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .coming-soon-inner::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .coming-soon-inner h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem; font-weight: 300; font-style: italic;
+      color: var(--ink); margin-bottom: .75rem;
+    }
+    .coming-soon-inner p {
+      font-size: .92rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .coming-soon-items {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem;
+    }
+    .coming-soon-item {
+      background: rgba(200,169,126,.08);
+      border: 1px solid rgba(200,169,126,.15);
+      border-radius: 99px;
+      padding: .4rem 1rem;
+      font-size: .78rem; color: var(--gold);
+      letter-spacing: .06em;
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 2rem;
+    }
+    .section-label-inner {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .section-label-text {
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    }
+    .section-label-line {
+      flex: 1; height: 1px; background: var(--line);
+    }
+
+    /* AFFILIATE GRID */
+    .affiliate-section {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .affiliate-intro {
+      max-width: 600px; margin-bottom: 3rem;
+    }
+    .affiliate-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; font-style: italic;
+      color: var(--ink); line-height: 1.15; margin-bottom: 1rem;
+    }
+    .affiliate-intro p {
+      font-size: .95rem; color: var(--ink-soft); line-height: 1.75;
+    }
+    .affiliate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 768px) { .affiliate-grid { grid-template-columns: 1fr; } }
+
+    .affiliate-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      display: block;
+      transition: all .35s cubic-bezier(.16,1,.3,1);
+      position: relative; overflow: hidden;
+    }
+    .affiliate-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--gold-soft), transparent);
+      opacity: 0; transition: opacity .35s;
+      border-radius: 20px;
+    }
+    .affiliate-card:hover { border-color: rgba(200,169,126,.35); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(200,169,126,.1); }
+    .affiliate-card:hover::before { opacity: 1; }
+
+    .affiliate-card-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .affiliate-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem; font-weight: 300; font-style: italic;
+      color: var(--ink); line-height: 1;
+    }
+    .affiliate-badge {
+      font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold); background: var(--gold-soft);
+      border: 1px solid rgba(200,169,126,.2);
+      padding: .25rem .7rem; border-radius: 99px;
+    }
+    .affiliate-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem; font-weight: 300; font-style: italic;
+      color: var(--ink); margin-bottom: .6rem; line-height: 1.2;
+    }
+    .affiliate-card p {
+      font-size: .88rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .affiliate-tags {
+      display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem;
+    }
+    .affiliate-tag {
+      font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-mute); background: rgba(255,255,255,.04);
+      border: 1px solid var(--line); border-radius: 99px;
+      padding: .2rem .6rem;
+    }
+    .affiliate-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      color: var(--gold); font-size: .85rem; font-weight: 500;
+      transition: gap .3s ease;
+    }
+    .affiliate-card:hover .affiliate-cta { gap: .8rem; }
+    .affiliate-divider {
+      height: 1px; background: var(--line); margin: 1.5rem 0;
+    }
+    .affiliate-commission {
+      font-size: .75rem; color: var(--ink-mute);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .affiliate-commission span { color: var(--gold); font-weight: 500; }
+
+    /* DISCLOSURE */
+    .disclosure {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+    .disclosure-inner {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .disclosure-icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+    .disclosure-text { font-size: .78rem; color: var(--ink-mute); line-height: 1.65; }
+    .disclosure-text strong { color: var(--ink-soft); }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--line);
+      padding: 2rem; text-align: center;
+      font-size: .8rem; color: var(--ink-mute);
+    }
+    footer a { color: var(--ink-soft); text-decoration: none; margin: 0 .75rem; }
+    footer a:hover { color: var(--ink); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://9bitts.com" class="nav-logo">9bitts</a>
+  <ul class="nav-links">
+    <li><a href="https://9bitts.com">Home</a></li>
+    <li><a href="https://9bitts.com/music/">Music</a></li>
+    <li><a href="https://9bitts.com/artists.html">Artists</a></li>
+    <li><a href="https://9bitts.com/blog.html">Blog</a></li>
+    <li><a href="https://9bitts.com/shop.html" class="active">Shop</a></li>
+    <li><a href="https://9bitts.com/about.html">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero reveal">
+  <span class="hero-tag">Curated Resources</span>
+  <h1>Tools for the<br><em>serious listener.</em></h1>
+  <p class="hero-lead">Everything 9bitts uses and trusts — from buying music to building sounds. No noise. Just the essentials.</p>
+</div>
+
+<!-- COMING SOON -->
+<div class="coming-soon-banner reveal">
+  <div class="coming-soon-inner">
+    <h2>More coming soon.</h2>
+    <p>Original 9bitts products are in the works — sample packs, preset collections, and curated listening guides. Subscribe to the newsletter to be the first to know.</p>
+    <div class="coming-soon-items">
+      <span class="coming-soon-item">Sample Packs</span>
+      <span class="coming-soon-item">Serato / Rekordbox Presets</span>
+      <span class="coming-soon-item">Listening Guides</span>
+      <span class="coming-soon-item">Mix Templates</span>
+      <span class="coming-soon-item">DJ Tools</span>
+    </div>
+  </div>
+</div>
+
+<!-- AFFILIATE SECTION -->
+<div class="section-label reveal">
+  <div class="section-label-inner">
+    <span class="section-label-text">Trusted Partners</span>
+    <div class="section-label-line"></div>
+  </div>
+</div>
+
+<div class="affiliate-section">
+  <div class="affiliate-intro reveal">
+    <h2>Where 9bitts<br>buys its music.</h2>
+    <p>These are the platforms used to build every set on this channel. Clicking any link below supports 9bitts at no extra cost to you — the price stays the same, and a small commission helps keep this project going.</p>
+  </div>
+
+  <div class="affiliate-grid">
+
+    <!-- BEATPORT -->
+    <a href="https://www.beatport.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
+      <div class="affiliate-card-header">
+        <div class="affiliate-logo">Beatport</div>
+        <span class="affiliate-badge">Most Used</span>
+      </div>
+      <h3>The world's largest electronic music store.</h3>
+      <p>Where every 9bitts set starts. Beatport has the deepest catalog of melodic techno, deep house, progressive house, and techno — the genres this channel lives in. High quality downloads, stems, and DJ-ready files.</p>
+      <div class="affiliate-tags">
+        <span class="affiliate-tag">Melodic Techno</span>
+        <span class="affiliate-tag">Deep House</span>
+        <span class="affiliate-tag">Progressive</span>
+        <span class="affiliate-tag">Techno</span>
+        <span class="affiliate-tag">Tech House</span>
+      </div>
+      <div class="affiliate-divider"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div class="affiliate-commission">⟡ <span>Affiliate link</span> — supports 9bitts</div>
+        <div class="affiliate-cta">Shop Beatport <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <!-- DJCITY -->
+    <a href="https://www.djcity.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
+      <div class="affiliate-card-header">
+        <div class="affiliate-logo">DJcity</div>
+        <span class="affiliate-badge">Record Pool</span>
+      </div>
+      <h3>The DJ record pool for working artists.</h3>
+      <p>DJcity is a subscription-based record pool used by professional DJs worldwide. New releases daily, edits, remixes, and exclusive versions you won't find anywhere else. Essential for staying current.</p>
+      <div class="affiliate-tags">
+        <span class="affiliate-tag">Record Pool</span>
+        <span class="affiliate-tag">DJ Edits</span>
+        <span class="affiliate-tag">Remixes</span>
+        <span class="affiliate-tag">New Releases</span>
+      </div>
+      <div class="affiliate-divider"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div class="affiliate-commission">⟡ <span>Affiliate link</span> — supports 9bitts</div>
+        <div class="affiliate-cta">Explore DJcity <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <!-- PLUGIN BOUTIQUE -->
+    <a href="https://www.pluginboutique.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
+      <div class="affiliate-card-header">
+        <div class="affiliate-logo">Plugin Boutique</div>
+        <span class="affiliate-badge">Production</span>
+      </div>
+      <h3>Plugins, synths and sounds for producers.</h3>
+      <p>The go-to store for VST plugins, synthesizers, sample packs and production tools. If you make electronic music or want to understand how the sounds in these sets are built, this is where the tools live.</p>
+      <div class="affiliate-tags">
+        <span class="affiliate-tag">VST Plugins</span>
+        <span class="affiliate-tag">Synthesizers</span>
+        <span class="affiliate-tag">Sample Packs</span>
+        <span class="affiliate-tag">Ableton</span>
+        <span class="affiliate-tag">Production</span>
+      </div>
+      <div class="affiliate-divider"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div class="affiliate-commission">⟡ <span>Affiliate link</span> — supports 9bitts</div>
+        <div class="affiliate-cta">Browse Plugin Boutique <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- DISCLOSURE -->
+<div class="disclosure reveal">
+  <div class="disclosure-inner">
+    <div class="disclosure-icon">ℹ</div>
+    <div class="disclosure-text">
+      <strong>Affiliate disclosure.</strong> Some links on this page are affiliate links. When you click and make a purchase, 9bitts receives a small commission — at no extra cost to you. This helps fund the project: the sets, the blog, and everything else. All recommendations are genuine; 9bitts only links to platforms actually used and trusted.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="mailto:diegoalbs@proton.me">Contact</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
