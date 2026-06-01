@@ -271,7 +271,12 @@
         })
       );
 
-      allPosts = posts.filter(Boolean);
+      // Ordenar por data — mais recente primeiro
+      allPosts = posts.filter(Boolean).sort((a, b) => {
+        const da = a.date ? new Date(a.date) : new Date(0);
+        const db = b.date ? new Date(b.date) : new Date(0);
+        return db - da;
+      });
       renderPage(1);
 
     } catch (err) {
