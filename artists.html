@@ -12,239 +12,85 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0e0e0e;
-      --bg-card: #161616;
-      --bg-hover: #1e1e1e;
-      --ink: #f0ede8;
-      --ink-soft: #a8a5a0;
-      --ink-mute: #666360;
-      --accent: #c8a97e;
-      --accent-soft: rgba(200,169,126,.12);
-      --accent-glow: rgba(200,169,126,.25);
-      --line: rgba(255,255,255,.07);
-      --serif: 'Fraunces', Georgia, serif;
-      --sans: 'DM Sans', -apple-system, sans-serif;
-      --radius: 16px;
+      --bg: #0e0e0e; --bg-card: #161616; --bg-hover: #1e1e1e;
+      --ink: #f0ede8; --ink-soft: #a8a5a0; --ink-mute: #666360;
+      --accent: #c8a97e; --accent-soft: rgba(200,169,126,.12); --accent-glow: rgba(200,169,126,.25);
+      --line: rgba(255,255,255,.07); --serif: 'Fraunces', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif; --radius: 16px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(14,14,14,.9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line);
-      padding: 1rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    nav { position: sticky; top: 0; z-index: 200; background: rgba(14,14,14,.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--accent); text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-size: .85rem; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
     @media (max-width: 640px) { .nav-links { display: none; } }
-
-    /* HERO */
-    .hero {
-      padding: 6rem 2rem 4rem;
-      max-width: 900px; margin: 0 auto;
-      text-align: center;
-    }
-    .hero-tag {
-      display: inline-block;
-      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid rgba(200,169,126,.3);
-      padding: .3rem 1rem; border-radius: 99px; margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.05; letter-spacing: -.02em;
-      margin-bottom: 1.25rem; color: var(--ink);
-    }
+    .hero { padding: 6rem 2rem 4rem; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-tag { display: inline-block; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(200,169,126,.3); padding: .3rem 1rem; border-radius: 99px; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; font-style: italic; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 1.25rem; color: var(--ink); }
     .hero-lead { font-size: 1.05rem; color: var(--ink-soft); max-width: 520px; margin: 0 auto; font-weight: 300; line-height: 1.7; }
-
-    /* FEATURED */
     .featured { padding: 3rem 2rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .featured-label {
-      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.5rem; display: block;
-    }
+    .featured-label { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: block; }
     .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     @media (max-width: 768px) { .featured-grid { grid-template-columns: 1fr; } }
-
-    .featured-card {
-      position: relative; border-radius: 20px; overflow: hidden;
-      background: var(--bg-card); border: 1px solid var(--line);
-      cursor: pointer; transition: all .4s cubic-bezier(.16,1,.3,1);
-      aspect-ratio: 3/4;
-    }
+    .featured-card { position: relative; border-radius: 20px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--line); cursor: pointer; transition: all .4s cubic-bezier(.16,1,.3,1); aspect-ratio: 3/4; }
     .featured-card:hover { transform: translateY(-6px); border-color: rgba(200,169,126,.3); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(200,169,126,.15); }
     .featured-card img { width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: opacity .4s, transform .4s; }
     .featured-card:hover img { opacity: .9; transform: scale(1.03); }
-    .featured-card-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2rem 1.5rem 1.5rem;
-      background: linear-gradient(transparent, rgba(0,0,0,.85) 50%);
-    }
-    .featured-card-genre {
-      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: .4rem;
-    }
-    .featured-card-name {
-      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
-      font-style: italic; color: white; line-height: 1.1;
-    }
-    .featured-card-tag {
-      display: inline-block; margin-top: .5rem;
-      font-size: .65rem; letter-spacing: .08em; text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-    }
-
-    /* FILTERS */
-    .filters-bar {
-      max-width: 1200px; margin: 3rem auto 0;
-      padding: 0 2rem;
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    }
-    .search-input {
-      flex: 1; min-width: 200px;
-      background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: 99px; padding: .65rem 1.25rem;
-      color: var(--ink); font-family: var(--sans); font-size: .9rem;
-      outline: none; transition: border-color .2s;
-    }
+    .featured-card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,.85) 50%); }
+    .featured-card-genre { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
+    .featured-card-name { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; font-style: italic; color: white; line-height: 1.1; }
+    .featured-card-tag { display: inline-block; margin-top: .5rem; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .filters-bar { max-width: 1200px; margin: 3rem auto 0; padding: 0 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .search-input { flex: 1; min-width: 200px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 99px; padding: .65rem 1.25rem; color: var(--ink); font-family: var(--sans); font-size: .9rem; outline: none; transition: border-color .2s; }
     .search-input::placeholder { color: var(--ink-mute); }
     .search-input:focus { border-color: rgba(200,169,126,.4); }
     .filter-btns { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .filter-btn {
-      background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: 99px; padding: .5rem 1rem;
-      color: var(--ink-soft); font-family: var(--sans); font-size: .78rem;
-      cursor: pointer; transition: all .2s; white-space: nowrap;
-    }
+    .filter-btn { background: var(--bg-card); border: 1px solid var(--line); border-radius: 99px; padding: .5rem 1rem; color: var(--ink-soft); font-family: var(--sans); font-size: .78rem; cursor: pointer; transition: all .2s; white-space: nowrap; }
     .filter-btn:hover { border-color: rgba(200,169,126,.3); color: var(--ink); }
     .filter-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-
-    /* GRID */
     .grid-section { max-width: 1200px; margin: 2rem auto; padding: 0 2rem 6rem; }
     .grid-count { font-size: .8rem; color: var(--ink-mute); margin-bottom: 1.5rem; }
-    .artists-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .artist-card {
-      background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: var(--radius); overflow: hidden;
-      cursor: pointer; transition: all .3s cubic-bezier(.16,1,.3,1);
-    }
+    .artists-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+    .artist-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: all .3s cubic-bezier(.16,1,.3,1); }
     .artist-card:hover { transform: translateY(-4px); border-color: rgba(200,169,126,.25); box-shadow: 0 12px 32px rgba(0,0,0,.4); }
-    .artist-card.hidden { display: none; }
-    .artist-photo {
-      width: 100%; aspect-ratio: 1;
-      object-fit: cover; display: block;
-      background: #1a1a1a;
-      transition: transform .4s;
-    }
+    .artist-photo { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #1a1a1a; transition: transform .4s; }
     .artist-card:hover .artist-photo { transform: scale(1.05); }
-    .artist-initials {
-      width: 100%; aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-      font-family: var(--serif); font-size: 2rem; font-weight: 300;
-      font-style: italic; color: var(--accent);
-    }
+    .artist-initials { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a1a, #2a2a2a); font-family: var(--serif); font-size: 2rem; font-weight: 300; font-style: italic; color: var(--accent); }
     .artist-info { padding: .85rem; }
     .artist-name { font-family: var(--serif); font-size: .95rem; font-weight: 400; font-style: italic; color: var(--ink); margin-bottom: .2rem; }
     .artist-genre { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 300;
-      background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem; opacity: 0; pointer-events: none;
-      transition: opacity .3s;
-    }
+    .modal-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
-    .modal {
-      background: #161616; border: 1px solid rgba(255,255,255,.1);
-      border-radius: 24px; max-width: 580px; width: 100%;
-      max-height: 85vh; overflow-y: auto;
-      transform: translateY(20px); transition: transform .3s;
-    }
+    .modal { background: #161616; border: 1px solid rgba(255,255,255,.1); border-radius: 24px; max-width: 580px; width: 100%; max-height: 85vh; overflow-y: auto; transform: translateY(20px); transition: transform .3s; }
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal-header { position: relative; }
     .modal-photo { width: 100%; height: 260px; object-fit: cover; border-radius: 24px 24px 0 0; }
-    .modal-initials-header {
-      width: 100%; height: 260px;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #1a1a1a, #252525);
-      border-radius: 24px 24px 0 0;
-      font-family: var(--serif); font-size: 5rem; font-weight: 300;
-      font-style: italic; color: var(--accent);
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(0,0,0,.6); border: none;
-      color: white; font-size: 1.1rem; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .2s;
-    }
+    .modal-initials-header { width: 100%; height: 260px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a1a, #252525); border-radius: 24px 24px 0 0; font-family: var(--serif); font-size: 5rem; font-weight: 300; font-style: italic; color: var(--accent); }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,.6); border: none; color: white; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
     .modal-close:hover { background: rgba(0,0,0,.9); }
     .modal-body { padding: 1.75rem 2rem 2rem; }
-    .modal-genre {
-      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: .5rem;
-    }
-    .modal-name {
-      font-family: var(--serif); font-size: 2rem; font-weight: 300;
-      font-style: italic; color: var(--ink); margin-bottom: 1rem; line-height: 1.1;
-    }
+    .modal-genre { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+    .modal-name { font-family: var(--serif); font-size: 2rem; font-weight: 300; font-style: italic; color: var(--ink); margin-bottom: 1rem; line-height: 1.1; }
     .modal-bio { font-size: .92rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 1.5rem; }
     .modal-links { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .modal-link {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: rgba(255,255,255,.05); border: 1px solid var(--line);
-      border-radius: 99px; padding: .45rem 1rem;
-      color: var(--ink-soft); text-decoration: none; font-size: .8rem;
-      transition: all .2s;
-    }
+    .modal-link { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 99px; padding: .45rem 1rem; color: var(--ink-soft); text-decoration: none; font-size: .8rem; transition: all .2s; }
     .modal-link:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-
-    /* CONTACT */
-    .contact-section {
-      border-top: 1px solid var(--line);
-      padding: 3rem 2rem;
-      text-align: center;
-      max-width: 600px; margin: 0 auto;
-    }
+    .contact-section { border-top: 1px solid var(--line); padding: 3rem 2rem; text-align: center; max-width: 600px; margin: 0 auto; }
     .contact-section h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; font-style: italic; color: var(--ink); margin-bottom: .75rem; }
     .contact-section p { font-size: .9rem; color: var(--ink-soft); line-height: 1.65; }
     .contact-section a { color: var(--accent); text-decoration: none; }
-
-    /* FOOTER */
     footer { border-top: 1px solid var(--line); padding: 2rem; text-align: center; font-size: .8rem; color: var(--ink-mute); }
     footer a { color: var(--ink-soft); text-decoration: none; margin: 0 .75rem; }
     footer a:hover { color: var(--ink); }
-
-    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="https://9bitts.com" class="nav-logo">9bitts</a>
   <ul class="nav-links">
@@ -252,22 +98,18 @@
     <li><a href="https://9bitts.com/music/">Music</a></li>
     <li><a href="https://9bitts.com/artists.html" class="active">Artists</a></li>
     <li><a href="https://9bitts.com/blog.html">Blog</a></li>
+    <li><a href="https://9bitts.com/about.html">About</a></li>
   </ul>
 </nav>
-
 <div class="hero reveal">
   <span class="hero-tag">Curated Selection</span>
   <h1>The Artists</h1>
   <p class="hero-lead">A living guide to the producers and DJs shaping electronic music — from melodic techno to afro house.</p>
 </div>
-
-<!-- FEATURED -->
 <div class="featured reveal">
   <span class="featured-label">Featured Artists</span>
   <div class="featured-grid" id="featured-grid"></div>
 </div>
-
-<!-- FILTERS -->
 <div class="filters-bar reveal">
   <input type="text" class="search-input" placeholder="Search artists..." id="search-input">
   <div class="filter-btns" id="filter-btns">
@@ -280,24 +122,17 @@
     <button class="filter-btn" data-genre="Afro House">Afro House</button>
   </div>
 </div>
-
-<!-- GRID -->
 <div class="grid-section">
   <div class="grid-count" id="grid-count"></div>
   <div class="artists-grid" id="artists-grid"></div>
 </div>
-
-<!-- CONTACT -->
 <div class="contact-section">
   <h3>Are you an artist?</h3>
-  <p>If you'd like to update your photo, bio, or links on this page, reach out at <a href="mailto:contact@9bitts.com">contact@9bitts.com</a>. We'll respond within 48 hours.</p>
+  <p>If you'd like to update your photo, bio, or links on this page, reach out at <a href="mailto:diegoalbs@proton.me">diegoalbs@proton.me</a>. We'll respond within 48 hours.</p>
 </div>
-
 <footer>
   <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
 </footer>
-
-<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal">
     <div class="modal-header" id="modal-header"></div>
@@ -309,192 +144,66 @@
     </div>
   </div>
 </div>
-
 <script>
 const ARTISTS = [
-  // FEATURED
-  { name: "Anyma", genre: "Melodic House & Techno", featured: true,
-    bio: "Matteo Milleri's solo project, born from the Afterlife label he co-founded with Tale Of Us. Anyma brings a cinematic, futuristic dimension to melodic techno — dystopian visuals, emotional synthesis, and a sound that feels like the future arriving too fast.",
-    links: {"spotify": "https://open.spotify.com/artist/4iBwchw0U0GZv5RfVYSMxN", "youtube": "https://www.youtube.com/@anyma_ofc", "beatport": "https://www.beatport.com/artist/anyma-ofc/985223"}
-  },
-  { name: "Ben Böhmer", genre: "Deep House", featured: true,
-    bio: "German producer known for his melodic, emotionally rich sound. His live set above Cappadocia for Cercle became one of the most watched electronic music performances in history. Ben Böhmer builds music that breathes — patient, immersive, and deeply felt.",
-    links: {"spotify": "https://open.spotify.com/artist/469v8vSndPzZ7MWhE393", "youtube": "https://www.youtube.com/@benbohmermusic", "beatport": "https://www.beatport.com/artist/ben-bohmer/468897"}
-  },
-  { name: "Charlotte de Witte", genre: "Techno", featured: true,
-    bio: "Belgian DJ and producer at the forefront of raw, industrial techno. Known for relentless, hypnotic sets that strip everything back to pure rhythm and darkness. Her Exhale label and sets at Awakenings and Berghain have made her one of the most respected figures in contemporary techno.",
-    links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@charlottedewittemusic", "beatport": "https://www.beatport.com/artist/charlotte-de-witte/516514"}
-  },
-
-  // MELODIC HOUSE & TECHNO
-  { name: "Argy", genre: "Melodic House & Techno", bio: "Greek producer with a career spanning two decades of electronic music. Argy blends melodic house with techno roots, known for his hypnotic grooves and sophisticated production.",
-    links: {"spotify": "https://open.spotify.com/artist/6P0wM6fMh96h9Kq6ZJorCO", "youtube": "https://www.youtube.com/@ArgyOfficial", "beatport": "https://www.beatport.com/artist/argy/16035"}
-  },
-  { name: "Artbat", genre: "Melodic House & Techno", bio: "Ukrainian duo Artur Petrov and Batish whose powerful, driving melodic techno has earned them a global following. Known for anthemic builds and a sound that bridges the emotional and the physical.",
-    links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@ARTBATMUSIC", "beatport": "https://www.beatport.com/artist/artbat/515516"}
-  },
-  { name: "Massano", genre: "Melodic House & Techno", bio: "Italian producer rising rapidly through the melodic techno world. Massano's sound is intense and atmospheric — the kind of music that works both on the floor and in headphones at 3am.",
-    links: {"spotify": "https://open.spotify.com/artist/6htWLP8aiuf19FYMA4VQAZ", "youtube": "https://www.youtube.com/@Massano_Music", "beatport": "https://www.beatport.com/artist/massano/837269"}
-  },
-  { name: "Adriatique", genre: "Melodic House & Techno", bio: "Swiss duo Adrian Schweizer and Marco Frohlich. Co-founders of Siamese Records and Afterlife residents. Their music is architectural — built slowly, with space and precision.",
-    links: {"spotify": "https://open.spotify.com/artist/02DWGcShQivFepRvGJ7xhB", "youtube": "https://www.youtube.com/@AdriatiqueMusic", "beatport": "https://www.beatport.com/artist/adriatique/175815"}
-  },
-  { name: "Miss Monique", genre: "Melodic House & Techno", bio: "Ukrainian DJ and producer known for her live sets and emotional melodic techno. A regular at major festivals, her music carries both power and vulnerability.",
-    links: {"spotify": "https://open.spotify.com/artist/4Ccl6bbyBvS6LAL5vX0L6v", "youtube": "https://www.youtube.com/@MissMoniqueDJ", "beatport": "https://www.beatport.com/artist/miss-monique/438908"}
-  },
-  { name: "Cassian", genre: "Melodic House & Techno", bio: "Australian producer blending melodic house with introspective songwriting. His productions are warm, precise, and emotionally direct — rare in a genre that often prioritizes atmosphere over feeling.",
-    links: {"spotify": "https://open.spotify.com/artist/2IeZ3ZpPhQesqMAn3MAnj4", "youtube": "https://www.youtube.com/@cassianmusic", "beatport": "https://www.beatport.com/artist/cassian/113110"}
-  },
-  { name: "Innellea", genre: "Melodic House & Techno", bio: "German producer known for expansive, cinematic melodic techno. Innellea's sound has a particular quality of space — wide, unhurried, and deeply textured.",
-    links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/@innellea", "beatport": "https://www.beatport.com/artist/innellea/524330"}
-  },
-  { name: "Hardt Antoine", genre: "Melodic House & Techno", bio: "French artist whose melodic techno sits between dance floor energy and contemplative depth. A producer with a distinctive voice in an increasingly crowded genre.",
-    links: {"spotify": "https://open.spotify.com/artist/6E9XhH86B9Q9D08KArfJHe", "youtube": "https://www.youtube.com/results?search_query=Hardt+Antoine", "beatport": "https://www.beatport.com/artist/hardt-antoine/845422"}
-  },
-
-  // PROGRESSIVE HOUSE
-  { name: "Cristoph", genre: "Progressive House", bio: "UK producer signed to Bedrock Records. Cristoph's progressive house carries emotional weight — long builds, expansive arrangements, and a sound that rewards patient listening.",
-    links: {"spotify": "https://open.spotify.com/artist/472e3mfeqS6gN6YjG4Hk8G", "youtube": "https://www.youtube.com/@Cristophmusic", "beatport": "https://www.beatport.com/artist/cristoph/298811"}
-  },
-  { name: "Marsh", genre: "Progressive House", bio: "British producer known for melodic, emotionally resonant progressive house. Marsh brings a singer-songwriter sensibility to electronic music — his tracks feel personal.",
-    links: {"spotify": "https://open.spotify.com/artist/02Fp004fSndPzZ7MWhE393", "youtube": "https://www.youtube.com/@marshmusicofficial", "beatport": "https://www.beatport.com/artist/marsh/194770"}
-  },
-  { name: "Yotto", genre: "Progressive House", bio: "Finnish producer Otto Yliperttula. Founder of Odd One Out records. Yotto's music has a Nordic restraint — clean, melodic, and built for the long haul of a proper set.",
-    links: {"spotify": "https://open.spotify.com/artist/4Fw86b5h5YVAtk7gH3S2Ym", "youtube": "https://www.youtube.com/@yottomusic", "beatport": "https://www.beatport.com/artist/yotto/436322"}
-  },
-  { name: "Guy J", genre: "Progressive House", bio: "Israeli producer and one of progressive house's most refined voices. Guy J's music is slow-moving and immersive — built for four-hour sets and late-night listening.",
-    links: {"spotify": "https://open.spotify.com/artist/1p9sSfeQOpxO2YgU6bA2wZ", "youtube": "https://www.youtube.com/@guyjofficial", "beatport": "https://www.beatport.com/artist/guy-j/24838"}
-  },
-  { name: "Hernan Cattaneo", genre: "Progressive House", bio: "Argentine legend with over three decades in electronic music. Cattaneo is one of the most respected progressive house DJs in the world — a master of flow, texture, and the long narrative arc of a great set.",
-    links: {"spotify": "https://open.spotify.com/artist/6PAt8V376F8bYQoR1YwY48", "youtube": "https://www.youtube.com/@hernancattaneovideo", "beatport": "https://www.beatport.com/artist/hernan-cattaneo/156"}
-  },
-  { name: "Nick Warren", genre: "Progressive House", bio: "British DJ and producer who helped define progressive house in the 1990s and continues to evolve the genre today. Co-founder of Hope Recordings.",
-    links: {"spotify": "https://open.spotify.com/artist/0b95V8L29m1zCis8a5A22Z", "youtube": "https://www.youtube.com/user/djnickwarren", "beatport": "https://www.beatport.com/artist/nick-warren/151"}
-  },
-  { name: "Dmitry Molosh", genre: "Progressive House", bio: "Belarusian producer whose progressive house has a distinctly Eastern European melancholy. Patient, cinematic, and deeply atmospheric.",
-    links: {"spotify": "https://open.spotify.com/artist/1G0TfM32O6G5vjT5Xor8vX", "youtube": "https://www.youtube.com/@dmitrymolosh", "beatport": "https://www.beatport.com/artist/dmitry-molosh/166548"}
-  },
-  { name: "GMJ", genre: "Progressive House", bio: "Australian producer Graham McKee. GMJ's progressive house is warm and enveloping — music for the quiet hours when the room has emptied but the feeling remains.",
-    links: {"spotify": "https://open.spotify.com/artist/3PZ7C8Kq6W4Hof3oXw5v8G", "youtube": "https://www.youtube.com/results?search_query=GMJ+progressive", "beatport": "https://www.beatport.com/artist/gmj/44428"}
-  },
-  { name: "Matter", genre: "Progressive House", bio: "Australian producer and frequent collaborator with GMJ. Together they represent a distinct Southern Hemisphere take on progressive house — unhurried, textured, and deeply musical.",
-    links: {"spotify": "https://open.spotify.com/artist/5CgO9j8H8moxg8Gg8wR8x7", "youtube": "https://www.youtube.com/results?search_query=Matter+progressive+house", "beatport": "https://www.beatport.com/artist/matter/123141"}
-  },
-
-  // TECHNO
-  { name: "Layton Giordani", genre: "Techno", bio: "New York-based techno producer with a raw, driving sound. Layton Giordani brings American energy to European techno — direct, physical, and relentless.",
-    links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/@LaytonGiordaniOfficial", "beatport": "https://www.beatport.com/artist/layton-giordani/316045"}
-  },
-  { name: "Eli Brown", genre: "Techno", bio: "UK producer known for peak-time techno with melodic undercurrents. Eli Brown's productions are built for the moment when the room is at full intensity.",
-    links: {"spotify": "https://open.spotify.com/artist/4X9S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@elibrownmusic", "beatport": "https://www.beatport.com/artist/eli-brown/613247"}
-  },
-  { name: "Adam Beyer", genre: "Techno", bio: "Swedish techno legend and founder of Drumcode Records. Adam Beyer has been at the forefront of driving, industrial techno since the 1990s. Drumcode's influence on contemporary techno culture is immeasurable.",
-    links: {"spotify": "https://open.spotify.com/artist/3S7SffM6H2N046ZgW6Gv1O", "youtube": "https://www.youtube.com/@realadambeyer", "beatport": "https://www.beatport.com/artist/adam-beyer/1109"}
-  },
-  { name: "Space 92", genre: "Techno", bio: "French DJ and producer known for a raw, futuristic techno sound. Space 92 blends industrial textures with melodic elements — music that feels simultaneously cold and alive.",
-    links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/@Space92", "beatport": "https://www.beatport.com/artist/space-92/791850"}
-  },
-  { name: "HI-LO", genre: "Techno", bio: "The techno alias of Oscar Holter. HI-LO's sound is harder and more industrial than his other work — relentless driving techno that prioritises the physical experience of the dancefloor.",
-    links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/@hilo_music", "beatport": "https://www.beatport.com/artist/hi-lo/498831"}
-  },
-  { name: "Amelie Lens", genre: "Techno", bio: "Belgian techno DJ known for energetic, hypnotic sets. Founder of Lenske Records. Amelie Lens has become one of the most in-demand techno DJs in Europe, known for the physical intensity of her performances.",
-    links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@amelielens", "beatport": "https://www.beatport.com/artist/amelie-lens/552945"}
-  },
-  { name: "Enrico Sangiuliano", genre: "Techno", bio: "Italian producer whose techno draws on classical music training and a highly personal vision. His Ninetozero label and Ninetozero Festival are among the most distinctive projects in techno culture.",
-    links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@enricosangiulianoofficial", "beatport": "https://www.beatport.com/artist/enrico-sangiuliano/127116"}
-  },
-  { name: "Mha Iri", genre: "Techno", bio: "Emerging Dutch techno producer with a sound that sits between industrial intensity and melodic depth. One of the genre's most interesting new voices.",
-    links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@mhairimusic", "beatport": "https://www.beatport.com/artist/mha-iri/732959"}
-  },
-
-  // DEEP HOUSE
-  { name: "Lane 8", genre: "Deep House", bio: "American producer Daniel Goldstein. Founder of This Never Happened — a label and events series built around a phone-free, heads-down listening experience. Lane 8's music is warm, hopeful, and deeply melodic.",
-    links: {"spotify": "https://open.spotify.com/artist/3PZ7C8Kq6W4Hof3oXw5v8G", "youtube": "https://www.youtube.com/@lane8music", "beatport": "https://www.beatport.com/artist/lane-8/292994"}
-  },
-  { name: "Kevin McKay", genre: "Deep House", bio: "Scottish DJ and founder of Glasgow Underground Records. Kevin McKay has been a consistent force in deep and tech house for two decades, with a production style that is soulful and direct.",
-    links: {"spotify": "https://open.spotify.com/artist/1G0TfM32O6G5vjT5Xor8vX", "youtube": "https://www.youtube.com/@KevinMcKayGlasgowUnderground", "beatport": "https://www.beatport.com/artist/kevin-mckay/4836"}
-  },
-  { name: "Fred again..", genre: "Deep House", bio: "British producer Fred Gibson. One of the most significant electronic artists of the current moment — his Actual Life series reimagines deep house as a form of documentary. Each track is built from voice messages, social media videos, and real-world sound.",
-    links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@Fredagain", "beatport": "https://www.beatport.com/artist/fred-again/875508"}
-  },
-  { name: "Dilby", genre: "Deep House", bio: "Scottish producer with a career built on quality over quantity. Dilby's deep house is patient and warm — music for the early hours when the crowd has thinned to those who genuinely want to be there.",
-    links: {"spotify": "https://open.spotify.com/artist/02Fp004fSndPzZ7MWhE393", "youtube": "https://www.youtube.com/results?search_query=Dilby+deep+house", "beatport": "https://www.beatport.com/artist/dilby/192265"}
-  },
-  { name: "Oscar Barila", genre: "Deep House", bio: "Italian producer whose deep house has an understated elegance. Oscar Barila's music doesn't announce itself — it arrives quietly and stays.",
-    links: {"spotify": "https://open.spotify.com/artist/472e3mfeqS6gN6YjG4Hk8G", "youtube": "https://www.youtube.com/results?search_query=Oscar+Barila", "beatport": "https://www.beatport.com/artist/oscar-barila/49832"}
-  },
-  { name: "Atjazz", genre: "Deep House", bio: "UK producer Martin Iveson. A foundational figure in deep house with over two decades of output. Atjazz's music draws on jazz, soul, and African influences — warm, complex, and always musical.",
-    links: {"spotify": "https://open.spotify.com/artist/4Fw86b5h5YVAtk7gH3S2Ym", "youtube": "https://www.youtube.com/@AtjazzRecordCompany", "beatport": "https://www.beatport.com/artist/atjazz/2418"}
-  },
-  { name: "Sébastien Léger", genre: "Deep House", bio: "French producer with a career spanning multiple electronic genres. Léger's deep house is sophisticated and melodic — the work of someone who has spent decades understanding what makes a room move.",
-    links: {"spotify": "https://open.spotify.com/artist/1p9sSfeQOpxO2YgU6bA2wZ", "youtube": "https://www.youtube.com/results?search_query=Sebastien+Leger", "beatport": "https://www.beatport.com/artist/sebastien-leger/1944"}
-  },
-  { name: "Volen Sentir", genre: "Deep House", bio: "Bulgarian producer known for deep, contemplative house music. Volen Sentir's sound is meditative — built for slow listening and spaces where music is taken seriously.",
-    links: {"spotify": "https://open.spotify.com/artist/6PAt8V376F8bYQoR1YwY48", "youtube": "https://www.youtube.com/@VolenSentir", "beatport": "https://www.beatport.com/artist/volen-sentir/633465"}
-  },
-
-  // TECH HOUSE
-  { name: "Chris Lake", genre: "Tech House", bio: "British producer and DJ who helped define the sound of modern tech house. Founder of Black Book Records. Chris Lake's productions are precise and functional — built to work on any dancefloor in the world.",
-    links: {"spotify": "https://open.spotify.com/artist/2IeZ3ZpPhQesqMAn3MAnj4", "youtube": "https://www.youtube.com/@chrislake", "beatport": "https://www.beatport.com/artist/chris-lake/1594"}
-  },
-  { name: "Fisher", genre: "Tech House", bio: "Australian DJ and producer whose irreverent personality matches his big-room tech house. Fisher's music is built for maximum physical impact — loud, groove-heavy, and impossible to ignore.",
-    links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@FollowTheFishTV", "beatport": "https://www.beatport.com/artist/fisher-oz/642239"}
-  },
-  { name: "Mau P", genre: "Tech House", bio: "Dutch producer known for infectious, hypnotic tech house. Mau P's groove-led productions have quickly established him as one of the most exciting new voices in the genre.",
-    links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/@maupofficial", "beatport": "https://www.beatport.com/artist/mau-p/1066579"}
-  },
-  { name: "Cloonee", genre: "Tech House", bio: "Scottish producer with a knack for deep, rolling tech house grooves. Cloonee's music is understated but effective — the kind of track that sounds simple until you realise you haven't stopped moving.",
-    links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/@cloonee", "beatport": "https://www.beatport.com/artist/cloonee/568817"}
-  },
-  { name: "John Summit", genre: "Tech House", bio: "Chicago-based DJ and producer who broke into the global tech house scene with a rapid succession of club-ready tracks. John Summit's music is honest about what it wants to do — make people dance.",
-    links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/@johnsummit", "beatport": "https://www.beatport.com/artist/john-summit/795172"}
-  },
-  { name: "Wade", genre: "Tech House", bio: "South African producer based in Amsterdam. Wade's tech house has a distinctly African warmth beneath its electronic structure — a unique voice in a genre that can often feel cold.",
-    links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@wadedj", "beatport": "https://www.beatport.com/artist/wade/211100"}
-  },
-  { name: "James Hype", genre: "Tech House", bio: "British DJ known for energetic live performances and a crossover tech house sound. James Hype's music bridges club culture and mainstream appeal without losing its dancefloor functionality.",
-    links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@JamesHype", "beatport": "https://www.beatport.com/artist/james-hype/621116"}
-  },
-  { name: "Tita Lau", genre: "Tech House", bio: "British DJ and producer bringing a sharp, groove-led sound to tech house. Tita Lau's sets are known for their energy and precision.",
-    links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@TitaLau", "beatport": "https://www.beatport.com/artist/tita-lau/891100"}
-  },
-  { name: "Beltran", genre: "Tech House", bio: "Emerging tech house producer with a sound rooted in groove and texture. One of the names worth watching as the genre continues to evolve.",
-    links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/results?search_query=Beltran+tech+house", "beatport": "https://www.beatport.com/artist/beltran-br/1041100"}
-  },
-
-  // AFRO HOUSE
-  { name: "HUGEL", genre: "Afro House", bio: "French producer known for afro house and afro tech productions. HUGEL's music carries the warmth and rhythm of African music traditions filtered through European club culture.",
-    links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/@hugelmusic", "beatport": "https://www.beatport.com/artist/hugel/477439"}
-  },
-  { name: "Keinemusik", genre: "Afro House", bio: "Berlin-based collective comprising &ME, Adam Port, Rampa, and Reznik. Their label Keinemusik has become one of the most distinctive voices in afro house and melodic house — warm, grooving, and deeply musical.",
-    links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@keinemusikCRUE", "beatport": "https://www.beatport.com/label/keinemusik/16010"}
-  },
-  { name: "Black Coffee", genre: "Afro House", bio: "South African DJ and Grammy-winning producer. Black Coffee is the most globally recognised figure in afro house — his Ibiza residency and global touring schedule have brought African electronic music to world stages.",
-    links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@RealBlackCoffee", "beatport": "https://www.beatport.com/artist/black-coffee/14104"}
-  },
-  { name: "Rampa", genre: "Afro House", bio: "Berlin-based producer and member of the Keinemusik collective. Rampa's productions have a particular lightness — rhythmically complex but never heavy, always musical.",
-    links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/results?search_query=Rampa+keinemusik", "beatport": "https://www.beatport.com/artist/rampa/111100"}
-  },
-  { name: "&ME", genre: "Afro House", bio: "Berlin-based producer and Keinemusik co-founder. &ME's music blends afro rhythms with European melodic sensibility — warm, groove-led, and deeply considered.",
-    links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/results?search_query=%26ME+keinemusik", "beatport": "https://www.beatport.com/artist/andme/91100"}
-  },
-  { name: "Adam Port", genre: "Afro House", bio: "German producer and Keinemusik co-founder. Adam Port's productions are some of the most musically sophisticated in afro house — rooted in rhythm but always reaching for something more.",
-    links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/results?search_query=Adam+Port+keinemusik", "beatport": "https://www.beatport.com/artist/adam-port/101100"}
-  },
-  { name: "Liva K", genre: "Afro House", bio: "Greek producer known for afro and organic house. Liva K's music is earthy and warm — built from acoustic textures and electronic groove in equal measure.",
-    links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@livakmusic", "beatport": "https://www.beatport.com/artist/liva-k/521100"}
-  },
-  { name: "Francis Mercier", genre: "Afro House", bio: "Haitian-American producer who brings Caribbean and African influences into afro house. Francis Mercier's music has a distinctive warmth and cultural depth that sets it apart.",
-    links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@FrancisMercier", "beatport": "https://www.beatport.com/artist/francis-mercier/221100"}
-  },
-  { name: "Maz", genre: "Afro House", bio: "Emerging afro house producer with a sound rooted in rhythm and warmth. Maz is one of the genre's most promising new voices.",
-    links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@mazmusic", "beatport": "https://www.beatport.com/artist/maz-br/881100"}
-  },
+  { name: "Anyma", genre: "Melodic House & Techno", featured: true, bio: "Matteo Milleri's solo project, born from the Afterlife label he co-founded with Tale Of Us. Anyma brings a cinematic, futuristic dimension to melodic techno — dystopian visuals, emotional synthesis, and a sound that feels like the future arriving too fast.", links: {"spotify": "https://open.spotify.com/artist/4iBwchw0U0GZv5RfVYSMxN", "youtube": "https://www.youtube.com/@anyma_ofc", "beatport": "https://www.beatport.com/artist/anyma-ofc/985223"} },
+  { name: "Ben Böhmer", genre: "Deep House", featured: true, bio: "German producer known for his melodic, emotionally rich sound. His live set above Cappadocia for Cercle became one of the most watched electronic music performances in history. Ben Böhmer builds music that breathes — patient, immersive, and deeply felt.", links: {"spotify": "https://open.spotify.com/artist/469v8vSndPzZ7MWhE393", "youtube": "https://www.youtube.com/@benbohmermusic", "beatport": "https://www.beatport.com/artist/ben-bohmer/468897"} },
+  { name: "Charlotte de Witte", genre: "Techno", featured: true, bio: "Belgian DJ and producer at the forefront of raw, industrial techno. Known for relentless, hypnotic sets that strip everything back to pure rhythm and darkness. Her Exhale label and sets at Awakenings and Berghain have made her one of the most respected figures in contemporary techno.", links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@charlottedewittemusic", "beatport": "https://www.beatport.com/artist/charlotte-de-witte/516514"} },
+  { name: "Argy", genre: "Melodic House & Techno", bio: "Greek producer with a career spanning two decades of electronic music. Argy blends melodic house with techno roots, known for his hypnotic grooves and sophisticated production.", links: {"spotify": "https://open.spotify.com/artist/6P0wM6fMh96h9Kq6ZJorCO", "youtube": "https://www.youtube.com/@ArgyOfficial", "beatport": "https://www.beatport.com/artist/argy/16035"} },
+  { name: "Artbat", genre: "Melodic House & Techno", bio: "Ukrainian duo Artur Petrov and Batish whose powerful, driving melodic techno has earned them a global following. Known for anthemic builds and a sound that bridges the emotional and the physical.", links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@ARTBATMUSIC", "beatport": "https://www.beatport.com/artist/artbat/515516"} },
+  { name: "Massano", genre: "Melodic House & Techno", bio: "Italian producer rising rapidly through the melodic techno world. Massano's sound is intense and atmospheric — the kind of music that works both on the floor and in headphones at 3am.", links: {"spotify": "https://open.spotify.com/artist/6htWLP8aiuf19FYMA4VQAZ", "youtube": "https://www.youtube.com/@Massano_Music", "beatport": "https://www.beatport.com/artist/massano/837269"} },
+  { name: "Adriatique", genre: "Melodic House & Techno", bio: "Swiss duo Adrian Schweizer and Marco Frohlich. Co-founders of Siamese Records and Afterlife residents. Their music is architectural — built slowly, with space and precision.", links: {"spotify": "https://open.spotify.com/artist/02DWGcShQivFepRvGJ7xhB", "youtube": "https://www.youtube.com/@AdriatiqueMusic", "beatport": "https://www.beatport.com/artist/adriatique/175815"} },
+  { name: "Miss Monique", genre: "Melodic House & Techno", bio: "Ukrainian DJ and producer known for her live sets and emotional melodic techno. A regular at major festivals, her music carries both power and vulnerability.", links: {"spotify": "https://open.spotify.com/artist/4Ccl6bbyBvS6LAL5vX0L6v", "youtube": "https://www.youtube.com/@MissMoniqueDJ", "beatport": "https://www.beatport.com/artist/miss-monique/438908"} },
+  { name: "Cassian", genre: "Melodic House & Techno", bio: "Australian producer blending melodic house with introspective songwriting. His productions are warm, precise, and emotionally direct.", links: {"spotify": "https://open.spotify.com/artist/2IeZ3ZpPhQesqMAn3MAnj4", "youtube": "https://www.youtube.com/@cassianmusic", "beatport": "https://www.beatport.com/artist/cassian/113110"} },
+  { name: "Innellea", genre: "Melodic House & Techno", bio: "German producer known for expansive, cinematic melodic techno. Innellea's sound has a particular quality of space — wide, unhurried, and deeply textured.", links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/@innellea", "beatport": "https://www.beatport.com/artist/innellea/524330"} },
+  { name: "Hardt Antoine", genre: "Melodic House & Techno", bio: "French artist whose melodic techno sits between dance floor energy and contemplative depth.", links: {"spotify": "https://open.spotify.com/artist/6E9XhH86B9Q9D08KArfJHe", "youtube": "https://www.youtube.com/results?search_query=Hardt+Antoine", "beatport": "https://www.beatport.com/artist/hardt-antoine/845422"} },
+  { name: "Cristoph", genre: "Progressive House", bio: "UK producer signed to Bedrock Records. Cristoph's progressive house carries emotional weight — long builds, expansive arrangements, and a sound that rewards patient listening.", links: {"spotify": "https://open.spotify.com/artist/472e3mfeqS6gN6YjG4Hk8G", "youtube": "https://www.youtube.com/@Cristophmusic", "beatport": "https://www.beatport.com/artist/cristoph/298811"} },
+  { name: "Marsh", genre: "Progressive House", bio: "British producer known for melodic, emotionally resonant progressive house. Marsh brings a singer-songwriter sensibility to electronic music.", links: {"spotify": "https://open.spotify.com/artist/02Fp004fSndPzZ7MWhE393", "youtube": "https://www.youtube.com/@marshmusicofficial", "beatport": "https://www.beatport.com/artist/marsh/194770"} },
+  { name: "Yotto", genre: "Progressive House", bio: "Finnish producer Otto Yliperttula. Founder of Odd One Out records. Yotto's music has a Nordic restraint — clean, melodic, and built for the long haul of a proper set.", links: {"spotify": "https://open.spotify.com/artist/4Fw86b5h5YVAtk7gH3S2Ym", "youtube": "https://www.youtube.com/@yottomusic", "beatport": "https://www.beatport.com/artist/yotto/436322"} },
+  { name: "Guy J", genre: "Progressive House", bio: "Israeli producer and one of progressive house's most refined voices. Guy J's music is slow-moving and immersive — built for four-hour sets and late-night listening.", links: {"spotify": "https://open.spotify.com/artist/1p9sSfeQOpxO2YgU6bA2wZ", "youtube": "https://www.youtube.com/@guyjofficial", "beatport": "https://www.beatport.com/artist/guy-j/24838"} },
+  { name: "Hernan Cattaneo", genre: "Progressive House", bio: "Argentine legend with over three decades in electronic music. One of the most respected progressive house DJs in the world — a master of flow, texture, and the long narrative arc.", links: {"spotify": "https://open.spotify.com/artist/6PAt8V376F8bYQoR1YwY48", "youtube": "https://www.youtube.com/@hernancattaneovideo", "beatport": "https://www.beatport.com/artist/hernan-cattaneo/156"} },
+  { name: "Nick Warren", genre: "Progressive House", bio: "British DJ and producer who helped define progressive house in the 1990s and continues to evolve the genre today. Co-founder of Hope Recordings.", links: {"spotify": "https://open.spotify.com/artist/0b95V8L29m1zCis8a5A22Z", "youtube": "https://www.youtube.com/user/djnickwarren", "beatport": "https://www.beatport.com/artist/nick-warren/151"} },
+  { name: "Dmitry Molosh", genre: "Progressive House", bio: "Belarusian producer whose progressive house has a distinctly Eastern European melancholy. Patient, cinematic, and deeply atmospheric.", links: {"spotify": "https://open.spotify.com/artist/1G0TfM32O6G5vjT5Xor8vX", "youtube": "https://www.youtube.com/@dmitrymolosh", "beatport": "https://www.beatport.com/artist/dmitry-molosh/166548"} },
+  { name: "GMJ", genre: "Progressive House", bio: "Australian producer Graham McKee. GMJ's progressive house is warm and enveloping — music for the quiet hours when the room has emptied but the feeling remains.", links: {"spotify": "https://open.spotify.com/artist/3PZ7C8Kq6W4Hof3oXw5v8G", "youtube": "https://www.youtube.com/results?search_query=GMJ+progressive", "beatport": "https://www.beatport.com/artist/gmj/44428"} },
+  { name: "Matter", genre: "Progressive House", bio: "Australian producer and frequent collaborator with GMJ. Together they represent a distinct Southern Hemisphere take on progressive house.", links: {"spotify": "https://open.spotify.com/artist/5CgO9j8H8moxg8Gg8wR8x7", "youtube": "https://www.youtube.com/results?search_query=Matter+progressive+house", "beatport": "https://www.beatport.com/artist/matter/123141"} },
+  { name: "Layton Giordani", genre: "Techno", bio: "New York-based techno producer with a raw, driving sound. Layton Giordani brings American energy to European techno — direct, physical, and relentless.", links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/@LaytonGiordaniOfficial", "beatport": "https://www.beatport.com/artist/layton-giordani/316045"} },
+  { name: "Eli Brown", genre: "Techno", bio: "UK producer known for peak-time techno with melodic undercurrents. Built for the moment when the room is at full intensity.", links: {"spotify": "https://open.spotify.com/artist/4X9S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@elibrownmusic", "beatport": "https://www.beatport.com/artist/eli-brown/613247"} },
+  { name: "Adam Beyer", genre: "Techno", bio: "Swedish techno legend and founder of Drumcode Records. Adam Beyer has been at the forefront of driving, industrial techno since the 1990s.", links: {"spotify": "https://open.spotify.com/artist/3S7SffM6H2N046ZgW6Gv1O", "youtube": "https://www.youtube.com/@realadambeyer", "beatport": "https://www.beatport.com/artist/adam-beyer/1109"} },
+  { name: "Space 92", genre: "Techno", bio: "French DJ and producer known for a raw, futuristic techno sound. Space 92 blends industrial textures with melodic elements.", links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/@Space92", "beatport": "https://www.beatport.com/artist/space-92/791850"} },
+  { name: "HI-LO", genre: "Techno", bio: "The techno alias of Oscar Holter. HI-LO's sound is harder and more industrial — relentless driving techno that prioritises the physical experience of the dancefloor.", links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/@hilo_music", "beatport": "https://www.beatport.com/artist/hi-lo/498831"} },
+  { name: "Amelie Lens", genre: "Techno", bio: "Belgian techno DJ known for energetic, hypnotic sets. Founder of Lenske Records. One of the most in-demand techno DJs in Europe.", links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@amelielens", "beatport": "https://www.beatport.com/artist/amelie-lens/552945"} },
+  { name: "Enrico Sangiuliano", genre: "Techno", bio: "Italian producer whose techno draws on classical music training and a highly personal vision. His Ninetozero label is one of the most distinctive projects in techno culture.", links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@enricosangiulianoofficial", "beatport": "https://www.beatport.com/artist/enrico-sangiuliano/127116"} },
+  { name: "Mha Iri", genre: "Techno", bio: "Emerging Dutch techno producer with a sound that sits between industrial intensity and melodic depth. One of the genre's most interesting new voices.", links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@mhairimusic", "beatport": "https://www.beatport.com/artist/mha-iri/732959"} },
+  { name: "Lane 8", genre: "Deep House", bio: "American producer Daniel Goldstein. Founder of This Never Happened — built around a phone-free listening experience. Lane 8's music is warm, hopeful, and deeply melodic.", links: {"spotify": "https://open.spotify.com/artist/3PZ7C8Kq6W4Hof3oXw5v8G", "youtube": "https://www.youtube.com/@lane8music", "beatport": "https://www.beatport.com/artist/lane-8/292994"} },
+  { name: "Kevin McKay", genre: "Deep House", bio: "Scottish DJ and founder of Glasgow Underground Records. A consistent force in deep and tech house for two decades.", links: {"spotify": "https://open.spotify.com/artist/1G0TfM32O6G5vjT5Xor8vX", "youtube": "https://www.youtube.com/@KevinMcKayGlasgowUnderground", "beatport": "https://www.beatport.com/artist/kevin-mckay/4836"} },
+  { name: "Fred again..", genre: "Deep House", bio: "British producer Fred Gibson. His Actual Life series reimagines deep house as documentary — each track built from voice messages, social media videos, and real-world sound.", links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@Fredagain", "beatport": "https://www.beatport.com/artist/fred-again/875508"} },
+  { name: "Dilby", genre: "Deep House", bio: "Scottish producer with a career built on quality over quantity. Dilby's deep house is patient and warm — music for the early hours.", links: {"spotify": "https://open.spotify.com/artist/02Fp004fSndPzZ7MWhE393", "youtube": "https://www.youtube.com/results?search_query=Dilby+deep+house", "beatport": "https://www.beatport.com/artist/dilby/192265"} },
+  { name: "Oscar Barila", genre: "Deep House", bio: "Italian producer whose deep house has an understated elegance. Oscar Barila's music doesn't announce itself — it arrives quietly and stays.", links: {"spotify": "https://open.spotify.com/artist/472e3mfeqS6gN6YjG4Hk8G", "youtube": "https://www.youtube.com/results?search_query=Oscar+Barila", "beatport": "https://www.beatport.com/artist/oscar-barila/49832"} },
+  { name: "Atjazz", genre: "Deep House", bio: "UK producer Martin Iveson. A foundational figure in deep house. Atjazz's music draws on jazz, soul, and African influences — warm, complex, and always musical.", links: {"spotify": "https://open.spotify.com/artist/4Fw86b5h5YVAtk7gH3S2Ym", "youtube": "https://www.youtube.com/@AtjazzRecordCompany", "beatport": "https://www.beatport.com/artist/atjazz/2418"} },
+  { name: "Sébastien Léger", genre: "Deep House", bio: "French producer with a career spanning multiple electronic genres. Léger's deep house is sophisticated and melodic.", links: {"spotify": "https://open.spotify.com/artist/1p9sSfeQOpxO2YgU6bA2wZ", "youtube": "https://www.youtube.com/results?search_query=Sebastien+Leger", "beatport": "https://www.beatport.com/artist/sebastien-leger/1944"} },
+  { name: "Volen Sentir", genre: "Deep House", bio: "Bulgarian producer known for deep, contemplative house music. Volen Sentir's sound is meditative — built for slow listening and spaces where music is taken seriously.", links: {"spotify": "https://open.spotify.com/artist/6PAt8V376F8bYQoR1YwY48", "youtube": "https://www.youtube.com/@VolenSentir", "beatport": "https://www.beatport.com/artist/volen-sentir/633465"} },
+  { name: "Chris Lake", genre: "Tech House", bio: "British producer and DJ who helped define the sound of modern tech house. Founder of Black Book Records.", links: {"spotify": "https://open.spotify.com/artist/2IeZ3ZpPhQesqMAn3MAnj4", "youtube": "https://www.youtube.com/@chrislake", "beatport": "https://www.beatport.com/artist/chris-lake/1594"} },
+  { name: "Fisher", genre: "Tech House", bio: "Australian DJ and producer whose irreverent personality matches his big-room tech house. Fisher's music is built for maximum physical impact.", links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@FollowTheFishTV", "beatport": "https://www.beatport.com/artist/fisher-oz/642239"} },
+  { name: "Mau P", genre: "Tech House", bio: "Dutch producer known for infectious, hypnotic tech house. Mau P's groove-led productions have quickly established him as one of the most exciting new voices in the genre.", links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/@maupofficial", "beatport": "https://www.beatport.com/artist/mau-p/1066579"} },
+  { name: "Cloonee", genre: "Tech House", bio: "Scottish producer with a knack for deep, rolling tech house grooves. The kind of track that sounds simple until you realise you haven't stopped moving.", links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/@cloonee", "beatport": "https://www.beatport.com/artist/cloonee/568817"} },
+  { name: "John Summit", genre: "Tech House", bio: "Chicago-based DJ and producer who broke into the global tech house scene rapidly. John Summit's music is honest about what it wants to do — make people dance.", links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/@johnsummit", "beatport": "https://www.beatport.com/artist/john-summit/795172"} },
+  { name: "Wade", genre: "Tech House", bio: "South African producer based in Amsterdam. Wade's tech house has a distinctly African warmth beneath its electronic structure.", links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@wadedj", "beatport": "https://www.beatport.com/artist/wade/211100"} },
+  { name: "James Hype", genre: "Tech House", bio: "British DJ known for energetic live performances and a crossover tech house sound that bridges club culture and mainstream appeal.", links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@JamesHype", "beatport": "https://www.beatport.com/artist/james-hype/621116"} },
+  { name: "Tita Lau", genre: "Tech House", bio: "British DJ and producer bringing a sharp, groove-led sound to tech house. Known for energy and precision.", links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@TitaLau", "beatport": "https://www.beatport.com/artist/tita-lau/891100"} },
+  { name: "Beltran", genre: "Tech House", bio: "Emerging tech house producer with a sound rooted in groove and texture. One of the names worth watching as the genre continues to evolve.", links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/results?search_query=Beltran+tech+house", "beatport": "https://www.beatport.com/artist/beltran-br/1041100"} },
+  { name: "HUGEL", genre: "Afro House", bio: "French producer known for afro house and afro tech productions. HUGEL's music carries the warmth and rhythm of African music traditions filtered through European club culture.", links: {"spotify": "https://open.spotify.com/artist/5XbK18hGzY23bHlby96N2p", "youtube": "https://www.youtube.com/@hugelmusic", "beatport": "https://www.beatport.com/artist/hugel/477439"} },
+  { name: "Keinemusik", genre: "Afro House", bio: "Berlin-based collective comprising &ME, Adam Port, Rampa, and Reznik. One of the most distinctive voices in afro house and melodic house.", links: {"spotify": "https://open.spotify.com/artist/4Yr6N9SswZ4QDf7w37976e", "youtube": "https://www.youtube.com/@keinemusikCRUE", "beatport": "https://www.beatport.com/label/keinemusik/16010"} },
+  { name: "Black Coffee", genre: "Afro House", bio: "South African DJ and Grammy-winning producer. The most globally recognised figure in afro house — his Ibiza residency brought African electronic music to world stages.", links: {"spotify": "https://open.spotify.com/artist/1lH698946766N46ZgW6Gv1", "youtube": "https://www.youtube.com/@RealBlackCoffee", "beatport": "https://www.beatport.com/artist/black-coffee/14104"} },
+  { name: "Rampa", genre: "Afro House", bio: "Berlin-based producer and member of the Keinemusik collective. Rampa's productions have a particular lightness — rhythmically complex but never heavy.", links: {"spotify": "https://open.spotify.com/artist/7M8lD2W79G77K8u9gSAn4p", "youtube": "https://www.youtube.com/results?search_query=Rampa+keinemusik", "beatport": "https://www.beatport.com/artist/rampa/111100"} },
+  { name: "&ME", genre: "Afro House", bio: "Berlin-based producer and Keinemusik co-founder. &ME's music blends afro rhythms with European melodic sensibility.", links: {"spotify": "https://open.spotify.com/artist/4IeN7gG8P0G9vH5SAnX8gD", "youtube": "https://www.youtube.com/results?search_query=%26ME+keinemusik", "beatport": "https://www.beatport.com/artist/andme/91100"} },
+  { name: "Adam Port", genre: "Afro House", bio: "German producer and Keinemusik co-founder. Adam Port's productions are some of the most musically sophisticated in afro house.", links: {"spotify": "https://open.spotify.com/artist/71rqI5HtraA3qXBwatyG6e", "youtube": "https://www.youtube.com/results?search_query=Adam+Port+keinemusik", "beatport": "https://www.beatport.com/artist/adam-port/101100"} },
+  { name: "Liva K", genre: "Afro House", bio: "Greek producer known for afro and organic house. Liva K's music is earthy and warm — built from acoustic textures and electronic groove in equal measure.", links: {"spotify": "https://open.spotify.com/artist/5IHe96M8G8PvHgSAnX7gC", "youtube": "https://www.youtube.com/@livakmusic", "beatport": "https://www.beatport.com/artist/liva-k/521100"} },
+  { name: "Francis Mercier", genre: "Afro House", bio: "Haitian-American producer who brings Caribbean and African influences into afro house. Francis Mercier's music has a distinctive warmth and cultural depth.", links: {"spotify": "https://open.spotify.com/artist/5P8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@FrancisMercier", "beatport": "https://www.beatport.com/artist/francis-mercier/221100"} },
+  { name: "Maz", genre: "Afro House", bio: "Emerging afro house producer with a sound rooted in rhythm and warmth. One of the genre's most promising new voices.", links: {"spotify": "https://open.spotify.com/artist/4X8S5rW8K0g7t8gSAnX7gC", "youtube": "https://www.youtube.com/@mazmusic", "beatport": "https://www.beatport.com/artist/maz-br/881100"} },
 ];
 
-// Spotify Integration
 const SPOTIFY_CLIENT_ID = 'f024d778068e4438bb25b9952d48efdf';
-const SPOTIFY_CLIENT_SECRET = '4d643a0dc49340bc8c2c80415c566212';
+const SPOTIFY_CLIENT_SECRET = 'b5a2811ed70a4e82becb745798a3e133';
 const photoCache = {};
 let spotifyToken = null;
 
@@ -503,10 +212,7 @@ async function getSpotifyToken() {
   try {
     const res = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + btoa(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET)
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic ' + btoa(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET) },
       body: 'grant_type=client_credentials'
     });
     const data = await res.json();
@@ -520,35 +226,20 @@ async function getPhoto(name) {
   try {
     const token = await getSpotifyToken();
     if (!token) { photoCache[name] = null; return null; }
-    const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(name)}&type=artist&limit=1`, {
-      headers: { 'Authorization': 'Bearer ' + token }
-    });
+    const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(name)}&type=artist&limit=1`, { headers: { 'Authorization': 'Bearer ' + token } });
     const data = await res.json();
     const artist = data.artists && data.artists.items && data.artists.items[0];
-    if (artist && artist.images && artist.images.length > 0) {
-      const img = artist.images[0].url;
-      photoCache[name] = img;
-      return img;
-    }
+    if (artist && artist.images && artist.images.length > 0) { const img = artist.images[0].url; photoCache[name] = img; return img; }
   } catch(e) {}
-  photoCache[name] = null;
-  return null;
+  photoCache[name] = null; return null;
 }
 
-function getInitials(name) {
-  return name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
-}
+function getInitials(name) { return name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase(); }
 
 function buildLinks(links) {
-  const icons = {
-    website: '🌐', youtube: '▶', beatport: '🎵', soundcloud: '☁'
-  };
-  const labels = {
-    website: 'Website', youtube: 'YouTube', beatport: 'Beatport', soundcloud: 'SoundCloud'
-  };
-  return Object.entries(links).filter(([,v]) => v).map(([k,v]) =>
-    `<a class="modal-link" href="${v}" target="_blank" rel="noopener">${icons[k]||'🔗'} ${labels[k]||k}</a>`
-  ).join('');
+  const icons = { website: '🌐', youtube: '▶', beatport: '🎵', soundcloud: '☁', spotify: '♫' };
+  const labels = { website: 'Website', youtube: 'YouTube', beatport: 'Beatport', soundcloud: 'SoundCloud', spotify: 'Spotify' };
+  return Object.entries(links).filter(([,v]) => v).map(([k,v]) => `<a class="modal-link" href="${v}" target="_blank" rel="noopener">${icons[k]||'🔗'} ${labels[k]||k}</a>`).join('');
 }
 
 function openModal(artist) {
@@ -566,106 +257,54 @@ function openModal(artist) {
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target === document.getElementById('modal-overlay')) closeModal(); });
 
-document.getElementById('modal-overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('modal-overlay')) closeModal();
-});
-
-// Render featured
 const featuredArtists = ARTISTS.filter(a => a.featured);
 const featuredGrid = document.getElementById('featured-grid');
 featuredArtists.forEach(async artist => {
   const card = document.createElement('div');
   card.className = 'featured-card';
-  card.innerHTML = `
-    <div class="artist-initials" style="aspect-ratio:3/4;font-size:4rem;" id="feat-${artist.name.replace(/\s+/g,'-')}">${getInitials(artist.name)}</div>
-    <div class="featured-card-overlay">
-      <div class="featured-card-genre">${artist.genre}</div>
-      <div class="featured-card-name">${artist.name}</div>
-      <div class="featured-card-tag">Click to explore →</div>
-    </div>`;
+  card.innerHTML = `<div class="artist-initials" style="aspect-ratio:3/4;font-size:4rem;">${getInitials(artist.name)}</div><div class="featured-card-overlay"><div class="featured-card-genre">${artist.genre}</div><div class="featured-card-name">${artist.name}</div><div class="featured-card-tag">Click to explore →</div></div>`;
   card.addEventListener('click', () => openModal(artist));
   featuredGrid.appendChild(card);
-  // Load photo async
   const photo = await getPhoto(artist.name);
   if (photo) {
     artist.photoUrl = photo;
     const placeholder = card.querySelector('.artist-initials');
-    if (placeholder) {
-      const img = document.createElement('img');
-      img.src = photo;
-      img.alt = artist.name;
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .4s,transform .4s;aspect-ratio:3/4;';
-      placeholder.replaceWith(img);
-    }
+    if (placeholder) { const img = document.createElement('img'); img.src = photo; img.alt = artist.name; img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .4s,transform .4s;aspect-ratio:3/4;'; placeholder.replaceWith(img); }
   }
 });
 
-// Render grid (non-featured, alphabetical)
 const nonFeatured = ARTISTS.filter(a => !a.featured).sort((a,b) => a.name.localeCompare(b.name));
 const grid = document.getElementById('artists-grid');
-let currentFilter = 'all';
-let currentSearch = '';
+let currentFilter = 'all', currentSearch = '';
 
 function renderGrid() {
-  const filtered = nonFeatured.filter(a => {
-    const matchGenre = currentFilter === 'all' || a.genre === currentFilter;
-    const matchSearch = a.name.toLowerCase().includes(currentSearch.toLowerCase());
-    return matchGenre && matchSearch;
-  });
+  const filtered = nonFeatured.filter(a => (currentFilter === 'all' || a.genre === currentFilter) && a.name.toLowerCase().includes(currentSearch.toLowerCase()));
   document.getElementById('grid-count').textContent = `${filtered.length} artist${filtered.length !== 1 ? 's' : ''}`;
   grid.innerHTML = '';
   filtered.forEach(async artist => {
     const card = document.createElement('div');
     card.className = 'artist-card';
-    const initials = getInitials(artist.name);
-    card.innerHTML = `
-      <div class="artist-initials" data-artist="${artist.name}">${initials}</div>
-      <div class="artist-info">
-        <div class="artist-name">${artist.name}</div>
-        <div class="artist-genre">${artist.genre}</div>
-      </div>`;
+    card.innerHTML = `<div class="artist-initials" data-artist="${artist.name}">${getInitials(artist.name)}</div><div class="artist-info"><div class="artist-name">${artist.name}</div><div class="artist-genre">${artist.genre}</div></div>`;
     card.addEventListener('click', () => openModal(artist));
     grid.appendChild(card);
-    // Load photo async
     const photo = await getPhoto(artist.name);
     if (photo) {
       artist.photoUrl = photo;
       const placeholder = card.querySelector('.artist-initials');
-      if (placeholder) {
-        const img = document.createElement('img');
-        img.src = photo;
-        img.alt = artist.name;
-        img.className = 'artist-photo';
-        placeholder.replaceWith(img);
-      }
+      if (placeholder) { const img = document.createElement('img'); img.src = photo; img.alt = artist.name; img.className = 'artist-photo'; placeholder.replaceWith(img); }
     }
   });
 }
 
-// Filters
 document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.genre;
-    renderGrid();
-  });
+  btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.dataset.genre; renderGrid(); });
 });
+document.getElementById('search-input').addEventListener('input', e => { currentSearch = e.target.value; renderGrid(); });
 
-document.getElementById('search-input').addEventListener('input', e => {
-  currentSearch = e.target.value;
-  renderGrid();
-});
-
-// Reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: .1 });
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 renderGrid();
