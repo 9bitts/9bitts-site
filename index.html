@@ -26,7 +26,16 @@ nav.scrolled{border-bottom-color:var(--line);padding:1rem 2rem}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a:hover::after{width:100%}
-@media(max-width:768px){.nav-links{display:none}nav{padding:1rem 1.25rem}}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:200}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(250,250,247,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;font-weight:300;font-style:italic;color:var(--ink);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}nav{padding:1rem 1.25rem}}
 .hero{min-height:100vh;padding:8rem 2rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(45,95,63,.06),transparent 70%);border-radius:50%;pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-30%;left:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(45,95,63,.04),transparent 70%);border-radius:50%;pointer-events:none}
@@ -76,10 +85,7 @@ section{padding:8rem 2rem;max-width:1240px;margin:0 auto}
 .mix-info{display:flex;flex-direction:column;gap:.75rem;min-width:0}
 .mix-meta{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:500}
 .mix-title{font-family:var(--serif);font-size:1.2rem;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
-audio{width:100%;height:40px;border-radius:8px}
 @media(max-width:600px){.mix-item{grid-template-columns:1fr;text-align:center}.mix-cover{margin:0 auto}}
-
-/* ARTISTS SECTION */
 .artists-home{background:#0e0e0e;max-width:100%;margin:0;padding:8rem 2rem}
 .artists-home-inner{max-width:1240px;margin:0 auto}
 .artists-home .section-eyebrow{color:#c8a97e}
@@ -99,7 +105,6 @@ audio{width:100%;height:40px;border-radius:8px}
 .artists-home-cta{margin-top:3rem;text-align:center}
 .btn-artists{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-radius:100px;font-family:var(--sans);font-size:.95rem;font-weight:500;text-decoration:none;background:rgba(200,169,126,.12);color:#c8a97e;border:1px solid rgba(200,169,126,.3);transition:all .3s ease}
 .btn-artists:hover{background:rgba(200,169,126,.2);border-color:#c8a97e;transform:translateY(-2px)}
-
 .words{background:linear-gradient(180deg,#f4f2eb 0%,var(--bg) 100%);max-width:100%;margin:0;padding:8rem 2rem}
 .words-inner{max-width:1240px;margin:0 auto}
 .words-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:4rem}
@@ -153,10 +158,11 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <li><a href="#words">Words</a></li>
 <li><a href="/blog.html">Blog</a></li>
 <li><a href="/shop.html">Shop</a></li>
-<li><a href="/shop.html">Shop</a></li>
-<li><a href="/shop.html">Shop</a></li>
 <li><a href="#connect">Connect</a></li>
 </ul>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
 </nav>
 
 <section class="hero">
@@ -309,7 +315,6 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </section>
 
-<!-- ARTISTS SECTION -->
 <div class="artists-home" id="artists">
 <div class="artists-home-inner">
   <div class="section-header reveal">
@@ -317,7 +322,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
     <h2 class="section-title" style="color:#f0ede8">The people<br>behind the <em>sound.</em></h2>
     <p class="section-lead">54 producers and DJs shaping electronic music today — from melodic techno to afro house. A living guide, curated by 9bitts.</p>
   </div>
-  <div class="artists-preview-grid" id="artists-preview-grid">
+  <div class="artists-preview-grid">
     <a href="/artists.html" class="artist-preview-card reveal" id="card-anyma">
       <div class="artist-preview-initials">An</div>
       <div class="artist-preview-overlay">
@@ -388,38 +393,14 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <p class="section-lead">The same work, across platforms. Pick where you listen, where you watch, where you read.</p>
 </div>
 <div class="connect-grid">
-<a href="https://www.youtube.com/@9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-<div class="connect-name">YouTube</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://www.instagram.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-<div class="connect-name">Instagram</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://soundcloud.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229-.265-.443-.548-.621-.857l-.379.184v9.897zm-2 0h1v-8.844c-.508-.079-.623-.05-1-.01v8.854zm-4 0h1v-7.421c-.378.243-.712.529-1 .857v6.564z"/></svg>
-<div class="connect-name">SoundCloud</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://www.mixcloud.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.745 8.487c-.677-3.404-3.625-5.95-7.205-5.95-3.638 0-6.703 2.582-7.32 6.064C1.396 9.31 0 11.232 0 13.448c0 2.762 2.214 5.005 5.005 5.005h12.018c2.79 0 5.005-2.215 5.005-5.005 0-2.359-1.535-4.337-3.654-4.92-.114-.025-.342-.038-.629-.041z"/></svg>
-<div class="connect-name">Mixcloud</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://www.tiktok.com/@9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-<div class="connect-name">TikTok</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://www.facebook.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-<div class="connect-name">Facebook</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://twitter.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-<div class="connect-name">X</div><div class="connect-handle">@9bitts</div>
-</a>
-<a href="https://mastodon.social/@9bitts" target="_blank" rel="noopener" class="connect-link reveal">
-<svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.193 7.88c0-5.207-3.411-6.733-3.411-6.733C18.062.357 14.984.045 11.78.022h-.08C8.5.045 5.422.357 3.7 1.147 3.7 1.147.29 2.673.29 7.88c0 1.193-.023 2.62.015 4.135.123 5.097.933 10.12 5.647 11.367 2.174.575 4.04.696 5.546.612 2.728-.151 4.26-.972 4.26-.972l-.09-1.978s-1.95.615-4.14.54c-2.17-.075-4.46-.234-4.81-2.897a5.498 5.498 0 0 1-.05-.745s2.13.521 4.83.645c1.65.076 3.197-.097 4.77-.285 3.01-.36 5.63-2.218 5.96-3.916.52-2.676.475-6.531.475-6.531z"/></svg>
-<div class="connect-name">Mastodon</div><div class="connect-handle">@9bitts</div>
-</a>
+<a href="https://www.youtube.com/@9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><div class="connect-name">YouTube</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://www.instagram.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><div class="connect-name">Instagram</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://soundcloud.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229-.265-.443-.548-.621-.857l-.379.184v9.897zm-2 0h1v-8.844c-.508-.079-.623-.05-1-.01v8.854zm-4 0h1v-7.421c-.378.243-.712.529-1 .857v6.564z"/></svg><div class="connect-name">SoundCloud</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://www.mixcloud.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.745 8.487c-.677-3.404-3.625-5.95-7.205-5.95-3.638 0-6.703 2.582-7.32 6.064C1.396 9.31 0 11.232 0 13.448c0 2.762 2.214 5.005 5.005 5.005h12.018c2.79 0 5.005-2.215 5.005-5.005 0-2.359-1.535-4.337-3.654-4.92-.114-.025-.342-.038-.629-.041z"/></svg><div class="connect-name">Mixcloud</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://www.tiktok.com/@9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg><div class="connect-name">TikTok</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://www.facebook.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><div class="connect-name">Facebook</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://twitter.com/9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><div class="connect-name">X</div><div class="connect-handle">@9bitts</div></a>
+<a href="https://mastodon.social/@9bitts" target="_blank" rel="noopener" class="connect-link reveal"><svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.193 7.88c0-5.207-3.411-6.733-3.411-6.733C18.062.357 14.984.045 11.78.022h-.08C8.5.045 5.422.357 3.7 1.147 3.7 1.147.29 2.673.29 7.88c0 1.193-.023 2.62.015 4.135.123 5.097.933 10.12 5.647 11.367 2.174.575 4.04.696 5.546.612 2.728-.151 4.26-.972 4.26-.972l-.09-1.978s-1.95.615-4.14.54c-2.17-.075-4.46-.234-4.81-2.897a5.498 5.498 0 0 1-.05-.745s2.13.521 4.83.645c1.65.076 3.197-.097 4.77-.285 3.01-.36 5.63-2.218 5.96-3.916.52-2.676.475-6.531.475-6.531z"/></svg><div class="connect-name">Mastodon</div><div class="connect-handle">@9bitts</div></a>
 </div>
 </section>
 
@@ -437,9 +418,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
       <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#c8a97e;margin-bottom:1rem;">Support the project</div>
       <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;font-style:italic;color:white;line-height:1.15;margin-bottom:1rem;">If this music<br>means something<br><em style="color:#c8a97e;">to you.</em></h2>
       <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:2rem;font-weight:300;">9bitts is built by one person, with no label or sponsor behind it. If the sets, the blog or the curation has been worth something to you — any contribution keeps it going.</p>
-      <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.75rem;background:#c8a97e;color:#1a1a1a;text-decoration:none;padding:1rem 2rem;border-radius:99px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;transition:all .3s ease;margin-bottom:1rem;">
-        Support via PayPal
-      </a>
+      <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.75rem;background:#c8a97e;color:#1a1a1a;text-decoration:none;padding:1rem 2rem;border-radius:99px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;transition:all .3s ease;margin-bottom:1rem;">Support via PayPal</a>
       <p style="font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.6;">Secure payment via PayPal. Any amount is welcome.</p>
     </div>
   </div>
@@ -462,7 +441,6 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <li><a href="#artists">Artists</a></li>
 <li><a href="#words">Words</a></li>
 <li><a href="/blog.html">Blog</a></li>
-<li><a href="/shop.html">Shop</a></li>
 <li><a href="/shop.html">Shop</a></li>
 <li><a href="#connect">Connect</a></li>
 </ul>
@@ -487,13 +465,28 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 </div>
 </footer>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#music" onclick="closeMobile()">Music</a>
+  <a href="#mixes" onclick="closeMobile()">Mixes</a>
+  <a href="#artists" onclick="closeMobile()">Artists</a>
+  <a href="#words" onclick="closeMobile()">Words</a>
+  <a href="/blog.html" onclick="closeMobile()">Blog</a>
+  <a href="/shop.html" onclick="closeMobile()">Shop</a>
+  <a href="#connect" onclick="closeMobile()">Connect</a>
+</div>
+
 <script>
 const nav=document.getElementById('nav');
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
 window.addEventListener('scroll',()=>{if(window.scrollY>20)nav.classList.add('scrolled');else nav.classList.remove('scrolled')});
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''}
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.1,rootMargin:'0px 0px -80px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-// Load Spotify photos for artist preview cards
 const SPOTIFY_CLIENT_ID = 'f024d778068e4438bb25b9952d48efdf';
 const SPOTIFY_CLIENT_SECRET = 'b5a2811ed70a4e82becb745798a3e133';
 let spotifyToken = null;
