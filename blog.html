@@ -7,6 +7,15 @@
   <meta name="description" content="Reflections on music, art, philosophy and technology. One thought at a time.">
   <link rel="canonical" href="https://9bitts.com/blog.html">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2397199');
+  </script>
+  <!-- End MailerLite Universal -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -27,7 +36,6 @@
       min-height: 100vh;
     }
 
-    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,250,247,0.92);
@@ -49,7 +57,6 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--green); }
 
-    /* HERO */
     .blog-hero {
       max-width: 780px; margin: 0 auto;
       padding: 4rem 2rem 3rem;
@@ -73,7 +80,48 @@
       max-width: 500px;
     }
 
-    /* GRID */
+    /* PHOTOGRAPHER BANNER */
+    .photo-banner {
+      max-width: 1200px; margin: 0 auto 1rem;
+      padding: 0 2rem;
+    }
+    .photo-banner-inner {
+      background: var(--text);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .photo-banner-text { flex: 1; min-width: 200px; }
+    .photo-banner-text p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    .photo-banner-text p strong {
+      color: white;
+      font-weight: 500;
+    }
+    .photo-banner-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 0.55rem 1.25rem;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .photo-banner-link:hover { opacity: 0.85; }
+
     .blog-grid {
       max-width: 1200px; margin: 0 auto;
       padding: 0 2rem 6rem;
@@ -82,7 +130,6 @@
       gap: 2rem;
     }
 
-    /* CARD */
     .post-card {
       background: #fff;
       border-radius: 16px;
@@ -146,7 +193,6 @@
       display: flex; align-items: center; gap: 0.3rem;
     }
 
-    /* LOADING & STATES */
     .loading-state {
       max-width: 1200px; margin: 0 auto;
       padding: 4rem 2rem;
@@ -169,7 +215,6 @@
     .empty-state p { font-size: 1.1rem; margin-bottom: 0.5rem; }
     .empty-state small { font-size: 0.85rem; }
 
-    /* PAGINATION */
     .pagination {
       max-width: 1200px; margin: 0 auto;
       padding: 0 2rem 4rem;
@@ -187,19 +232,45 @@
     }
     .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
 
-    /* FOOTER */
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: var(--green);
+      padding: 5rem 2rem;
+    }
+    .newsletter-inner {
+      max-width: 580px; margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-inner span {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); display: block; margin-bottom: 1rem;
+    }
+    .newsletter-inner h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300; font-style: italic;
+      color: white; line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .newsletter-inner p {
+      font-size: 0.92rem; color: rgba(255,255,255,0.65);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .newsletter-inner .ml-embedded { max-width: 440px; margin: 0 auto; }
+
     footer {
       background: var(--text); color: rgba(255,255,255,0.5);
       text-align: center; padding: 2rem; font-size: 0.8rem;
     }
-    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 0.4rem; }
     footer a:hover { color: #fff; }
 
-    /* RESPONSIVE */
     @media (max-width: 600px) {
       .blog-grid { grid-template-columns: 1fr; padding: 0 1.2rem 4rem; }
       .blog-hero { padding: 3rem 1.2rem 2rem; }
       .nav-links { display: none; }
+      .photo-banner { padding: 0 1.2rem; }
+      .photo-banner-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -209,6 +280,8 @@
   <a href="https://9bitts.com" class="nav-logo">9bitts</a>
   <ul class="nav-links">
     <li><a href="https://9bitts.com">Home</a></li>
+    <li><a href="https://9bitts.com/music/">Music</a></li>
+    <li><a href="https://9bitts.com/artists.html">Artists</a></li>
     <li><a href="https://9bitts.com/blog.html" class="active">Blog</a></li>
     <li><a href="https://9bitts.com/about.html">About</a></li>
   </ul>
@@ -218,6 +291,18 @@
   <span class="blog-hero-tag">Reflections</span>
   <h1>Music, art,<br>and the examined life.</h1>
   <p>One thought at a time. Paired with the music that makes it land.</p>
+</div>
+
+<!-- PHOTOGRAPHER BANNER -->
+<div class="photo-banner">
+  <div class="photo-banner-inner">
+    <div class="photo-banner-text">
+      <p><strong>Are you a photographer?</strong> We're looking for original photos from electronic music events to feature alongside our posts. Your work, your credit, your audience.</p>
+    </div>
+    <a href="mailto:diegoalbs@proton.me?subject=Photography%20collaboration%20-%209bitts" class="photo-banner-link">
+      Get in touch →
+    </a>
+  </div>
 </div>
 
 <div id="blog-container">
@@ -233,8 +318,18 @@
   <button id="next-btn" onclick="changePage(1)">Next →</button>
 </div>
 
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <div class="newsletter-inner">
+    <span>Stay close</span>
+    <h2>One thought. One set.<br>Every week.</h2>
+    <p>A weekly reflection from thinkers who looked closely at life, paired with a piece of electronic music worth your attention.</p>
+    <div class="ml-embedded" data-form="av8S2o"></div>
+  </div>
+</div>
+
 <footer>
-  <p>© 2025 9bitts · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
+  <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="mailto:diegoalbs@proton.me">Contact</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
 </footer>
 
 <script>
@@ -245,22 +340,16 @@
 
   async function loadPosts() {
     try {
-      // 1. Lista todos os arquivos da pasta /music/
       const res = await fetch(GITHUB_API);
       if (!res.ok) throw new Error('Failed to fetch file list');
       const files = await res.json();
 
-      // 2. Filtra só os .json (exceto index.json)
       const jsonFiles = files
         .filter(f => f.name.endsWith('.json') && f.name !== 'index.json')
-        .sort((a, b) => b.name.localeCompare(a.name)); // mais recente primeiro
+        .sort((a, b) => b.name.localeCompare(a.name));
 
-      if (jsonFiles.length === 0) {
-        showEmpty();
-        return;
-      }
+      if (jsonFiles.length === 0) { showEmpty(); return; }
 
-      // 3. Busca todos os JSONs em paralelo
       const posts = await Promise.all(
         jsonFiles.map(async (file) => {
           try {
@@ -271,7 +360,6 @@
         })
       );
 
-      // Ordenar por data — mais recente primeiro
       allPosts = posts.filter(Boolean).sort((a, b) => {
         const da = a.date ? new Date(a.date) : new Date(0);
         const db = b.date ? new Date(b.date) : new Date(0);
@@ -297,7 +385,6 @@
     const container = document.getElementById('blog-container');
     container.innerHTML = `<div class="blog-grid">${pagePosts.map(renderCard).join('')}</div>`;
 
-    // Paginação
     if (totalPages > 1) {
       document.getElementById('pagination').style.display = 'flex';
       document.getElementById('prev-btn').disabled = page <= 1;
