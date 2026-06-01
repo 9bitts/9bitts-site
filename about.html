@@ -10,6 +10,15 @@
   <meta property="og:url" content="https://9bitts.com/about.html">
   <link rel="canonical" href="https://9bitts.com/about.html">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2397199');
+  </script>
+  <!-- End MailerLite Universal -->
   <style>
     :root {
       --bg: #fafaf7;
@@ -27,7 +36,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,250,247,.92);
@@ -42,7 +50,6 @@
     .nav-links a:hover, .nav-links a.active { color: var(--green); }
     @media (max-width: 640px) { .nav-links { display: none; } }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -131,7 +138,6 @@
       margin: 0 auto;
     }
 
-    /* SECTIONS */
     .section {
       max-width: 1100px; margin: 0 auto;
       padding: 6rem 2rem;
@@ -172,23 +178,19 @@
     .section-body p strong { color: var(--ink); font-weight: 500; }
     .section-body p:last-child { margin-bottom: 0; }
 
-    /* DIVIDER */
     .divider {
       max-width: 1100px; margin: 0 auto;
       padding: 0 2rem;
       border-top: 1px solid var(--line);
     }
 
-    /* PLATFORMS */
     .platforms-section {
       background: var(--ink);
       padding: 6rem 2rem;
       margin-top: 4rem;
     }
     .platforms-inner { max-width: 1100px; margin: 0 auto; }
-    .platforms-header {
-      margin-bottom: 3rem;
-    }
+    .platforms-header { margin-bottom: 3rem; }
     .platforms-header span {
       font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
       color: rgba(255,255,255,.4); display: block; margin-bottom: .75rem;
@@ -222,7 +224,48 @@
     .platform-name { font-size: .9rem; font-weight: 500; color: white; }
     .platform-handle { font-size: .78rem; color: rgba(255,255,255,.4); }
 
-    /* CLOSING */
+    /* NEWSLETTER SECTION */
+    .newsletter-section {
+      background: var(--green);
+      padding: 6rem 2rem;
+    }
+    .newsletter-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-inner span {
+      font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); display: block; margin-bottom: 1rem;
+    }
+    .newsletter-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; font-style: italic;
+      color: white; line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .newsletter-inner p {
+      font-size: .95rem; color: rgba(255,255,255,.7);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .newsletter-inner .ml-embedded { max-width: 480px; margin: 0 auto; }
+    /* Override MailerLite styles for green background */
+    .newsletter-section .ml-form-embedWrapper { background: transparent !important; }
+    .newsletter-section .ml-form-embedBody { padding: 0 !important; }
+    .newsletter-section input[type="email"] {
+      background: rgba(255,255,255,.15) !important;
+      border: 1px solid rgba(255,255,255,.3) !important;
+      color: white !important;
+      border-radius: 99px !important;
+    }
+    .newsletter-section input[type="email"]::placeholder { color: rgba(255,255,255,.6) !important; }
+    .newsletter-section .ml-form-embedSubmit button {
+      background: white !important;
+      color: var(--green) !important;
+      border-radius: 99px !important;
+      font-weight: 500 !important;
+    }
+
     .closing {
       max-width: 680px; margin: 0 auto;
       padding: 6rem 2rem 8rem;
@@ -237,12 +280,10 @@
     }
     .closing-sub { font-size: .9rem; color: var(--ink-mute); }
 
-    /* FOOTER */
     footer { background: var(--ink); color: rgba(255,255,255,.4); text-align: center; padding: 2rem; font-size: .8rem; }
     footer a { color: rgba(255,255,255,.5); text-decoration: none; margin: 0 .75rem; }
     footer a:hover { color: white; }
 
-    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: none; }
   </style>
@@ -260,7 +301,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-left reveal">
     <span class="hero-tag">About the project</span>
@@ -276,19 +316,18 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Platforms</div>
+        <div class="stat-number" style="font-size:1.6rem;line-height:1.2">Find your<br>mood.</div>
+        <div class="stat-label">&nbsp;</div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <div class="stat-number">1</div>
-        <div class="stat-label">Person behind it</div>
+        <div class="stat-number">∅</div>
+        <div class="stat-label">No algorithm. No ads.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- SECTION 1 -->
 <div class="section reveal">
   <div class="section-grid">
     <div class="section-label-col">
@@ -306,7 +345,6 @@
 
 <div class="divider"></div>
 
-<!-- SECTION 2 -->
 <div class="section reveal">
   <div class="section-grid">
     <div class="section-label-col">
@@ -324,7 +362,6 @@
 
 <div class="divider"></div>
 
-<!-- SECTION 3 -->
 <div class="section reveal">
   <div class="section-grid">
     <div class="section-label-col">
@@ -342,7 +379,6 @@
 
 <div class="divider"></div>
 
-<!-- SECTION 4 -->
 <div class="section reveal">
   <div class="section-grid">
     <div class="section-label-col">
@@ -357,7 +393,6 @@
   </div>
 </div>
 
-<!-- PLATFORMS -->
 <div class="platforms-section reveal">
   <div class="platforms-inner">
     <div class="platforms-header">
@@ -399,14 +434,23 @@
   </div>
 </div>
 
-<!-- CLOSING -->
+<!-- NEWSLETTER -->
+<div class="newsletter-section reveal">
+  <div class="newsletter-inner">
+    <span>Stay close</span>
+    <h2>One thought. One set.<br>Every week.</h2>
+    <p>Join the newsletter — a weekly reflection drawn from thinkers who looked closely at life, paired with a piece of electronic music worth your attention.</p>
+    <div class="ml-embedded" data-form="av8S2o"></div>
+  </div>
+</div>
+
 <div class="closing reveal">
   <p class="closing-quote">"If you got here, you probably listen to music in a similar way."</p>
   <p class="closing-sub">Welcome to 9bitts.</p>
 </div>
 
 <footer>
-  <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
+  <p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/music/">Music</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="mailto:diegoalbs@proton.me">Contact</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
 </footer>
 
 <script>
