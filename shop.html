@@ -28,16 +28,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-    /* GRAIN OVERLAY */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none; opacity: .4;
     }
-
-    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 200;
       background: rgba(10,10,10,.88);
@@ -51,8 +47,6 @@
     .nav-links a { font-size: .85rem; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
     @media (max-width: 640px) { .nav-links { display: none; } }
-
-    /* HERO */
     .hero {
       position: relative; z-index: 1;
       padding: 8rem 2rem 5rem;
@@ -78,8 +72,6 @@
       max-width: 520px; margin: 0 auto;
       font-weight: 300; line-height: 1.75;
     }
-
-    /* COMING SOON BANNER */
     .coming-soon-banner {
       position: relative; z-index: 1;
       max-width: 760px; margin: 0 auto 5rem;
@@ -118,8 +110,6 @@
       font-size: .78rem; color: var(--gold);
       letter-spacing: .06em;
     }
-
-    /* SECTION LABEL */
     .section-label {
       position: relative; z-index: 1;
       max-width: 1200px; margin: 0 auto;
@@ -134,12 +124,10 @@
     .section-label-line {
       flex: 1; height: 1px; background: var(--line);
     }
-
-    /* AFFILIATE GRID */
     .affiliate-section {
       position: relative; z-index: 1;
       max-width: 1200px; margin: 0 auto;
-      padding: 0 2rem 6rem;
+      padding: 0 2rem 4rem;
     }
     .affiliate-intro {
       max-width: 600px; margin-bottom: 3rem;
@@ -159,7 +147,6 @@
       gap: 1.25rem;
     }
     @media (max-width: 768px) { .affiliate-grid { grid-template-columns: 1fr; } }
-
     .affiliate-card {
       background: var(--bg-card);
       border: 1px solid var(--line);
@@ -179,7 +166,6 @@
     }
     .affiliate-card:hover { border-color: rgba(200,169,126,.35); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(200,169,126,.1); }
     .affiliate-card:hover::before { opacity: 1; }
-
     .affiliate-card-header {
       display: flex; align-items: flex-start; justify-content: space-between;
       margin-bottom: 1.25rem;
@@ -227,7 +213,74 @@
     }
     .affiliate-commission span { color: var(--gold); font-weight: 500; }
 
-    /* DISCLOSURE */
+    /* BOOKS SECTION */
+    .books-section {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .books-intro {
+      max-width: 600px; margin-bottom: 3rem;
+    }
+    .books-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; font-style: italic;
+      color: var(--ink); line-height: 1.15; margin-bottom: 1rem;
+    }
+    .books-intro p {
+      font-size: .95rem; color: var(--ink-soft); line-height: 1.75;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 768px) { .books-grid { grid-template-columns: 1fr; } }
+    .book-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.75rem;
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      transition: all .35s cubic-bezier(.16,1,.3,1);
+      position: relative; overflow: hidden;
+    }
+    .book-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(200,169,126,.08), transparent);
+      opacity: 0; transition: opacity .35s;
+      border-radius: 20px;
+    }
+    .book-card:hover { border-color: rgba(200,169,126,.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+    .book-card:hover::before { opacity: 1; }
+    .book-num {
+      font-family: var(--serif); font-style: italic;
+      font-size: .85rem; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .book-title {
+      font-family: var(--serif);
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--ink); line-height: 1.25; margin-bottom: .4rem;
+    }
+    .book-author {
+      font-size: .8rem; color: var(--gold);
+      margin-bottom: 1rem; letter-spacing: .04em;
+    }
+    .book-desc {
+      font-size: .87rem; color: var(--ink-soft);
+      line-height: 1.65; flex: 1; margin-bottom: 1.25rem;
+    }
+    .book-cta {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .82rem; color: var(--gold); font-weight: 500;
+      transition: gap .3s ease;
+    }
+    .book-card:hover .book-cta { gap: .7rem; }
+
     .disclosure {
       position: relative; z-index: 1;
       max-width: 1200px; margin: 0 auto;
@@ -243,8 +296,6 @@
     .disclosure-icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
     .disclosure-text { font-size: .78rem; color: var(--ink-mute); line-height: 1.65; }
     .disclosure-text strong { color: var(--ink-soft); }
-
-    /* FOOTER */
     footer {
       position: relative; z-index: 1;
       border-top: 1px solid var(--line);
@@ -253,8 +304,6 @@
     }
     footer a { color: var(--ink-soft); text-decoration: none; margin: 0 .75rem; }
     footer a:hover { color: var(--ink); }
-
-    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
   </style>
@@ -273,14 +322,12 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero reveal">
   <span class="hero-tag">Curated Resources</span>
   <h1>Tools for the<br><em>serious listener.</em></h1>
   <p class="hero-lead">Everything 9bitts uses and trusts — from buying music to building sounds. No noise. Just the essentials.</p>
 </div>
 
-<!-- COMING SOON -->
 <div class="coming-soon-banner reveal">
   <div class="coming-soon-inner">
     <h2>More coming soon.</h2>
@@ -295,7 +342,7 @@
   </div>
 </div>
 
-<!-- AFFILIATE SECTION -->
+<!-- PLATFORMS -->
 <div class="section-label reveal">
   <div class="section-label-inner">
     <span class="section-label-text">Trusted Partners</span>
@@ -308,10 +355,7 @@
     <h2>Where 9bitts<br>buys its music.</h2>
     <p>These are the platforms used to build every set on this channel. Clicking any link below supports 9bitts at no extra cost to you — the price stays the same, and a small commission helps keep this project going.</p>
   </div>
-
   <div class="affiliate-grid">
-
-    <!-- BEATPORT -->
     <a href="https://www.beatport.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
       <div class="affiliate-card-header">
         <div class="affiliate-logo">Beatport</div>
@@ -332,8 +376,6 @@
         <div class="affiliate-cta">Shop Beatport <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
     </a>
-
-    <!-- DJCITY -->
     <a href="https://www.djcity.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
       <div class="affiliate-card-header">
         <div class="affiliate-logo">DJcity</div>
@@ -353,8 +395,6 @@
         <div class="affiliate-cta">Explore DJcity <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
     </a>
-
-    <!-- PLUGIN BOUTIQUE -->
     <a href="https://www.pluginboutique.com/?a_aid=6a083e458345a" target="_blank" rel="noopener" class="affiliate-card reveal">
       <div class="affiliate-card-header">
         <div class="affiliate-logo">Plugin Boutique</div>
@@ -375,16 +415,80 @@
         <div class="affiliate-cta">Browse Plugin Boutique <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
     </a>
+  </div>
+</div>
+
+<!-- BOOKS -->
+<div class="section-label reveal">
+  <div class="section-label-inner">
+    <span class="section-label-text">Essential Reading</span>
+    <div class="section-label-line"></div>
+  </div>
+</div>
+
+<div class="books-section">
+  <div class="books-intro reveal">
+    <h2>The 9bitts<br>reading list.</h2>
+    <p>Six books that shaped how electronic music understands its own history — from rave culture to the origins of the DJ, from Detroit techno to ambient sound. Each one is worth your time.</p>
+  </div>
+  <div class="books-grid">
+
+    <a href="https://www.amazon.de/dp/0571289134/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">01</div>
+      <div class="book-title">Energy Flash</div>
+      <div class="book-author">Simon Reynolds</div>
+      <div class="book-desc">The definitive history of rave and dance culture — from Chicago house and Detroit techno through acid house, jungle, UK garage, and beyond. The book everyone in electronic music has read.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.amazon.de/dp/0802146104/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">02</div>
+      <div class="book-title">Last Night a DJ Saved My Life</div>
+      <div class="book-author">Brewster & Broughton</div>
+      <div class="book-desc">The first book to tell the history of dance music through the figure of the DJ — from the earliest radio DJs to Frankie Knuckles and beyond. Essential, entertaining, foundational.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.amazon.de/dp/0571346979/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">03</div>
+      <div class="book-title">Future Sounds</div>
+      <div class="book-author">David Stubbs</div>
+      <div class="book-desc">The definitive guide to electronic music from Stockhausen to Skrillex — 100 years of mavericks, machines, and sonic revolution. Called "a joy to read" by MOJO.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.amazon.de/dp/1788160304/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">04</div>
+      <div class="book-title">Ocean of Sound</div>
+      <div class="book-author">David Toop</div>
+      <div class="book-desc">A poetic exploration of ambient music and radical listening — from Debussy to Brian Eno to Aphex Twin. One of Pitchfork's 60 favourite music books of all time.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.amazon.de/dp/0814334385/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">05</div>
+      <div class="book-title">Techno Rebels</div>
+      <div class="book-author">Dan Sicko</div>
+      <div class="book-desc">The definitive account of Detroit techno — its origins in a collapsing industrial city, its philosophy, and the Belleville Three who built a sound that changed the world.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.amazon.de/dp/1846687136/?tag=9bitts-21" target="_blank" rel="noopener" class="book-card reveal">
+      <div class="book-num">06</div>
+      <div class="book-title">Altered State</div>
+      <div class="book-author">Matthew Collin</div>
+      <div class="book-desc">The story of ecstasy culture and acid house — how a drug and a sound reshaped a generation of British youth and created the most spectacular youth movement of the 20th century.</div>
+      <div class="book-cta">View on Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
 
   </div>
 </div>
 
-<!-- DISCLOSURE -->
 <div class="disclosure reveal">
   <div class="disclosure-inner">
     <div class="disclosure-icon">ℹ</div>
     <div class="disclosure-text">
-      <strong>Affiliate disclosure.</strong> Some links on this page are affiliate links. When you click and make a purchase, 9bitts receives a small commission — at no extra cost to you. This helps fund the project: the sets, the blog, and everything else. All recommendations are genuine; 9bitts only links to platforms actually used and trusted.
+      <strong>Affiliate disclosure.</strong> Some links on this page are affiliate links. When you click and make a purchase, 9bitts receives a small commission — at no extra cost to you. This helps fund the project: the sets, the blog, and everything else. All recommendations are genuine; 9bitts only links to platforms and books actually used and trusted.
     </div>
   </div>
 </div>
