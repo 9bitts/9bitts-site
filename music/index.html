@@ -1,544 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electronic Music — A Complete Guide | 9bitts</title>
-  <meta name="description" content="A complete guide to electronic music: its history, genres, key artists, iconic equipment, and the culture that shaped it. From Detroit techno to Berlin's Berghain.">
-  <meta property="og:title" content="Electronic Music — A Complete Guide | 9bitts">
-  <meta property="og:description" content="A complete guide to electronic music: its history, genres, key artists, iconic equipment, and the culture that shaped it.">
-  <meta property="og:url" content="https://9bitts.com/music/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="9bitts">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://9bitts.com/music/">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fafaf7;
-      --bg-alt: #f4f2eb;
-      --ink: #1a1a1a;
-      --ink-soft: #4a4a48;
-      --ink-mute: #8a8a85;
-      --green: #2d5f3f;
-      --green-soft: #e8f0eb;
-      --line: #e8e6e0;
-      --shadow: 0 4px 24px rgba(20,20,18,.07);
-      --shadow-lg: 0 12px 48px rgba(20,20,18,.10);
-      --serif: 'Fraunces', Georgia, serif;
-      --sans: 'DM Sans', -apple-system, sans-serif;
-      --radius: 16px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronic Music — A Complete Guide | 9bitts</title>
+<meta name="description" content="A complete guide to electronic music: its history, genres, key machines, cities, culture and the recordings that shaped it. From musique concrète to Berlin techno.">
+<link rel="canonical" href="https://9bitts.com/music/">
+<meta property="og:title" content="Electronic Music — A Complete Guide | 9bitts">
+<meta property="og:description" content="The history, genres, machines, cities and culture of electronic music — a living encyclopedia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://9bitts.com/music/">
+<meta property="og:site_name" content="9bitts">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--bg-card:#fff;--ink:#1a1a1a;--ink-soft:#4a4a48;--ink-mute:#8a8a85;--line:#e8e6e0;--accent:#2d5f3f;--accent-soft:#3d7a52;--gold:#c8a97e;--shadow-sm:0 1px 2px rgba(20,20,18,.04),0 2px 4px rgba(20,20,18,.04);--shadow-md:0 4px 12px rgba(20,20,18,.06),0 2px 4px rgba(20,20,18,.04);--shadow-lg:0 12px 32px rgba(20,20,18,.08);--shadow-xl:0 24px 60px rgba(20,20,18,.1);--radius-md:16px;--radius-lg:24px;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(250,250,247,.8);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--serif);font-size:1.3rem;font-weight:500;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-mark{width:26px;height:26px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:.8rem;font-weight:600;font-style:italic}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:820px){.nav-links{display:none}}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+/* HERO */
+.hero{padding:9rem 2rem 4rem;max-width:1000px;margin:0 auto;text-align:center}
+.hero-eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.28em;color:var(--accent);margin-bottom:1.5rem;font-weight:500}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;line-height:1;letter-spacing:-.03em;margin-bottom:1.75rem}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-lead{font-size:1.2rem;color:var(--ink-soft);max-width:640px;margin:0 auto;font-weight:300;line-height:1.7}
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,250,247,.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-      padding: 1rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--green); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: .85rem; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--green); }
-    @media (max-width: 640px) { .nav-links { display: none; } }
+/* LAYOUT */
+.layout{max-width:1240px;margin:0 auto;padding:4rem 2rem 6rem;display:grid;grid-template-columns:240px 1fr;gap:4rem;align-items:start}
+@media(max-width:980px){.layout{grid-template-columns:1fr;gap:2rem}}
 
-    /* HERO */
-    .hero {
-      padding: 6rem 2rem 5rem;
-      max-width: 860px; margin: 0 auto;
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-tag {
-      display: inline-block;
-      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--green); background: var(--green-soft);
-      padding: .3rem .8rem; border-radius: 99px;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.1; letter-spacing: -.02em;
-      margin-bottom: 1.5rem;
-    }
-    .hero-lead {
-      font-size: 1.15rem; color: var(--ink-soft);
-      max-width: 620px; line-height: 1.75;
-      font-weight: 300;
-    }
+/* TOC SIDEBAR */
+.toc{position:sticky;top:6rem;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm)}
+@media(max-width:980px){.toc{position:static}}
+.toc-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:600;margin-bottom:1.25rem}
+.toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:.15rem}
+.toc li{counter-increment:toc}
+.toc a{display:flex;gap:.7rem;padding:.6rem .65rem;border-radius:10px;text-decoration:none;color:var(--ink-soft);font-size:.92rem;transition:all .2s;align-items:baseline}
+.toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:.78rem;color:var(--gold);flex-shrink:0}
+.toc a:hover{background:var(--bg);color:var(--ink)}
+.toc a.active{background:var(--accent);color:#fff}
+.toc a.active::before{color:rgba(255,255,255,.7)}
 
-    /* TABLE OF CONTENTS */
-    .toc {
-      background: var(--bg-alt);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 2rem 2.5rem;
-      max-width: 860px; margin: 3rem auto;
-    }
-    .toc h2 {
-      font-family: var(--serif); font-size: 1rem; font-weight: 400;
-      color: var(--ink-mute); margin-bottom: 1rem;
-      text-transform: uppercase; letter-spacing: .1em;
-    }
-    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .4rem; }
-    .toc li { counter-increment: toc; }
-    .toc a {
-      text-decoration: none; color: var(--ink-soft);
-      font-size: .9rem; display: flex; align-items: center; gap: .5rem;
-      padding: .3rem 0; transition: color .2s;
-    }
-    .toc a::before {
-      content: counter(toc, decimal-leading-zero);
-      font-size: .72rem; color: var(--green); font-weight: 500;
-      min-width: 1.5rem;
-    }
-    .toc a:hover { color: var(--green); }
+/* CONTENT */
+.content{min-width:0}
+.section{margin-bottom:5.5rem;scroll-margin-top:6rem}
+.section-num{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--gold);margin-bottom:.75rem;display:block}
+.section h2{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.5rem}
+.section h2 em{font-style:italic;color:var(--accent)}
+.section h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin:2.5rem 0 1rem;letter-spacing:-.01em}
+.section p{color:var(--ink-soft);margin-bottom:1.25rem;font-size:1.02rem}
+.section p strong{color:var(--ink);font-weight:600}
+.lead{font-size:1.15rem!important;color:var(--ink)!important;font-weight:300;line-height:1.7}
 
-    /* MAIN CONTENT */
-    .content { max-width: 860px; margin: 0 auto; padding: 0 2rem 6rem; }
+/* TIMELINE */
+.timeline{margin:2.5rem 0;border-left:2px solid var(--line);padding-left:0}
+.tl-item{position:relative;padding:0 0 2rem 2rem}
+.tl-item::before{content:'';position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-year{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:.95rem;margin-bottom:.3rem}
+.tl-item h4{font-family:var(--serif);font-size:1.2rem;font-weight:500;margin-bottom:.4rem}
+.tl-item p{font-size:.95rem;margin-bottom:0}
 
-    /* SECTIONS */
-    .section { padding: 4rem 0; border-bottom: 1px solid var(--line); }
-    .section:last-child { border-bottom: none; }
+/* CARD GRID */
+.grid{display:grid;gap:1.25rem;margin:2rem 0}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:680px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-md);padding:1.6rem;box-shadow:var(--shadow-sm);transition:all .3s}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.card-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:600;margin-bottom:.5rem}
+.card h4{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:.5rem}
+.card p{font-size:.92rem;margin-bottom:.75rem}
+.card-meta{font-size:.78rem;color:var(--ink-mute);border-top:1px solid var(--line);padding-top:.7rem;margin-top:.7rem}
 
-    .section-label {
-      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--green); margin-bottom: 1rem; display: block;
-    }
-    .section h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 300; font-style: italic;
-      line-height: 1.15; letter-spacing: -.02em;
-      margin-bottom: 1.5rem;
-    }
-    .section h3 {
-      font-family: var(--serif);
-      font-size: 1.4rem; font-weight: 300; font-style: italic;
-      margin: 2.5rem 0 .75rem; color: var(--ink);
-    }
-    .section p { font-size: 1rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1.25rem; }
-    .section p strong { color: var(--ink); font-weight: 500; }
+/* PULLQUOTE */
+.pull{font-family:var(--serif);font-size:1.6rem;font-weight:300;font-style:italic;line-height:1.4;color:var(--accent);margin:2.5rem 0;padding-left:1.5rem;border-left:3px solid var(--gold)}
 
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 2rem; margin: 2rem 0; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: var(--line);
-    }
-    .timeline-item { position: relative; margin-bottom: 2rem; }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -2.4rem; top: .35rem;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--green); border: 2px solid var(--bg);
-      box-shadow: 0 0 0 3px var(--green-soft);
-    }
-    .timeline-year {
-      font-size: .75rem; font-weight: 500; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--green); margin-bottom: .3rem;
-    }
-    .timeline-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: .4rem; }
-    .timeline-item p { font-size: .9rem; color: var(--ink-soft); line-height: 1.65; margin: 0; }
+/* BOOKS */
+.books{background:#161616;border-radius:var(--radius-lg);padding:3rem 2.5rem;margin:2rem 0}
+.books h3{color:#f0ede8;margin-top:0}
+.books-intro{color:rgba(255,255,255,.55);font-size:.98rem;margin-bottom:2rem;max-width:600px}
+.book-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(max-width:680px){.book-list{grid-template-columns:1fr}}
+.book{display:block;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;text-decoration:none;transition:all .3s}
+.book:hover{background:rgba(200,169,126,.1);border-color:rgba(200,169,126,.3);transform:translateY(-2px)}
+.book-title{font-family:var(--serif);font-size:1.05rem;color:#f0ede8;margin-bottom:.3rem;line-height:1.3}
+.book-author{font-size:.82rem;color:var(--gold);margin-bottom:.5rem}
+.book-desc{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.5}
+.book-cta{font-size:.78rem;color:var(--gold);margin-top:.6rem;display:inline-flex;align-items:center;gap:.3rem}
+.books-disc{font-size:.72rem;color:rgba(255,255,255,.3);margin-top:1.5rem;line-height:1.5}
 
-    /* GENRE GRID */
-    .genre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
-    .genre-card {
-      background: white; border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 1.5rem;
-      box-shadow: var(--shadow); transition: all .3s ease;
-    }
-    .genre-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .genre-card-tag {
-      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--green); background: var(--green-soft);
-      padding: .2rem .6rem; border-radius: 99px;
-      display: inline-block; margin-bottom: .75rem;
-    }
-    .genre-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: .5rem; font-style: italic; }
-    .genre-card p { font-size: .88rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
-    .genre-card .genre-origin { font-size: .75rem; color: var(--ink-mute); margin-top: .75rem; }
+/* GLOSSARY */
+.glossary{display:grid;gap:.5rem;margin:2rem 0}
+.term{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.4rem;display:grid;grid-template-columns:160px 1fr;gap:1.5rem;align-items:baseline}
+@media(max-width:680px){.term{grid-template-columns:1fr;gap:.3rem}}
+.term-word{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--accent)}
+.term-def{font-size:.92rem;color:var(--ink-soft)}
 
-    /* GEAR TABLE */
-    .gear-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
-    .gear-item {
-      display: grid; grid-template-columns: 120px 1fr;
-      gap: 1.5rem; align-items: start;
-      background: white; border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    .gear-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; font-style: italic; }
-    .gear-year { font-size: .72rem; color: var(--green); text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem; }
-    .gear-desc { font-size: .9rem; color: var(--ink-soft); line-height: 1.6; }
-
-    /* SCENE GRID */
-    .scene-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-    .scene-card {
-      border-radius: var(--radius); padding: 2rem;
-      position: relative; overflow: hidden;
-      min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end;
-      box-shadow: var(--shadow-lg);
-    }
-    .scene-card-city { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: .4rem; }
-    .scene-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; font-style: italic; color: white; margin-bottom: .5rem; }
-    .scene-card p { font-size: .85rem; color: rgba(255,255,255,.8); line-height: 1.55; margin: 0; }
-
-    /* POSTS GRID */
-    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
-    .post-card {
-      background: white; border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 1.5rem;
-      text-decoration: none; color: inherit;
-      box-shadow: var(--shadow); transition: all .3s ease;
-      display: flex; flex-direction: column;
-    }
-    .post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .post-card-meta { font-size: .72rem; color: var(--green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
-    .post-card h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic; line-height: 1.3; margin-bottom: .5rem; }
-    .post-card p { font-size: .85rem; color: var(--ink-mute); line-height: 1.55; flex: 1; }
-    .post-card-arrow { font-size: .8rem; color: var(--green); margin-top: 1rem; }
-
-    /* FOOTER */
-    footer { background: var(--ink); color: rgba(255,255,255,.5); text-align: center; padding: 2rem; font-size: .8rem; }
-    footer a { color: rgba(255,255,255,.6); text-decoration: none; margin: 0 .75rem; }
-    footer a:hover { color: white; }
-
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 640px) {
-      .content { padding: 0 1.25rem 4rem; }
-      .hero { padding: 4rem 1.25rem 3rem; }
-      .toc { margin: 2rem 1.25rem; }
-      .gear-item { grid-template-columns: 1fr; }
-    }
-  </style>
+/* FOOTER */
+footer{background:var(--ink);color:#b8b6b0;padding:3rem 2rem;text-align:center;font-size:.85rem}
+footer a{color:#b8b6b0;text-decoration:none;margin:0 .6rem;transition:color .2s}
+footer a:hover{color:#fff}
+</style>
 </head>
 <body>
-
 <nav>
-  <a href="https://9bitts.com" class="nav-logo">9bitts</a>
-  <ul class="nav-links">
-    <li><a href="https://9bitts.com">Home</a></li>
-    <li><a href="https://9bitts.com/music/" class="active">Music</a></li>
-    <li><a href="https://9bitts.com/blog.html">Blog</a></li>
-    <li><a href="https://9bitts.com#connect">Connect</a></li>
-  </ul>
+<a href="https://9bitts.com" class="logo"><span class="logo-mark">9b</span><span>9bitts</span></a>
+<ul class="nav-links">
+<li><a href="https://9bitts.com">Home</a></li>
+<li><a href="https://9bitts.com/music/">Music</a></li>
+<li><a href="https://9bitts.com/artists.html">Artists</a></li>
+<li><a href="https://9bitts.com/blog.html">Blog</a></li>
+<li><a href="https://9bitts.com/shop.html">Shop</a></li>
+</ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <span class="hero-tag">Complete Guide</span>
-  <h1>Electronic Music</h1>
-  <p class="hero-lead">A living encyclopedia of electronic music — its origins, its genres, the machines that made it possible, and the cities that gave it a home. Updated as the music moves.</p>
+<header class="hero">
+<div class="hero-eyebrow">Complete Guide</div>
+<h1>The story of<br><em>electronic music.</em></h1>
+<p class="hero-lead">A living encyclopedia — its origins, its genres, the machines that made it possible, the cities that gave it a home, and the culture it created. From laboratory experiments to the global dancefloor.</p>
+</header>
+
+<div class="layout">
+<aside class="toc">
+<div class="toc-title">Contents</div>
+<ol>
+<li><a href="#origins" class="toc-link">Origins & History</a></li>
+<li><a href="#genres" class="toc-link">Genres & Subgenres</a></li>
+<li><a href="#equipment" class="toc-link">The Machines</a></li>
+<li><a href="#cities" class="toc-link">Cities & Scenes</a></li>
+<li><a href="#culture" class="toc-link">Culture & Meaning</a></li>
+<li><a href="#glossary" class="toc-link">Glossary</a></li>
+<li><a href="#books" class="toc-link">Essential Reading</a></li>
+</ol>
+</aside>
+
+<main class="content">
+<!-- SECTION 1: ORIGINS -->
+<section class="section" id="origins">
+<span class="section-num">01 — Origins</span>
+<h2>Where it <em>began.</em></h2>
+<p class="lead">Electronic music is not a genre. It is a method — the use of electronic technology to generate, modify, or record sound. What began as avant-garde experimentation in European laboratories in the 1940s became, by the 1990s, the defining soundtrack of global youth culture.</p>
+<p>The first machines were not built for clubs. They were built for laboratories. Composers like <strong>Pierre Schaeffer</strong> in Paris and <strong>Karlheinz Stockhausen</strong> in Cologne were interested in the philosophical problem of sound itself — what it meant to record reality and reassemble it. Musique concrète, the school Schaeffer founded in 1948, was the first systematic attempt to make music from recorded sound rather than performed sound. The tape recorder was the instrument.</p>
+<p>For three decades the technology stayed expensive and institutional. Then it escaped. The synthesizer left the university, the drum machine left the studio, and a generation of young people — many of them poor, Black, queer, or otherwise pushed to the margins — discovered that these machines could build entire worlds. The history below is the story of that escape.</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1948</div><h4>Musique Concrète — Paris</h4><p>Pierre Schaeffer experiments with recorded sounds at RTF studios. "Étude aux chemins de fer" — built from train sounds — becomes the first widely recognized piece of electronic music.</p></div>
+<div class="tl-item"><div class="tl-year">1957</div><h4>The First Computer Music</h4><p>At Bell Labs, Max Mathews writes MUSIC I, the first program to generate sound by computer. The idea that a machine could be told to make music — in code — is born here.</p></div>
+<div class="tl-item"><div class="tl-year">1964</div><h4>The Moog Synthesizer</h4><p>Robert Moog introduces voltage-controlled synthesis, making electronic sound production possible outside institutional studios. The synthesizer becomes an instrument a person can actually play.</p></div>
+<div class="tl-item"><div class="tl-year">1974</div><h4>Kraftwerk — Autobahn</h4><p>Four musicians from Düsseldorf release an album that sounds like nothing before it. Kraftwerk become the unlikely origin point of almost every genre in this guide — techno, house, hip-hop, synth-pop all trace back to them.</p></div>
+<div class="tl-item"><div class="tl-year">1977</div><h4>Donna Summer — I Feel Love</h4><p>Producer Giorgio Moroder builds an entire pop hit on a Moog sequencer. For the first time, a fully electronic track tops charts worldwide. The future of dance music is audible in a single record.</p></div>
+<div class="tl-item"><div class="tl-year">1980</div><h4>Roland TR-808</h4><p>A drum machine considered a commercial failure becomes the backbone of hip-hop, house, and techno. Its bass drum is still one of the most recognizable sounds in contemporary music.</p></div>
+<div class="tl-item"><div class="tl-year">1983</div><h4>Chicago House</h4><p>At The Warehouse and the Music Box, DJs Frankie Knuckles and Ron Hardy play a new kind of music assembled from disco, soul, and drum machines. The record stores label the bins "house." The name sticks.</p></div>
+<div class="tl-item"><div class="tl-year">1985</div><h4>Detroit Techno</h4><p>Juan Atkins, Derrick May, and Kevin Saunderson — the Belleville Three — fuse Kraftwerk's precision with funk's soul. They call it techno, after Alvin Toffler. A Black futurism for a collapsing industrial city.</p></div>
+<div class="tl-item"><div class="tl-year">1988</div><h4>The Second Summer of Love</h4><p>MDMA and Roland 303s transform British warehouse raves into a mass movement. Acid house explodes out of Chicago and into fields across England. A cultural rupture the establishment never saw coming.</p></div>
+<div class="tl-item"><div class="tl-year">1991</div><h4>Berlin — Tresor Opens</h4><p>In the vacuum left by the fallen Wall, Tresor opens in a former bank vault. Detroit and Berlin form an alliance across the Atlantic. The city begins its transformation into the global capital of techno.</p></div>
+<div class="tl-item"><div class="tl-year">1992</div><h4>Jungle & the Hardcore Continuum</h4><p>In London, breakbeats accelerate and bass deepens. Jungle — later drum and bass — emerges from rave's pirate-radio underground, the most rhythmically radical music Britain had produced.</p></div>
+<div class="tl-item"><div class="tl-year">2004</div><h4>Berghain</h4><p>A techno club opens in a former power plant in Berlin. Its uncompromising sound, marathon sets, and famously selective door make it the most mythologized nightclub on earth.</p></div>
+<div class="tl-item"><div class="tl-year">2010s</div><h4>EDM & the American Explosion</h4><p>A commercial, festival-scaled strain of dance music conquers the United States. Electronic music becomes, for the first time, the mainstream of global pop — for better and worse.</p></div>
+<div class="tl-item"><div class="tl-year">2010s–now</div><h4>Melodic Techno & the Digital Era</h4><p>Artists like Tale Of Us, Anyma, and Massano develop a more melodic, emotionally open strand of techno. Streaming and social media reshape how the music is discovered, sold, and experienced.</p></div>
 </div>
+</section>
 
-<!-- TABLE OF CONTENTS -->
-<div class="toc reveal">
-  <h2>Contents</h2>
-  <ol>
-    <li><a href="#origins">Origins & History</a></li>
-    <li><a href="#genres">Genres & Subgenres</a></li>
-    <li><a href="#equipment">Iconic Equipment</a></li>
-    <li><a href="#scenes">Cities & Scenes</a></li>
-    <li><a href="#culture">Culture & Context</a></li>
-    <li><a href="#reflections">Reflections from 9bitts</a></li>
-  </ol>
+<!-- SECTION 2: GENRES -->
+<section class="section" id="genres">
+<span class="section-num">02 — Genres</span>
+<h2>The landscape <em>of sound.</em></h2>
+<p class="lead">Electronic music is not one thing. It is a family of related approaches to rhythm, texture, and time — each with its own geography, its own tempo, its own emotional register.</p>
+<p>Genres in electronic music are rarely clean categories. They blur, split, and recombine constantly. What follows is a map of the most significant territories — not a complete atlas, but enough to navigate by.</p>
+
+<div class="grid grid-2">
+<div class="card"><div class="card-tag">~120–130 BPM</div><h4>House</h4><p>Born in Chicago in the early 1980s from the ruins of disco. Four-on-the-floor kick, soulful vocals, chord stabs. The most democratic of electronic genres — built to make people move together.</p><div class="card-meta">Chicago, 1983 · Frankie Knuckles, Larry Heard</div></div>
+<div class="card"><div class="card-tag">~130–150 BPM</div><h4>Techno</h4><p>Invented in Detroit as a sonic response to deindustrialization. Harder, more mechanical, more repetitive than house. Designed for endurance and transformation. The music of long nights.</p><div class="card-meta">Detroit, 1985 · Atkins, May, Saunderson</div></div>
+<div class="card"><div class="card-tag">~124–128 BPM</div><h4>Deep House</h4><p>Slower, warmer, more introspective than regular house. Jazz chords, lush pads, understated rhythms. Music for the early morning or late night — the hours when the room empties but a few remain.</p><div class="card-meta">Chicago/New York, late 1980s · Larry Heard</div></div>
+<div class="card"><div class="card-tag">~128–135 BPM</div><h4>Melodic Techno</h4><p>A recent evolution — techno's structure with deeper melodic and harmonic content. Emotional, often cinematic. The genre closest to the 9bitts aesthetic.</p><div class="card-meta">Italy/Germany, 2010s · Tale Of Us, Anyma</div></div>
+<div class="card"><div class="card-tag">~125–132 BPM</div><h4>Progressive House</h4><p>Built around gradual evolution rather than sudden drops. Long builds, slow filters, a sense of perpetual motion. Shaped Sasha, Digweed, and later stadium-scale producers.</p><div class="card-meta">UK, early 1990s · Sasha, John Digweed</div></div>
+<div class="card"><div class="card-tag">~120–125 BPM</div><h4>Afro House</h4><p>A rhythmically rich strain blending house with African percussion and melody. Now one of the fastest-growing global sounds, carried by labels like Keinemusik and artists like Black Coffee.</p><div class="card-meta">South Africa, 2010s · Black Coffee, &ME</div></div>
+<div class="card"><div class="card-tag">~136–145 BPM</div><h4>Trance</h4><p>Hypnotic, layered synthesis with extended breakdowns designed to produce altered states. From German techno-trance of the 1990s to the modern psytrance scene — a vast, still-evolving territory.</p><div class="card-meta">Germany, early 1990s · Paul van Dyk, Sven Väth</div></div>
+<div class="card"><div class="card-tag">~160–180 BPM</div><h4>Drum & Bass</h4><p>Breakbeats running at extreme speed over deep sub-bass. Born in London's rave underground. The genre that most directly confronted the raw physics of rhythm.</p><div class="card-meta">London, early 1990s · Goldie, LTJ Bukem</div></div>
+<div class="card"><div class="card-tag">~118–125 BPM</div><h4>Organic House</h4><p>Downtempo, textural, built from acoustic and natural sounds woven into electronic frames. Music for sunrise sets and open landscapes rather than dark rooms.</p><div class="card-meta">2010s · Bedouin, Lee Burridge</div></div>
+<div class="card"><div class="card-tag">~150–160 BPM</div><h4>Hard Techno</h4><p>Faster, heavier, more distorted. A return to techno's confrontational roots, dominating a new generation of European raves and festival floors.</p><div class="card-meta">Europe, revived 2020s · Sara Landry, I Hate Models</div></div>
+<div class="card"><div class="card-tag">Variable</div><h4>Ambient</h4><p>Brian Eno codified it in 1978: music that could be ignored or actively listened to, working in both modes. The anti-genre — defined by absence as much as presence.</p><div class="card-meta">UK, 1978 · Brian Eno, Aphex Twin</div></div>
+<div class="card"><div class="card-tag">~130–140 BPM</div><h4>Minimal Techno</h4><p>Stripped of everything non-essential. A single element, repeated with slight variation over long stretches. What remains when you remove the melody, the harmony, and most of the rhythm.</p><div class="card-meta">Berlin, late 1990s · Villalobos, Hawtin</div></div>
 </div>
+</section>
+<!-- SECTION 3: EQUIPMENT -->
+<section class="section" id="equipment">
+<span class="section-num">03 — The Machines</span>
+<h2>The machines that <em>made it.</em></h2>
+<p class="lead">Electronic music is inseparable from its instruments. Unlike acoustic music, where instruments predate the music by centuries, electronic music and its machines evolved together — each new device opening sonic possibilities that producers raced to explore.</p>
+<p>What follows is not a list of gear. It is a list of objects that changed the sound of the world — often by accident, often after being declared failures by the companies that built them.</p>
 
-<div class="content">
+<div class="grid grid-2">
+<div class="card"><div class="card-tag">1964</div><h4>Moog Synthesizer</h4><p>Robert Moog's voltage-controlled synthesizer democratized electronic sound. Wendy Carlos's "Switched-On Bach" (1968) proved to a skeptical public that electronic instruments could make serious art. Everything after it carries Moog's DNA.</p></div>
+<div class="card"><div class="card-tag">1980</div><h4>Roland TR-808</h4><p>A programmable drum machine considered a commercial failure — too artificial, too unlike real drums. Within a decade it became the foundation of hip-hop, house, and techno. Its kick is the most recognizable sound in modern music.</p></div>
+<div class="card"><div class="card-tag">1981</div><h4>Roland TB-303</h4><p>Designed to simulate a bass guitar for solo practice. It failed at that. Chicago producers discovered that certain settings produced an alien, liquid, squelching sound unlike anything else. That sound became acid house.</p></div>
+<div class="card"><div class="card-tag">1983</div><h4>Yamaha DX7 & MIDI</h4><p>The first affordable digital synth, and the arrival of MIDI — the protocol that let machines talk to each other. Suddenly a single musician could conduct an orchestra of devices. The modern studio is born.</p></div>
+<div class="card"><div class="card-tag">1988</div><h4>Akai MPC</h4><p>A sampling drum machine and sequencer that became central to hip-hop and electronic production. The MPC's workflow — pads, sequences, samples — still shapes how producers think about rhythm today.</p></div>
+<div class="card"><div class="card-tag">1994</div><h4>Pioneer CDJ</h4><p>The CD player that became the global club standard. CDJs redefined DJing — moving it from vinyl expertise toward real-time composition. The CDJ-3000 is the industry standard in serious clubs everywhere.</p></div>
+<div class="card"><div class="card-tag">1997</div><h4>Roland TB-303 reborn in software</h4><p>As hardware aged, emulation began. The ReBirth software recreated the 303 and 808 on a home computer — the first sign that the bedroom would replace the studio. Production was about to become universal.</p></div>
+<div class="card"><div class="card-tag">2001</div><h4>Ableton Live</h4><p>Software that changed the relationship between production and performance. Its session view made real-time arrangement possible. It became the tool of choice for a generation — including most artists shaping the current melodic techno scene.</p></div>
+</div>
+<p class="pull">When a machine becomes obsolete, a sound often disappears with it — preserved only in records made while it was still in production.</p>
+</section>
 
-  <!-- SECTION 1: ORIGINS -->
-  <section class="section reveal" id="origins">
-    <span class="section-label">01 — Origins</span>
-    <h2>Where it began</h2>
-    <p>Electronic music is not a genre. It is a method — the use of electronic technology to generate, modify, or record sound. What began as avant-garde experimentation in European universities in the 1940s became, by the 1990s, the defining soundtrack of global youth culture. The path between those two points is one of the most unlikely stories in the history of music.</p>
-    <p>The first machines were not built for clubs. They were built for laboratories. Composers like <strong>Pierre Schaeffer</strong> in Paris and <strong>Karlheinz Stockhausen</strong> in Cologne were interested in the philosophical problem of sound itself — what it meant to record reality and reassemble it. Musique concrète, the school Schaeffer founded in 1948, was the first systematic attempt to make music from recorded sound rather than performed sound. The tape recorder was the instrument.</p>
+<!-- SECTION 4: CITIES -->
+<section class="section" id="cities">
+<span class="section-num">04 — Cities</span>
+<h2>Where the music <em>lives.</em></h2>
+<p class="lead">Electronic music is not geography-neutral. Its key developments happened in specific places, at specific moments, under specific social conditions. Cities matter — not as scenery, but as cause.</p>
+<p>Detroit's deindustrialization, Chicago's Black gay nightlife, Berlin's post-Wall vacancy — these were the soil in which the music grew. You cannot separate the sound from the streets that made it.</p>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">1948</div>
-        <h4>Musique Concrète — Paris</h4>
-        <p>Pierre Schaeffer experiments with recorded sounds at RTF studios. "Étude aux chemins de fer" — made from train sounds — becomes the first widely recognized piece of electronic music.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1964</div>
-        <h4>The Moog Synthesizer</h4>
-        <p>Robert Moog introduces voltage-controlled synthesis, making electronic sound production available outside institutional studios. Music changes permanently.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1974</div>
-        <h4>Kraftwerk — Autobahn</h4>
-        <p>Four musicians from Düsseldorf release an album that sounds like nothing before it. Kraftwerk becomes the unlikely origin point of almost every genre in this guide.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1980</div>
-        <h4>Roland TR-808</h4>
-        <p>A drum machine considered a commercial failure becomes the backbone of hip-hop, house, and techno. Its bass drum is still one of the most recognizable sounds in contemporary music.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1986</div>
-        <h4>Chicago House</h4>
-        <p>At The Warehouse and Music Box, DJs Frankie Knuckles and Ron Hardy play a new kind of music assembled from disco, soul, and drum machines. They call it house. The world follows.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1988</div>
-        <h4>Detroit Techno & the Second Summer of Love</h4>
-        <p>Juan Atkins, Derrick May, and Kevin Saunderson release what becomes the Detroit techno canon. Simultaneously, MDMA and Roland 303s transform British warehouse raves. Two movements, one cultural rupture.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">1990s</div>
-        <h4>Berlin After the Wall</h4>
-        <p>The fall of the Berlin Wall opens abandoned buildings. Tresor opens in a former bank vault in 1991. Berghain opens in 2004. A city becomes the global capital of techno.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2000s–now</div>
-        <h4>Melodic Techno & the Digital Era</h4>
-        <p>Artists like Tale Of Us, Anyma, and Massano develop a more melodic, emotionally open strand of techno. Streaming and social media reshape how electronic music is discovered and consumed.</p>
-      </div>
-    </div>
-  </section>
+<div class="grid grid-2">
+<div class="card"><div class="card-tag">USA</div><h4>Detroit</h4><p>The birthplace of techno. The Belleville Three created the genre as a response to economic collapse — a vision of Black futurism that American capitalism had failed to deliver. Techno was, from the start, science fiction made audible.</p></div>
+<div class="card"><div class="card-tag">USA</div><h4>Chicago</h4><p>Where house was born. The Warehouse, the Music Box, the Power Plant — Black and Latino gay clubs where DJs built a new form from disco's ruins. House was a survival culture before it was a global phenomenon.</p></div>
+<div class="card"><div class="card-tag">Germany</div><h4>Berlin</h4><p>The fall of the Wall left a city full of empty space. Artists and DJs moved into abandoned buildings. Tresor, Berghain, Watergate became institutions. Berlin remains the global reference point for serious techno.</p></div>
+<div class="card"><div class="card-tag">Spain</div><h4>Ibiza</h4><p>The Mediterranean island synonymous with summer electronic music. Amnesia, Pacha, DC-10 — clubs that shaped both the sound and the business of dance music globally. Contradictory, commercial, and still essential.</p></div>
+<div class="card"><div class="card-tag">UK</div><h4>Manchester & London</h4><p>The Haçienda was where American house met British youth. London's warehouse scene birthed jungle and drum and bass. Together they drove the global spread of electronic music in the early 1990s.</p></div>
+<div class="card"><div class="card-tag">Italy</div><h4>Italy & Afterlife</h4><p>An unlikely but essential node in the melodic techno story. Tale Of Us brought a distinctly Italian sense of emotion and drama to techno. Their Afterlife label became one of the most influential forces in contemporary electronic music.</p></div>
+</div>
+</section>
 
-  <!-- SECTION 2: GENRES -->
-  <section class="section reveal" id="genres">
-    <span class="section-label">02 — Genres</span>
-    <h2>The landscape of sound</h2>
-    <p>Electronic music is not one thing. It is a family of related approaches to rhythm, texture, and time — each with its own geography, its own tempo, its own emotional register. What follows is not exhaustive. It is a map of the territory most relevant to the 9bitts universe.</p>
+<!-- SECTION 5: CULTURE -->
+<section class="section" id="culture">
+<span class="section-num">05 — Culture</span>
+<h2>More than <em>music.</em></h2>
+<p class="lead">To understand electronic music only as sound is to miss most of it. It is also a set of ideas about authorship, community, technology, and time — ideas worth taking seriously.</p>
 
-    <div class="genre-grid">
-      <div class="genre-card">
-        <span class="genre-card-tag">~120–130 BPM</span>
-        <h3>House</h3>
-        <p>Born in Chicago in the early 1980s from the ruins of disco. Four-on-the-floor kick drum, soulful vocals, chord stabs. The most democratic of electronic genres — built to make people move together.</p>
-        <div class="genre-origin">Chicago, 1983 · Frankie Knuckles, Larry Heard</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~130–150 BPM</span>
-        <h3>Techno</h3>
-        <p>Invented in Detroit as a sonic response to deindustrialization. Harder, more mechanical, more repetitive than house. Designed for endurance and transformation. The music of long nights.</p>
-        <div class="genre-origin">Detroit, 1986 · Juan Atkins, Derrick May, Kevin Saunderson</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~128–135 BPM</span>
-        <h3>Melodic Techno</h3>
-        <p>A relatively recent evolution — techno's structure with deeper melodic and harmonic content. Emotional, often cinematic. The genre closest to the 9bitts aesthetic.</p>
-        <div class="genre-origin">Italy/Germany, 2010s · Tale Of Us, Anyma, Massano</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~124–128 BPM</span>
-        <h3>Deep House</h3>
-        <p>Slower, warmer, more introspective than regular house. Jazz chords, lush pads, understated rhythms. Music for the early morning or the late night — the hours when the room empties but a few remain.</p>
-        <div class="genre-origin">Chicago/New York, late 1980s · Larry Heard, Frankie Knuckles</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~125–132 BPM</span>
-        <h3>Progressive House</h3>
-        <p>Built around gradual evolution rather than sudden drops. Long builds, slow filters, a sense of perpetual motion. Influenced Deadmau5, Eric Prydz, and a generation of stadium-scale producers.</p>
-        <div class="genre-origin">UK, early 1990s · Sasha, John Digweed</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~136–145 BPM</span>
-        <h3>Trance</h3>
-        <p>Defined by hypnotic, layered synthesis and extended breakdowns designed to produce altered states. From German techno-trance of the 1990s to the modern psytrance scene — a vast and still-evolving territory.</p>
-        <div class="genre-origin">Germany, early 1990s · Paul van Dyk, Sven Väth</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~160–180 BPM</span>
-        <h3>Drum and Bass</h3>
-        <p>Breakbeats running at extreme speed over deep sub-bass. Born in London's rave underground. The genre that most directly confronted the raw physics of rhythm.</p>
-        <div class="genre-origin">London, early 1990s · Goldie, LTJ Bukem, Roni Size</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">Variable BPM</span>
-        <h3>Ambient</h3>
-        <p>Brian Eno codified it in 1978: music that could be ignored or actively listened to, and work in both modes. The anti-genre — defined by absence as much as presence. Essential context for understanding everything else.</p>
-        <div class="genre-origin">UK, 1978 · Brian Eno, Harold Budd</div>
-      </div>
-      <div class="genre-card">
-        <span class="genre-card-tag">~130–140 BPM</span>
-        <h3>Minimal Techno</h3>
-        <p>Stripped of everything non-essential. A single element, repeated with slight variation over long stretches of time. What remains when you remove the melody, the harmony, and most of the rhythm.</p>
-        <div class="genre-origin">Berlin, late 1990s · Ricardo Villalobos, Richie Hawtin</div>
-      </div>
-    </div>
-  </section>
+<h3>The DJ as author</h3>
+<p>Electronic music reframed what authorship means. A DJ does not compose in the traditional sense. They select, sequence, and blend music made by others — but in doing so, they create something that did not exist before. The best DJs are not jukebox operators. They are editors of time, shapers of atmosphere, architects of collective experience. The four-hour set is a different art form from the three-minute pop song. It requires different skills, different intentions, different listening.</p>
 
-  <!-- SECTION 3: EQUIPMENT -->
-  <section class="section reveal" id="equipment">
-    <span class="section-label">03 — Equipment</span>
-    <h2>The machines that made it</h2>
-    <p>Electronic music is inseparable from its instruments. Unlike acoustic music, where the instruments predate the music by centuries, electronic music and its machines evolved together — each new device opening a set of sonic possibilities that composers and producers raced to explore. These are the machines that defined the sound.</p>
+<h3>The floor as common ground</h3>
+<p>Electronic dance music has consistently been a space for people who did not fit elsewhere. Detroit techno emerged from Black communities ignored by mainstream America. Chicago house was built by Black and Latino gay men at a time when society was actively hostile to their existence. Berlin's early scene absorbed people who had just watched a wall come down.</p>
+<p>This is not coincidence. The repetition, the darkness, the physical demands of extended dancing, the anonymity of the club — these features create a particular kind of equality. On the floor, identity is temporarily suspended. That has always been the music's promise, and its politics.</p>
 
-    <div class="gear-list">
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Roland TR-808</div>
-          <div class="gear-year">1980</div>
-        </div>
-        <div class="gear-desc">A programmable drum machine considered a commercial failure on release — too artificial, too unlike real drums. Within a decade it became the foundation of hip-hop, house, and techno. Its kick drum is the most recognizable sound in contemporary popular music. Still in use everywhere.</div>
-      </div>
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Roland TB-303</div>
-          <div class="gear-year">1981</div>
-        </div>
-        <div class="gear-desc">Designed to simulate a bass guitar for solo practice. Failed at its intended purpose. Discovered by Chicago producers who found that certain settings produced an alien, liquid, squelching sound unlike anything else. That sound became acid house. The 303 remains one of the most influential objects in music history.</div>
-      </div>
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Moog Synthesizer</div>
-          <div class="gear-year">1964</div>
-        </div>
-        <div class="gear-desc">Robert Moog's voltage-controlled synthesizer democratized electronic sound production. Wendy Carlos's "Switched-On Bach" (1968) proved to a skeptical public that electronic instruments could produce music of serious artistic merit. Everything after it carries Moog's DNA.</div>
-      </div>
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Akai MPC60</div>
-          <div class="gear-year">1988</div>
-        </div>
-        <div class="gear-desc">A sampling drum machine and sequencer that became central to hip-hop production and electronic music. The MPC's workflow — pads, sequences, samples — shaped how producers think about rhythm to this day.</div>
-      </div>
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Pioneer CDJ</div>
-          <div class="gear-year">1994</div>
-        </div>
-        <div class="gear-desc">The CD DJ player that became the global standard for club performance. CDJs redefined what DJing meant — moving the practice from vinyl expertise toward real-time composition. The current CDJ-3000 is the industry standard in virtually every serious club on earth.</div>
-      </div>
-      <div class="gear-item">
-        <div>
-          <div class="gear-name">Ableton Live</div>
-          <div class="gear-year">2001</div>
-        </div>
-        <div class="gear-desc">Software that changed the relationship between production and performance. Ableton's session view made real-time arrangement possible. It became the tool of choice for a generation of electronic producers and live performers — including most of the artists shaping the current melodic techno scene.</div>
-      </div>
-    </div>
-  </section>
+<h3>Technology as composition</h3>
+<p>In most musical traditions the instrument is neutral — a guitar is a guitar before anyone plays it. In electronic music the instrument is already half a composition. The character of an 808 kick, the filter of a Moog, the way an Ableton session behaves — these are not neutral choices. They shape what is possible to make. This is why the history of electronic music is also a history of machines.</p>
 
-  <!-- SECTION 4: SCENES -->
-  <section class="section reveal" id="scenes">
-    <span class="section-label">04 — Cities</span>
-    <h2>Where the music lives</h2>
-    <p>Electronic music is not geography-neutral. Its key developments happened in specific places, at specific moments, under specific social conditions. Cities matter — not as scenery but as cause. Detroit's deindustrialisation, Chicago's Black gay nightlife, Berlin's post-Wall vacancy: these were the soil in which the music grew.</p>
+<h3>The long night</h3>
+<p>Electronic music at its most serious is designed for duration. A Berghain set begins when most people are sleeping and ends when light comes through windows deliberately designed to prevent it. The music works differently over four hours than over four minutes. It accumulates. It changes the body's relationship to time. This does not translate easily to a playlist or a streaming service. It is an argument for being in a room, with other people, for a long time — and that argument is worth taking seriously.</p>
+</section>
 
-    <div class="scene-grid">
-      <div class="scene-card" style="background: linear-gradient(135deg, #1a0a2e 0%, #4a1a6e 100%);">
-        <div class="scene-card-city">USA</div>
-        <h3>Detroit</h3>
-        <p>The birthplace of techno. Juan Atkins, Derrick May, and Kevin Saunderson — the Belleville Three — created the genre as a response to economic collapse. Techno was their vision of a Black futurism that American capitalism had failed to deliver.</p>
-      </div>
-      <div class="scene-card" style="background: linear-gradient(135deg, #0a1a0a 0%, #1a4a2e 100%);">
-        <div class="scene-card-city">USA</div>
-        <h3>Chicago</h3>
-        <p>Where house was born. The Warehouse, the Music Box, the Power Plant — these were Black and Latino gay clubs where DJs built a new form from disco's ruins. House music was a survival culture before it was a global phenomenon.</p>
-      </div>
-      <div class="scene-card" style="background: linear-gradient(135deg, #0a0a1a 0%, #2a2a4a 100%);">
-        <div class="scene-card-city">Germany</div>
-        <h3>Berlin</h3>
-        <p>The fall of the Wall in 1989 left a city full of empty space. Artists and DJs moved into abandoned buildings. Tresor (1991), Berghain (2004), Watergate — Berlin's clubs became institutions. The city remains the global reference point for serious techno culture.</p>
-      </div>
-      <div class="scene-card" style="background: linear-gradient(135deg, #1a0a0a 0%, #4a2a0a 100%);">
-        <div class="scene-card-city">Spain</div>
-        <h3>Ibiza</h3>
-        <p>The Mediterranean island that became synonymous with summer electronic music. Amnesia, Pacha, DC-10 — clubs that shaped the sound and business of dance music globally. Complex, contradictory, and still essential.</p>
-      </div>
-      <div class="scene-card" style="background: linear-gradient(135deg, #0a1a1a 0%, #0a3a3a 100%);">
-        <div class="scene-card-city">UK</div>
-        <h3>Manchester & London</h3>
-        <p>The Haçienda in Manchester was where American house music met British youth culture. London's warehouse scene gave birth to jungle and drum and bass. Both cities shaped the global spread of electronic music in the early 1990s.</p>
-      </div>
-      <div class="scene-card" style="background: linear-gradient(135deg, #1a1a0a 0%, #3a3a0a 100%);">
-        <div class="scene-card-city">Italy</div>
-        <h3>Italy</h3>
-        <p>An unlikely but essential node in the melodic techno story. Tale Of Us (Matteo Milleri & Carmine Stellato) brought a distinctly Italian sense of emotion and drama to techno's structure. Their Afterlife label has become one of the most influential in contemporary electronic music.</p>
-      </div>
-    </div>
-  </section>
+<!-- SECTION 6: GLOSSARY -->
+<section class="section" id="glossary">
+<span class="section-num">06 — Glossary</span>
+<h2>The <em>vocabulary.</em></h2>
+<p class="lead">Every culture builds its own language. Here are the essential terms — enough to read a review, follow a conversation, or understand what a producer means when they talk about their work.</p>
+<div class="glossary">
+<div class="term"><div class="term-word">Four-on-the-floor</div><div class="term-def">A steady kick drum on every beat of the bar. The rhythmic foundation of house and techno — the pulse that makes the music danceable.</div></div>
+<div class="term"><div class="term-word">BPM</div><div class="term-def">Beats per minute — the tempo. House sits around 120–130, techno 130–150, drum & bass 160–180. BPM defines a genre as much as any instrument.</div></div>
+<div class="term"><div class="term-word">Drop</div><div class="term-def">The moment of release after a build-up, when the full rhythm and bass return. In EDM it is the climax; in techno it is often deliberately understated or absent.</div></div>
+<div class="term"><div class="term-word">Build / Breakdown</div><div class="term-def">The build raises tension by stripping and layering elements; the breakdown removes the drums entirely, leaving melody or atmosphere before the beat returns.</div></div>
+<div class="term"><div class="term-word">Beatmatching</div><div class="term-def">Aligning the tempo and beats of two tracks so they play in sync. The fundamental DJ skill — done by ear before software could do it automatically.</div></div>
+<div class="term"><div class="term-word">Acid</div><div class="term-def">The squelching, resonant sound of a Roland TB-303 with its filter modulated. It named an entire genre — acid house — and remains instantly recognizable.</div></div>
+<div class="term"><div class="term-word">Pad</div><div class="term-def">A sustained, atmospheric synth sound that fills harmonic space. The lush background texture behind much of deep and melodic house.</div></div>
+<div class="term"><div class="term-word">Sample</div><div class="term-def">A fragment of recorded sound reused in a new track. The building block of hip-hop and much electronic music — a vocal, a break, a single chord.</div></div>
+<div class="term"><div class="term-word">Sidechain</div><div class="term-def">A production technique where the bass or pads "duck" in volume each time the kick hits, creating the pumping, breathing feel central to modern dance music.</div></div>
+<div class="term"><div class="term-word">Resident / B2B</div><div class="term-def">A resident is a DJ tied to a particular club. B2B ("back to back") is two DJs sharing one set, trading records in turn.</div></div>
+</div>
+</section>
 
-  <!-- SECTION 5: CULTURE -->
-  <section class="section reveal" id="culture">
-    <span class="section-label">05 — Culture</span>
-    <h2>More than music</h2>
+<!-- SECTION 7: BOOKS -->
+<section class="section" id="books">
+<span class="section-num">07 — Essential Reading</span>
+<h2>Go <em>deeper.</em></h2>
+<p class="lead">This guide is a doorway, not the whole house. These six books are the canon — the works that defined how electronic music understands its own history. If you read only one, start with Reynolds or Brewster & Broughton.</p>
+<div class="books">
+<h3>The 9bitts reading list</h3>
+<p class="books-intro">Six books that shaped how the culture tells its own story — from rave to the disc jockey to ambient sound.</p>
+<div class="book-list">
+<a href="https://www.amazon.de/dp/0571289134/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Energy Flash</div>
+<div class="book-author">Simon Reynolds</div>
+<div class="book-desc">The definitive history of rave and dance culture — from Chicago house and Detroit techno through jungle, garage, and beyond.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+<a href="https://www.amazon.de/dp/0802146104/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Last Night a DJ Saved My Life</div>
+<div class="book-author">Brewster & Broughton</div>
+<div class="book-desc">The first book to tell the history of dance music through the figure of the DJ. Essential, entertaining, foundational.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+<a href="https://www.amazon.de/dp/1860743382/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Modulations</div>
+<div class="book-author">Peter Shapiro (ed.)</div>
+<div class="book-desc">A history of electronic music told through its sounds and technologies — from musique concrète to digital production.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+<a href="https://www.amazon.de/dp/1846686784/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Ocean of Sound</div>
+<div class="book-author">David Toop</div>
+<div class="book-desc">A poetic exploration of ambient music and radical listening — why sound works, even when it is strange.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+<a href="https://www.amazon.de/dp/1934030937/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Techno Rebels</div>
+<div class="book-author">Dan Sicko</div>
+<div class="book-desc">The definitive account of Detroit techno — its origins, its philosophy, and the men who built it from a dying city.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+<a href="https://www.amazon.de/dp/1781256217/?tag=9bitts-21" target="_blank" rel="noopener" class="book">
+<div class="book-title">Altered State</div>
+<div class="book-author">Matthew Collin</div>
+<div class="book-desc">The story of ecstasy culture and acid house — how a drug and a sound reshaped a generation of British youth.</div>
+<span class="book-cta">View on Amazon →</span>
+</a>
+</div>
+<p class="books-disc">Affiliate disclosure: some links above are Amazon affiliate links. If you buy through them, 9bitts earns a small commission at no extra cost to you — it helps keep this guide free and growing.</p>
+</div>
+</section>
 
-    <h3>The DJ as Author</h3>
-    <p>Electronic music reframed what authorship means in music. A DJ does not compose, in the traditional sense. They select, sequence, and blend music made by others — but in doing so, they create something that did not exist before. The best DJs are not jukebox operators. They are editors of time, shapers of atmosphere, architects of collective experience.</p>
-    <p>The four-hour set at Berghain is not the same art form as the three-minute pop song. It requires different skills, different intentions, different listening. This is worth understanding before dismissing electronic music as "just pressing play."</p>
-
-    <h3>The Floor as Common Ground</h3>
-    <p>Electronic dance music has consistently been a space for people who did not fit elsewhere. Detroit techno emerged from Black communities ignored by mainstream America. Chicago house was built by Black and Latino gay men at a time when American society was actively hostile to their existence. Berlin's early techno scene absorbed people who had just watched the wall come down — a city of displacement and possibility.</p>
-    <p>This is not coincidence. The repetition, the darkness, the physical demands of extended dancing, the anonymity of clubs — these features create a particular kind of equality. On the floor, identity is temporarily suspended. That has always been the music's promise, and its politics.</p>
-
-    <h3>Technology as Composition</h3>
-    <p>In most musical traditions, the instrument is neutral — a guitar is a guitar before anyone plays it. In electronic music, the instrument is already half a composition. The specific character of a Roland TR-808 kick drum, the particular filter of a Moog synthesizer, the way an Ableton session behaves — these are not neutral choices. They shape what is possible to make.</p>
-    <p>This is why the history of electronic music is also a history of machines. And why, when a piece of equipment becomes obsolete, a sound often disappears with it — preserved only in records made while that machine was still in production.</p>
-
-    <h3>The Long Night</h3>
-    <p>Electronic music at its most serious is designed for duration. A Berghain set begins when most people are sleeping and ends when the light comes through windows that have been deliberately designed to prevent that from happening. The music works differently over four hours than it does over four minutes. It accumulates. It changes the body's relationship to time.</p>
-    <p>This is not something that translates easily to a playlist or a streaming service. It is an argument for being in a room, with other people, for a long time. That argument is worth taking seriously.</p>
-  </section>
-
-  <!-- SECTION 6: REFLECTIONS -->
-  <section class="section reveal" id="reflections">
-    <span class="section-label">06 — From 9bitts</span>
-    <h2>Reflections on the music</h2>
-    <p>The posts below explore electronic music not as information but as experience — through the thinkers, ideas, and questions it raises. Each connects a philosophical thread to the sound that carries it.</p>
-
-    <div id="posts-container">
-      <div class="posts-grid" id="posts-grid">
-        <!-- Posts carregados dinamicamente -->
-      </div>
-    </div>
-    <p style="margin-top:1.5rem;"><a href="https://9bitts.com/blog.html" style="color:var(--green);text-decoration:none;font-size:.9rem;">View all reflections →</a></p>
-  </section>
-
+</main>
 </div>
 
 <footer>
-  <p>© 2025 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="https://9bitts.com/terms.html">Terms</a> · <a href="https://9bitts.com/privacy.html">Privacy</a></p>
+<p>© 2026 9bitts · <a href="https://9bitts.com">Home</a> · <a href="https://9bitts.com/artists.html">Artists</a> · <a href="https://9bitts.com/blog.html">Blog</a> · <a href="https://9bitts.com/shop.html">Shop</a> · <a href="mailto:diegoalbs@proton.me">Contact</a></p>
 </footer>
 
 <script>
-  // Reveal on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: .1, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Load recent posts
-  async function loadPosts() {
-    try {
-      const res = await fetch('https://api.github.com/repos/9bitts/9bitts-site/contents/music');
-      const files = await res.json();
-      const jsonFiles = files.filter(f => f.name.endsWith('.json') && f.name !== 'index.json').slice(0, 6);
-      const posts = await Promise.all(jsonFiles.map(async f => {
-        const r = await fetch(f.download_url);
-        return r.ok ? r.json() : null;
-      }));
-      const grid = document.getElementById('posts-grid');
-      const valid = posts.filter(Boolean);
-      if (valid.length === 0) { grid.innerHTML = '<p style="color:var(--ink-mute);font-size:.9rem;">Reflections loading soon.</p>'; return; }
-      grid.innerHTML = valid.map(p => `
-        <a class="post-card" href="https://9bitts.com/music/${p.slug}.html">
-          <div class="post-card-meta">Reflection</div>
-          <h3>${p.title}</h3>
-          <p>${(p.excerpt||'').substring(0,100)}${p.excerpt && p.excerpt.length > 100 ? '...' : ''}</p>
-          <div class="post-card-arrow">Read →</div>
-        </a>`).join('');
-    } catch(e) {
-      document.getElementById('posts-grid').innerHTML = '<p style="color:var(--ink-mute);font-size:.9rem;">Reflections loading soon.</p>';
+const links=document.querySelectorAll('.toc-link');
+const sections=document.querySelectorAll('.section');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      const active=document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+      if(active)active.classList.add('active');
     }
-  }
-  loadPosts();
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>obs.observe(s));
 </script>
-
 </body>
 </html>
