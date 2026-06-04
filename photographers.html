@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photographers — 9bitts</title>
+<meta name="description" content="The photographers documenting electronic music culture — from Berlin techno to festival stages. A curated guide to the lenses behind the scene.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--ink:#1a1a1a;--ink-soft:#4a4a48;--ink-mute:#8a8a85;--line:#e8e6e0;--accent:#2d5f3f;--gold:#c8a97e;--dark:#0e0e0e;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--dark);color:#f0ede8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(14,14,14,.8);border-bottom:1px solid rgba(255,255,255,.06);transition:padding .3s}
+nav.scrolled{padding:1rem 2rem}
+.logo{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:#f0ede8;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-mark{width:28px;height:28px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:.85rem;font-weight:600;font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;z-index:200}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(14,14,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;font-weight:300;font-style:italic;color:#f0ede8;text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}nav{padding:1rem 1.25rem}}
+
+/* HERO */
+.hero{min-height:55vh;display:flex;align-items:flex-end;padding:8rem 2rem 5rem;position:relative;overflow:hidden;background:var(--dark)}
+.hero::before{content:'';position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(200,169,126,.07),transparent 70%);border-radius:50%;pointer-events:none}
+.hero-inner{max-width:1240px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;color:var(--gold);margin-bottom:1.5rem;font-weight:500}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,7vw,5.5rem);font-weight:300;line-height:.95;letter-spacing:-.03em;color:#f0ede8;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-lead{font-size:1.05rem;color:rgba(255,255,255,.45);max-width:560px;font-weight:300;line-height:1.75}
+.hero-count{margin-top:2rem;font-size:.78rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.2em}
+
+/* FILTERS */
+.filters-bar{padding:2rem 2rem 0;max-width:1240px;margin:0 auto;display:flex;gap:.75rem;flex-wrap:wrap}
+.filter-btn{padding:.5rem 1.25rem;border-radius:99px;border:1px solid rgba(255,255,255,.1);background:none;color:rgba(255,255,255,.5);font-family:var(--sans);font-size:.82rem;cursor:pointer;transition:all .25s}
+.filter-btn:hover,.filter-btn.active{background:rgba(200,169,126,.12);border-color:rgba(200,169,126,.4);color:var(--gold)}
+
+/* FEATURED GRID */
+.featured-section{padding:4rem 2rem 2rem;max-width:1240px;margin:0 auto}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.25em;color:rgba(255,255,255,.3);margin-bottom:2rem;font-weight:500}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:900px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.featured-grid{grid-template-columns:1fr}}
+
+.feat-card{position:relative;border-radius:20px;overflow:hidden;background:#161616;border:1px solid rgba(255,255,255,.07);aspect-ratio:3/4;cursor:pointer;text-decoration:none;display:block;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.feat-card:hover{transform:translateY(-6px);border-color:rgba(200,169,126,.25);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.feat-card img{width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .4s,transform .4s;display:block}
+.feat-card:hover img{opacity:.8;transform:scale(1.04)}
+.feat-card-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);font-family:var(--serif);font-size:4rem;font-weight:300;font-style:italic;color:rgba(200,169,126,.3)}
+.feat-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.5rem 1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.9) 50%)}
+.feat-specialty{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.feat-name{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:white;line-height:1.1;margin-bottom:.3rem}
+.feat-base{font-size:.75rem;color:rgba(255,255,255,.4)}
+.feat-tag{position:absolute;top:1rem;left:1rem;background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.25);border-radius:99px;padding:.25rem .75rem;font-size:.62rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+
+/* ALL LIST */
+.all-section{padding:4rem 2rem 6rem;max-width:1240px;margin:0 auto}
+.all-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:rgba(255,255,255,.05);border-radius:16px;overflow:hidden}
+.photo-row{background:#0e0e0e;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;text-decoration:none;transition:background .2s}
+.photo-row:hover{background:#161616}
+.photo-row-num{font-family:var(--serif);font-size:.85rem;font-style:italic;color:rgba(255,255,255,.2);width:28px;flex-shrink:0}
+.photo-row-img{width:44px;height:44px;border-radius:8px;overflow:hidden;background:#1a1a1a;flex-shrink:0}
+.photo-row-img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.7}
+.photo-row-img .initials-sm{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(200,169,126,.4)}
+.photo-row-info{flex:1;min-width:0}
+.photo-row-name{font-size:.92rem;font-weight:500;color:#f0ede8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.photo-row-spec{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:.15rem}
+.photo-row-arrow{color:rgba(255,255,255,.2);transition:all .2s;flex-shrink:0}
+.photo-row:hover .photo-row-arrow{color:var(--gold);transform:translateX(3px)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal{background:#111;border-radius:24px;border:1px solid rgba(255,255,255,.08);max-width:560px;width:100%;overflow:hidden;position:relative}
+.modal-img{width:100%;height:260px;object-fit:cover;display:block;opacity:.8}
+.modal-img-placeholder{width:100%;height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);font-family:var(--serif);font-size:6rem;font-style:italic;color:rgba(200,169,126,.2)}
+.modal-body{padding:2rem}
+.modal-spec{font-size:.68rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:.5rem}
+.modal-name{font-family:var(--serif);font-size:2rem;font-weight:300;font-style:italic;color:#f0ede8;margin-bottom:.25rem}
+.modal-base{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.modal-bio{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1.5rem}
+.modal-links{display:flex;gap:.75rem;flex-wrap:wrap}
+.modal-link{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;transition:all .2s}
+.modal-link:hover{background:rgba(200,169,126,.12);border-color:rgba(200,169,126,.3);color:var(--gold)}
+.modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s}
+.modal-close:hover{background:rgba(255,255,255,.1);color:#fff}
+
+footer{background:#080808;padding:3rem 2rem 2rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--serif);font-size:1.2rem;color:#fff}
+.footer-links-row{display:flex;gap:2rem}
+.footer-links-row a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer-copy{max-width:1240px;margin:.75rem auto 0;font-size:.78rem;color:rgba(255,255,255,.2)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+<a href="/" class="logo"><span class="logo-mark">9b</span><span>9bitts</span></a>
+<ul class="nav-links">
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/#music">Music</a></li>
+  <li><a href="/artists.html">Artists</a></li>
+  <li><a href="/photos.html">Photos</a></li>
+  <li><a href="/blog.html">Blog</a></li>
+  <li><a href="/shop.html">Shop</a></li>
+  <li><a href="/music/">Learn</a></li>
+  <li><a href="/#connect">Connect</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner reveal">
+    <div class="hero-eyebrow">Visual archive</div>
+    <h1>The lenses<br>behind the <em>scene.</em></h1>
+    <p class="hero-lead">A curated guide to photographers documenting electronic music culture — from Berlin's underground clubs to festival stages across the world.</p>
+    <div class="hero-count" id="hero-count">20 photographers</div>
+  </div>
+</section>
+
+<div class="filters-bar reveal">
+  <button class="filter-btn active" onclick="filterPhotographers('all', this)">All</button>
+  <button class="filter-btn" onclick="filterPhotographers('Festival', this)">Festival</button>
+  <button class="filter-btn" onclick="filterPhotographers('Techno', this)">Techno</button>
+  <button class="filter-btn" onclick="filterPhotographers('Underground', this)">Underground</button>
+  <button class="filter-btn" onclick="filterPhotographers('Portrait', this)">Portrait</button>
+</div>
+
+<section class="featured-section">
+  <div class="section-label reveal">Featured photographers</div>
+  <div class="featured-grid" id="featured-grid"></div>
+</section>
+
+<section class="all-section">
+  <div class="section-label reveal">All photographers</div>
+  <div class="all-grid" id="all-grid"></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">9bitts</div>
+    <div class="footer-links-row">
+      <a href="/">Home</a>
+      <a href="/artists.html">Artists</a>
+      <a href="/photos.html">Photos</a>
+      <a href="/blog.html">Blog</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 9bitts 2026. Made in Germany.</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="modal-img-wrap"></div>
+    <div class="modal-body">
+      <div class="modal-spec" id="modal-spec"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-base" id="modal-base"></div>
+      <div class="modal-bio" id="modal-bio"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/artists.html" onclick="closeMobile()">Artists</a>
+  <a href="/photos.html" onclick="closeMobile()">Photos</a>
+  <a href="/blog.html" onclick="closeMobile()">Blog</a>
+  <a href="/music/" onclick="closeMobile()">Learn</a>
+  <a href="/shop.html" onclick="closeMobile()">Shop</a>
+</div>
+
+<script>
+const UNSPLASH_KEY = 'r0HDm8184A_ICBTLUlOc3g-h3FQ8zz7neZQ5QFUlkaU';
+
+const photographers = [
+  // FEATURED (first 6)
+  {
+    id: 'rukes', name: 'Rukes', full: 'Drew "Rukes" Ressler', base: 'Los Angeles, USA',
+    specialty: 'Festival & EDM', tags: ['Festival'],
+    bio: 'The most recognized name in EDM photography. Rukes has documented virtually every major electronic music festival on the planet — from Ultra to Tomorrowland — with his signature fish-eye style. Official photographer for some of the world\'s biggest DJs.',
+    website: 'https://www.rukes.com', instagram: 'https://www.instagram.com/rukes',
+    unsplash_query: 'EDM festival concert crowd stage', featured: true
+  },
+  {
+    id: 'nebieridze', name: 'George Nebieridze', full: 'George Nebieridze', base: 'Berlin, Germany',
+    specialty: 'Berlin Techno Underground', tags: ['Techno', 'Underground', 'Portrait'],
+    bio: 'Tbilisi-born, Berlin-based photographer deeply embedded in the techno underground. His work documents the city\'s electronic music scene from the inside — portraits of Richie Hawtin, DJ Stingray, Call Super, and Bassiani residents, taken with intimate access and artistic precision.',
+    instagram: 'https://www.instagram.com/george_nebieridze',
+    unsplash_query: 'techno underground club dark portrait', featured: true
+  },
+  {
+    id: 'chinchure', name: 'Aditya Chinchure', full: 'Aditya Chinchure', base: 'India',
+    specialty: 'Festival & Concert', tags: ['Festival'],
+    bio: 'One of the most shared concert and festival photographers on Unsplash. His work captures the overwhelming scale and energy of large electronic music events — crowd shots, stage panoramas, and light spectacles that place the viewer inside the experience.',
+    unsplash_user: 'aditya_chinchure',
+    unsplash_query: 'concert festival crowd electronic music stage lights', featured: true
+  },
+  {
+    id: 'smith', name: 'Zachary Smith', full: 'Zachary Smith', base: 'Philadelphia, USA',
+    specialty: 'Rave & Festival', tags: ['Festival', 'Underground'],
+    bio: 'Philadelphia-based photographer known for his documentation of rave culture and electronic music festivals. His work on Unsplash has become a reference for the raw, kinetic energy of festival crowds — honest, unposed, and full of life.',
+    unsplash_user: 'lokoslens',
+    unsplash_query: 'rave festival crowd people dancing night', featured: true
+  },
+  {
+    id: 'verhalle', name: 'Alex Verhalle', full: 'Alex Verhalle', base: 'Brussels, Belgium',
+    specialty: 'Techno Stop-Motion', tags: ['Techno', 'Underground'],
+    bio: 'Brussels-based visual artist combining deep love for techno with a unique stop-motion photographic approach. His black-and-white work captures intimate rave moments with raw authenticity — the underground techno scene at its most real.',
+    instagram: 'https://www.instagram.com/alexverhalle',
+    unsplash_query: 'black white techno rave party club dark', featured: true
+  },
+  {
+    id: 'sumila', name: 'Kajetan Sumila', full: 'Kajetan Sumila', base: 'Poland',
+    specialty: 'Rave & Night Culture', tags: ['Underground', 'Festival'],
+    bio: 'Polish photographer with a distinct eye for the atmospheric side of rave culture. His Unsplash portfolio includes striking images of crowd energy, stage lighting, and the sensory overload of electronic music events — always shot with a cinematic quality.',
+    unsplash_user: 'kajtek25',
+    unsplash_query: 'rave crowd atmosphere night festival laser lights', featured: true
+  },
+  // ALL LIST (remaining 14)
+  {
+    id: 'howe', name: 'Danny Howe', full: 'Danny Howe', base: 'UK',
+    specialty: 'Festival & Concert', tags: ['Festival'],
+    bio: 'UK-based photographer with strong festival coverage on Unsplash. Known for wide-angle crowd shots.',
+    unsplash_query: 'concert festival crowd stage music', featured: false
+  },
+  {
+    id: 'popov', name: 'Aleksandr Popov', full: 'Aleksandr Popov', base: 'Russia',
+    specialty: 'Techno & Club', tags: ['Techno', 'Underground'],
+    bio: 'Prolific Unsplash photographer with an extensive techno party portfolio — dark, moody, and atmospheric.',
+    unsplash_query: 'techno party club dark crowd', featured: false
+  },
+  {
+    id: 'lincoln', name: 'Daniel Lincoln', full: 'Daniel Lincoln', base: 'USA',
+    specialty: 'EDM & Festival', tags: ['Festival'],
+    bio: 'Festival photographer with strong coverage of large-scale electronic music events.',
+    unsplash_query: 'EDM festival stage lights crowd', featured: false
+  },
+  {
+    id: 'myten', name: 'Pim Myten', full: 'Pim Myten', base: 'Netherlands',
+    specialty: 'Rave Culture', tags: ['Underground'],
+    bio: 'Dutch photographer documenting the raw energy of rave parties and club nights.',
+    unsplash_query: 'rave party club night people', featured: false
+  },
+  {
+    id: 'bromell', name: 'Zac Bromell', full: 'Zac Bromell', base: 'USA',
+    specialty: 'EDM & Concerts', tags: ['Festival'],
+    bio: 'American concert photographer with a focus on the energy and spectacle of electronic music shows.',
+    unsplash_query: 'concert electronic music lights crowd', featured: false
+  },
+  {
+    id: 'ward', name: 'Eric Ward', full: 'Eric Ward', base: 'USA',
+    specialty: 'Festival Photography', tags: ['Festival'],
+    bio: 'Festival photographer known for capturing the light and scale of large music events.',
+    unsplash_query: 'music festival night lights stage', featured: false
+  },
+  {
+    id: 'naibaho', name: 'Hanny Naibaho', full: 'Hanny Naibaho', base: 'Indonesia',
+    specialty: 'Concert & Festival', tags: ['Festival'],
+    bio: 'Indonesian photographer with striking festival imagery on Unsplash.',
+    unsplash_query: 'concert festival crowd stage', featured: false
+  },
+  {
+    id: 'laskoski', name: 'Marcela Laskoski', full: 'Marcela Laskoski', base: 'Brazil',
+    specialty: 'DJ & Club', tags: ['Portrait', 'Underground'],
+    bio: 'Brazilian photographer known for intimate DJ and club photography.',
+    unsplash_query: 'DJ club music night portrait', featured: false
+  },
+  {
+    id: 'fedotov', name: 'Vladimir Fedotov', full: 'Vladimir Fedotov', base: 'Russia',
+    specialty: 'Rave & Party', tags: ['Underground'],
+    bio: 'Documentary photographer covering underground rave and party culture.',
+    unsplash_query: 'rave underground party crowd', featured: false
+  },
+  {
+    id: 'wicks', name: 'Ben Wicks', full: 'Ben Wicks', base: 'UK',
+    specialty: 'Festival', tags: ['Festival'],
+    bio: 'UK festival photographer with strong EDM event coverage.',
+    unsplash_query: 'festival music crowd stage UK', featured: false
+  },
+  {
+    id: 'shizuru', name: 'Nainoa Shizuru', full: 'Nainoa Shizuru', base: 'Hawaii, USA',
+    specialty: 'Concert & Festival', tags: ['Festival'],
+    bio: 'Hawaiian photographer with a warm, cinematic approach to concert photography.',
+    unsplash_query: 'concert crowd music festival warm', featured: false
+  },
+  {
+    id: 'pham', name: 'Tony Pham', full: 'Tony Pham', base: 'USA',
+    specialty: 'Concert Photography', tags: ['Festival'],
+    bio: 'American concert photographer focused on the human moments inside music events.',
+    unsplash_query: 'concert music crowd night live', featured: false
+  },
+  {
+    id: 'adame', name: 'Matty Adame', full: 'Matty Adame', base: 'USA',
+    specialty: 'EDM & Festival', tags: ['Festival'],
+    bio: 'EDM festival photographer with a focus on crowd energy and stage spectacle.',
+    unsplash_query: 'EDM festival stage crowd energy', featured: false
+  },
+  {
+    id: 'lloyd', name: 'Colin Lloyd', full: 'Colin Lloyd', base: 'Canada',
+    specialty: 'Festival & Concert', tags: ['Festival'],
+    bio: 'Canadian photographer documenting music festivals with a clean, sharp style.',
+    unsplash_query: 'music festival concert crowd Canada', featured: false
+  }
+];
+
+let photoCache = {};
+let currentFilter = 'all';
+
+async function fetchPhoto(query, orientation='portrait') {
+  if (photoCache[query]) return photoCache[query];
+  try {
+    const res = await fetch(
+      `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=8&orientation=${orientation}&client_id=${UNSPLASH_KEY}`
+    );
+    const data = await res.json();
+    if (data.results && data.results.length > 0) {
+      const idx = Math.floor(Math.random() * Math.min(5, data.results.length));
+      photoCache[query] = data.results[idx];
+      return data.results[idx];
+    }
+  } catch(e) {}
+  return null;
+}
+
+function getInitials(name) {
+  return name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+}
+
+async function renderFeatured() {
+  const grid = document.getElementById('featured-grid');
+  const featured = photographers.filter(p => p.featured);
+  featured.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'feat-card reveal';
+    card.dataset.tags = (p.tags||[]).join(',');
+    card.innerHTML = `
+      <div class="feat-card-initials" id="feat-img-${p.id}">${getInitials(p.name)}</div>
+      <div class="feat-tag">${p.specialty}</div>
+      <div class="feat-overlay">
+        <div class="feat-specialty">${p.tags ? p.tags[0] : ''}</div>
+        <div class="feat-name">${p.name}</div>
+        <div class="feat-base">${p.base}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openModal(p));
+    grid.appendChild(card);
+    // load photo async
+    fetchPhoto(p.unsplash_query, 'portrait').then(photo => {
+      if (photo) {
+        const wrap = document.getElementById(`feat-img-${p.id}`);
+        if (wrap) {
+          const img = document.createElement('img');
+          img.src = photo.urls.regular;
+          img.alt = p.name;
+          wrap.replaceWith(img);
+        }
+      }
+    });
+  });
+}
+
+async function renderAll() {
+  const grid = document.getElementById('all-grid');
+  const all = photographers.filter(p => !p.featured);
+  all.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'photo-row';
+    row.dataset.tags = (p.tags||[]).join(',');
+    row.innerHTML = `
+      <div class="photo-row-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="photo-row-img"><div class="initials-sm" id="row-img-${p.id}">${getInitials(p.name)}</div></div>
+      <div class="photo-row-info">
+        <div class="photo-row-name">${p.name}</div>
+        <div class="photo-row-spec">${p.specialty} · ${p.base}</div>
+      </div>
+      <svg class="photo-row-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    `;
+    row.addEventListener('click', () => openModal(p));
+    grid.appendChild(row);
+    fetchPhoto(p.unsplash_query, 'squarish').then(photo => {
+      if (photo) {
+        const wrap = document.getElementById(`row-img-${p.id}`);
+        if (wrap) {
+          const img = document.createElement('img');
+          img.src = photo.urls.thumb;
+          img.alt = p.name;
+          wrap.replaceWith(img);
+        }
+      }
+    });
+  });
+}
+
+function openModal(p) {
+  document.getElementById('modal-spec').textContent = p.specialty;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-base').textContent = p.base;
+  document.getElementById('modal-bio').textContent = p.bio;
+  const imgWrap = document.getElementById('modal-img-wrap');
+  imgWrap.innerHTML = `<div class="modal-img-placeholder">${getInitials(p.name)}</div>`;
+  fetchPhoto(p.unsplash_query, 'landscape').then(photo => {
+    if (photo) {
+      imgWrap.innerHTML = `<img class="modal-img" src="${photo.urls.regular}" alt="${p.name}">`;
+    }
+  });
+  const links = document.getElementById('modal-links');
+  links.innerHTML = '';
+  if (p.website) links.innerHTML += `<a href="${p.website}" target="_blank" rel="noopener" class="modal-link">Website →</a>`;
+  if (p.instagram) links.innerHTML += `<a href="${p.instagram}" target="_blank" rel="noopener" class="modal-link">Instagram →</a>`;
+  if (p.unsplash_user) links.innerHTML += `<a href="https://unsplash.com/@${p.unsplash_user}" target="_blank" rel="noopener" class="modal-link">Unsplash →</a>`;
+  if (!p.website && !p.instagram && !p.unsplash_user) links.innerHTML = `<span style="font-size:.82rem;color:rgba(255,255,255,.3)">No links available</span>`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function filterPhotographers(tag, btn) {
+  currentFilter = tag;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.feat-card, .photo-row').forEach(el => {
+    if (tag === 'all') { el.style.display = ''; return; }
+    const tags = (el.dataset.tags || '').split(',');
+    el.style.display = tags.includes(tag) ? '' : 'none';
+  });
+}
+
+// Nav
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+window.addEventListener('scroll', () => { if(window.scrollY>20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+
+// Reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Init
+renderFeatured().then(() => {
+  document.querySelectorAll('.feat-card.reveal').forEach(el => observer.observe(el));
+});
+renderAll();
+document.getElementById('hero-count').textContent = photographers.length + ' photographers';
+</script>
+</body>
+</html>
