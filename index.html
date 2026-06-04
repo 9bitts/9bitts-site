@@ -169,7 +169,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 .radio-vol input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:#c8a97e;cursor:pointer}
 .radio-close{width:28px;height:28px;border-radius:50%;background:none;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,.35);transition:all .2s;flex-shrink:0}
 .radio-close:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
-.radio-toggle{position:fixed;bottom:1.25rem;right:1.5rem;z-index:501;background:rgba(14,14,14,.95);border:1px solid rgba(200,169,126,.3);border-radius:99px;padding:.55rem 1.1rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;font-size:.78rem;color:#c8a97e;transition:all .25s ease;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.radio-toggle{position:fixed;bottom:5rem;right:1.5rem;z-index:501;background:rgba(14,14,14,.95);border:1px solid rgba(200,169,126,.3);border-radius:99px;padding:.55rem 1.1rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;font-size:.78rem;color:#c8a97e;transition:all .25s ease;box-shadow:0 4px 20px rgba(0,0,0,.5)}
 .radio-toggle:hover{background:rgba(200,169,126,.12);border-color:#c8a97e}
 .radio-toggle.hidden{display:none}
 @media(max-width:640px){.radio-bar{padding:.75rem 1rem;gap:.75rem}.radio-vol input[type=range]{width:70px}.radio-name{font-size:.88rem}}
@@ -417,7 +417,8 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 <!-- RADIO BAR -->
 <div class="radio-bar" id="radioBar">
   <audio id="radioAudio" preload="none">
-    <source src="https://streams.ilovemusic.de/iloveradio17.mp3" type="audio/mpeg">
+    <source src="https://stream.radioparadise.com/mellow-aac-128" type="audio/aac">
+    <source src="https://stream.radioparadise.com/mellow-mp3-128" type="audio/mpeg">
   </audio>
   <button class="radio-btn" id="radioPlayBtn" onclick="toggleRadio()">
     <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -425,7 +426,7 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
   </button>
   <div class="radio-info">
     <div class="radio-label">9bitts Radio</div>
-    <div class="radio-name">I Love Techno Radio — Live 24h</div>
+    <div class="radio-name">Radio Paradise — Mellow Mix</div>
   </div>
   <div class="radio-live"><div class="radio-live-dot"></div>LIVE</div>
   <div class="radio-vol">
