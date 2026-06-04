@@ -416,22 +416,16 @@ footer{background:var(--ink);color:#b8b6b0;padding:5rem 2rem 2.5rem;margin-top:4
 
 <!-- RADIO BAR -->
 <div class="radio-bar" id="radioBar">
-  <audio id="radioAudio" preload="none">
-    <source src="https://stream.radioparadise.com/mellow-aac-128" type="audio/aac">
-    <source src="https://stream.radioparadise.com/mellow-mp3-128" type="audio/mpeg">
-  </audio>
-  <button class="radio-btn" id="radioPlayBtn" onclick="toggleRadio()">
-    <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-  </button>
   <div class="radio-info">
-    <div class="radio-label">9bitts Radio</div>
-    <div class="radio-name">Radio Paradise — Mellow Mix</div>
+    <div class="radio-label">9bitts — Now Playing</div>
+    <div class="radio-name">Sunrise Sessions | Melodic Techno Mix</div>
   </div>
   <div class="radio-live"><div class="radio-live-dot"></div>LIVE</div>
-  <div class="radio-vol">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-    <input type="range" min="0" max="1" step="0.05" value="0.8" oninput="document.getElementById('radioAudio').volume=this.value">
+  <div id="mixcloud-wrap" style="display:none;flex:1;max-width:400px;">
+    <iframe id="mixcloud-player" width="100%" height="60" 
+      src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&autoplay=1&feed=%2F9bitts%2Fsunrise-sessions-melodic-techno-mix%2F" 
+      frameborder="0" allow="encrypted-media; fullscreen; autoplay;">
+    </iframe>
   </div>
   <button class="radio-close" onclick="closeRadio()">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -458,16 +452,18 @@ loadArtistPhoto('Ben Böhmer','card-benbohmer');
 loadArtistPhoto('Charlotte de Witte','card-charlotte');
 
 // RADIO
-const audio=document.getElementById('radioAudio');
 const bar=document.getElementById('radioBar');
 const toggle=document.getElementById('radioToggle');
-const playIcon=document.getElementById('playIcon');
-const pauseIcon=document.getElementById('pauseIcon');
-let playing=false;
-function openRadio(){bar.classList.add('visible');toggle.classList.add('hidden');audio.volume=0.8;audio.play().catch(()=>{});setPlaying(true);}
-function closeRadio(){bar.classList.remove('visible');toggle.classList.remove('hidden');audio.pause();setPlaying(false);}
-function toggleRadio(){if(playing){audio.pause();setPlaying(false);}else{audio.play().catch(()=>{});setPlaying(true);}}
-function setPlaying(state){playing=state;playIcon.style.display=state?'none':'block';pauseIcon.style.display=state?'block':'none';}
+function openRadio(){
+  bar.classList.add('visible');
+  toggle.classList.add('hidden');
+  document.getElementById('mixcloud-wrap').style.display='flex';
+}
+function closeRadio(){
+  bar.classList.remove('visible');
+  toggle.classList.remove('hidden');
+  document.getElementById('mixcloud-wrap').style.display='none';
+}
 toggle.style.display='none';
 setTimeout(()=>{toggle.style.display='flex';},3000);
 </script>
