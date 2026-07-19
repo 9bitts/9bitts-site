@@ -3,6 +3,10 @@
   const root = document.getElementById("listen-list");
   if (!root) return;
 
+  function t(key, vars) {
+    return window.i18n ? i18n.t(key, vars) : key;
+  }
+
   function esc(str) {
     if (!str) return "";
     return String(str)
@@ -13,7 +17,11 @@
   }
 
   function metaLine(m) {
-    const num = m.number ? `Mix ${m.number}` : m.type === "tribute" ? "Tribute" : "Set";
+    const num = m.number
+      ? t("listen.mix", { n: m.number })
+      : m.type === "tribute"
+        ? t("listen.tribute")
+        : t("listen.set");
     return `${num} · ${m.genre || "Electronic"}`;
   }
 
@@ -29,7 +37,7 @@
       });
 
       if (!mixes.length) {
-        root.innerHTML = `<p style="color:var(--ink-mute);padding:2rem 0;">Sets are on their way.</p>`;
+        root.innerHTML = `<p style="color:var(--ink-mute);padding:2rem 0;">${esc(t("listen.empty"))}</p>`;
         return;
       }
 
@@ -42,7 +50,7 @@
             <div class="meta">${esc(metaLine(m))}${m.duration ? " · " + esc(m.duration) : ""}</div>
             <h3>${esc(m.title)}</h3>
             <p>${esc(m.excerpt)}</p>
-            <div class="listen-open">Open set →</div>
+            <div class="listen-open">${esc(t("cta.openSet"))}</div>
           </div>
         </a>`
         )
@@ -52,9 +60,10 @@
         el.classList.add("visible");
       });
     } catch {
-      root.innerHTML = `<p style="color:var(--ink-mute);padding:2rem 0;">Couldn't load sets right now.</p>`;
+      root.innerHTML = `<p style="color:var(--ink-mute);padding:2rem 0;">${esc(t("listen.error"))}</p>`;
     }
   }
 
   load();
+  document.addEventListener("9bitts:langchange", load);
 })();

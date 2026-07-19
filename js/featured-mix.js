@@ -27,7 +27,8 @@
       const visual = document.querySelector("[data-hero-mix-title]");
 
       if (meta) {
-        meta.textContent = `Featured · ${m.genre || "Electronic"}${m.duration ? " · " + m.duration : ""}`;
+        const prefix = window.i18n ? i18n.t("featured.prefix") : "Featured";
+        meta.textContent = `${prefix} · ${m.genre || "Electronic"}${m.duration ? " · " + m.duration : ""}`;
       }
       if (title) title.textContent = m.title;
       if (lead) lead.textContent = m.excerpt;
@@ -48,4 +49,14 @@
       if (visual) visual.textContent = `${m.title}${m.genre ? " — " + m.genre : ""}`;
     })
     .catch(() => {});
+
+  document.addEventListener("9bitts:langchange", () => {
+    const meta = root.querySelector("[data-mix-meta]");
+    if (!meta || !meta.textContent) return;
+    const parts = meta.textContent.split(" · ");
+    if (parts.length < 2) return;
+    const prefix = window.i18n ? i18n.t("featured.prefix") : "Featured";
+    parts[0] = prefix;
+    meta.textContent = parts.join(" · ");
+  });
 })();

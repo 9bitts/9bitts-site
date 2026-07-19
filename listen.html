@@ -37,14 +37,14 @@
 </div>
 
 <header class="page-hero wrap reveal">
-  <p class="eyebrow">Listen</p>
-  <h1 class="display">Sets made to be heard<br><em>in full.</em></h1>
-  <p class="lead">Carefully sequenced mixes. Each set has its own page — press play, stay until the end. YouTube for the journey, Mixcloud when you want the room open.</p>
+  <p class="eyebrow" data-i18n="listen.eyebrow">Listen</p>
+  <h1 class="display" data-i18n-html="listen.title">Sets made to be heard<br><em>in full.</em></h1>
+  <p class="lead" data-i18n="listen.lead">Carefully sequenced mixes. Each set has its own page — press play, stay until the end. YouTube for the journey, Mixcloud when you want the room open.</p>
 </header>
 
 <section class="wrap section-tight" style="padding-bottom:4rem;">
   <div class="listen-list" id="listen-list">
-    <p style="color:var(--ink-mute);padding:1rem 0;">Loading sets…</p>
+    <p style="color:var(--ink-mute);padding:1rem 0;" data-i18n="listen.loading">Loading sets…</p>
   </div>
 </section>
 
@@ -53,17 +53,17 @@
     <img class="join-avatar" src="https://9bitts.dev/assets/diego.jpg" alt="Diego Albs" width="96" height="96">
     <div class="join-name">Diego Albs</div>
     <div class="join-role">9bitts · Leipzig</div>
-    <p class="eyebrow">Collaborate</p>
-    <h2>DJ or producer<br>in the <em>same spirit?</em></h2>
-    <p class="join-lead">If your sets live in melodic techno, deep house, or the quieter hours of the night — and you want to be part of 9bitts — get in touch. Photographers welcome too.</p>
+    <p class="eyebrow" data-i18n="join.eyebrow">Collaborate</p>
+    <h2 data-i18n-html="listen.join.title">DJ or producer<br>in the <em>same spirit?</em></h2>
+    <p class="join-lead" data-i18n="listen.join.lead">If your sets live in melodic techno, deep house, or the quieter hours of the night — and you want to be part of 9bitts — get in touch. Photographers welcome too.</p>
     <div class="join-tags">
-      <span class="join-tag">DJs</span>
-      <span class="join-tag">Producers</span>
-      <span class="join-tag">Photographers</span>
+      <span class="join-tag" data-i18n="join.djs">DJs</span>
+      <span class="join-tag" data-i18n="join.producers">Producers</span>
+      <span class="join-tag" data-i18n="join.photographers">Photographers</span>
     </div>
     <div class="join-actions">
-      <a class="btn btn-primary" href="mailto:diegoalbs@proton.me?subject=DJ%20%2F%20Producer%20collaboration%20%E2%80%94%209bitts">Send an email</a>
-      <a class="btn btn-ghost" href="https://wa.me/4915208553328?text=Ol%C3%A1%2C%20vim%20pelo%209bitts.com%20%2F%20Listen%20e%20quero%20participar%20como%20DJ%20ou%20producer." target="_blank" rel="noopener">Message on WhatsApp</a>
+      <a class="btn btn-primary" href="mailto:diegoalbs@proton.me?subject=DJ%20%2F%20Producer%20collaboration%20%E2%80%94%209bitts" data-i18n="cta.email">Send an email</a>
+      <a class="btn btn-ghost" href="https://wa.me/4915208553328?text=Ol%C3%A1%2C%20vim%20pelo%209bitts.com%20%2F%20Listen%20e%20quero%20participar%20como%20DJ%20ou%20producer." target="_blank" rel="noopener" data-i18n="cta.whatsapp">Message on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -79,12 +79,14 @@
       <li><a href="/listen.html">Listen</a></li><li><a href="/notes.html">Notes</a></li>
       <li><a href="/journal.html">Journal</a></li><li><a href="/objects.html">Objects</a></li>
     </ul></div>
-    <div class="footer-col"><h4>Legal</h4><ul>
-      <li><a href="/about.html">About</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/privacy.html">Privacy</a></li>
+    <div class="footer-col"><h4>Connect</h4><ul>
+      <li><a href="https://www.youtube.com/@9bitts" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="/terms.html">Terms</a></li><li><a href="/privacy.html">Privacy</a></li>
     </ul></div>
   </div>
   <div class="footer-bottom"><div>© 9bitts 2026</div><div><a href="mailto:diegoalbs@proton.me">Contact</a></div></div>
 </footer>
+<script src="/js/i18n.js"></script>
 <script src="/js/site.js"></script>
 <script src="/js/listen.js"></script>
 </body>

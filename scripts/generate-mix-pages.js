@@ -25,10 +25,10 @@ function buildHtml(m) {
     ? `<div class="mix-player-box"><iframe width="100%" height="120" title="${esc(m.title)}" src="${esc(m.mixcloudEmbed)}" frameborder="0" allow="encrypted-media; fullscreen; autoplay;"></iframe></div>`
     : "";
   const yt = m.youtube
-    ? `<a class="btn btn-primary" href="${esc(m.youtube)}" target="_blank" rel="noopener">Watch on YouTube</a>`
+    ? `<a class="btn btn-primary" href="${esc(m.youtube)}" target="_blank" rel="noopener" data-i18n="mix.youtube">Watch on YouTube</a>`
     : "";
   const mc = m.mixcloud
-    ? `<a class="btn btn-ghost" href="${esc(m.mixcloud)}" target="_blank" rel="noopener">Open on Mixcloud</a>`
+    ? `<a class="btn btn-ghost" href="${esc(m.mixcloud)}" target="_blank" rel="noopener" data-i18n="mix.mixcloud">Open on Mixcloud</a>`
     : "";
   const duration = m.duration ? ` · ${esc(m.duration)}` : "";
 
@@ -91,7 +91,7 @@ function buildHtml(m) {
 </div>
 
 <article class="mix-page wrap">
-  <a class="mix-back" href="/listen.html">← All sets</a>
+  <a class="mix-back" href="/listen.html" data-i18n="mix.back">← All sets</a>
   <p class="eyebrow">${esc(meta)}${duration}</p>
   <h1 class="display mix-page-title">${esc(m.title)}</h1>
   <p class="lead mix-page-lead">${esc(m.description || m.excerpt)}</p>
@@ -99,7 +99,7 @@ function buildHtml(m) {
   ${player}
   <div class="mix-page-actions">${yt}${mc}</div>
   <div class="mix-page-more">
-    <p>Explore more from 9bitts</p>
+    <p data-i18n="mix.more">Explore more from 9bitts</p>
     <div class="mix-page-links">
       <a href="/journal.html">Journal</a>
       <a href="/notes.html">Notes</a>
@@ -126,6 +126,7 @@ function buildHtml(m) {
   </div>
   <div class="footer-bottom"><div>© 9bitts 2026</div><div><a href="mailto:diegoalbs@proton.me">Contact</a></div></div>
 </footer>
+<script src="/js/i18n.js"></script>
 <script src="/js/site.js"></script>
 </body>
 </html>

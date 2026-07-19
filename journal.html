@@ -76,24 +76,24 @@
 </div>
 
 <header class="page-hero wrap reveal">
-  <p class="eyebrow">Journal</p>
-  <h1 class="display">Music, art,<br>and the <em>examined life.</em></h1>
-  <p class="lead">Longer essays — one thought at a time, paired with the music that makes it land. For short weekly dispatches, see <a href="/notes.html" style="color:var(--accent);">Notes</a>.</p>
+  <p class="eyebrow" data-i18n="journal.eyebrow">Journal</p>
+  <h1 class="display" data-i18n-html="journal.title">Music, art,<br>and the <em>examined life.</em></h1>
+  <p class="lead" data-i18n="journal.lead">Longer essays — one thought at a time, paired with the music that makes it land. For short weekly dispatches, see Notes.</p>
 </header>
 
 <div class="wrap" id="blog-container">
-  <div class="loading-state"><p>Loading essays…</p></div>
+  <div class="loading-state"><p data-i18n="journal.loading">Loading essays…</p></div>
 </div>
 <div class="pagination" id="pagination" style="display:none">
-  <button id="prev-btn" onclick="changePage(-1)" disabled>← Previous</button>
+  <button id="prev-btn" onclick="changePage(-1)" disabled data-i18n="journal.prev">← Previous</button>
   <span id="page-info" style="display:flex;align-items:center;font-size:.85rem;color:var(--ink-mute)"></span>
-  <button id="next-btn" onclick="changePage(1)">Next →</button>
+  <button id="next-btn" onclick="changePage(1)" data-i18n="journal.next">Next →</button>
 </div>
 
 <div class="nl-band">
-  <span class="eyebrow" style="color:rgba(255,255,255,.65);">Stay close</span>
-  <h2>One thought. One set. Every week.</h2>
-  <p>A quiet letter from the room — reflection and sound, nothing else.</p>
+  <span class="eyebrow" style="color:rgba(255,255,255,.65);" data-i18n="journal.nl.eyebrow">Stay close</span>
+  <h2 data-i18n="journal.nl.title">One thought. One set. Every week.</h2>
+  <p data-i18n="journal.nl.body">A quiet letter from the room — reflection and sound, nothing else.</p>
   <div class="ml-embedded" data-form="av8S2o"></div>
 </div>
 
@@ -114,6 +114,7 @@
   </div>
   <div class="footer-bottom"><div>© 9bitts 2026</div><div><a href="mailto:diegoalbs@proton.me">Contact</a></div></div>
 </footer>
+<script src="/js/i18n.js"></script>
 <script src="/js/site.js"></script>
 <script>
   const GITHUB_API = 'https://api.github.com/repos/9bitts/9bitts-site/contents/music';
@@ -135,8 +136,15 @@
       allPosts = posts.filter(Boolean).sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
       renderPage(1);
     } catch {
-      document.getElementById('blog-container').innerHTML = '<div class="empty-state"><p>Couldn\'t load essays right now.</p></div>';
+      const err = (window.i18n && i18n.t('journal.error')) || "Couldn't load essays right now.";
+      document.getElementById('blog-container').innerHTML = `<div class="empty-state"><p>${err}</p></div>`;
     }
+  }
+
+  function localeTag() {
+    const map = { en: 'en-US', pt: 'pt-BR', de: 'de-DE' };
+    const lang = (window.i18n && i18n.lang) || 'en';
+    return map[lang] || 'en-US';
   }
 
   function renderPage(page) {
@@ -158,15 +166,16 @@
     const imageHtml = post.image
       ? `<img class="post-card-image" src="${esc(post.image)}" alt="${esc(post.title)}" loading="lazy">`
       : `<div class="post-card-image-placeholder">9b</div>`;
-    const date = post.date ? new Date(post.date).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '';
+    const date = post.date ? new Date(post.date).toLocaleDateString(localeTag(), { year:'numeric', month:'long', day:'numeric' }) : '';
     const excerpt = post.excerpt ? post.excerpt.substring(0, 120) + (post.excerpt.length > 120 ? '…' : '') : '';
+    const read = (window.i18n && i18n.t('journal.read')) || 'Read →';
     return `<a class="post-card" href="/music/${esc(post.slug)}.html">
       ${imageHtml}
       <div class="post-card-body">
         <div class="post-card-date">${esc(date)}</div>
         <div class="post-card-title">${esc(post.title)}</div>
         <div class="post-card-excerpt">${esc(excerpt)}</div>
-        <div class="post-card-footer">Read →</div>
+        <div class="post-card-footer">${esc(read)}</div>
       </div>
     </a>`;
   }
@@ -176,8 +185,12 @@
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
   function showEmpty() {
-    document.getElementById('blog-container').innerHTML = '<div class="empty-state"><p>The first essay is on its way.</p></div>';
+    const msg = (window.i18n && i18n.t('journal.empty')) || 'The first essay is on its way.';
+    document.getElementById('blog-container').innerHTML = `<div class="empty-state"><p>${msg}</p></div>`;
   }
+  document.addEventListener('9bitts:langchange', () => {
+    if (allPosts.length) renderPage(currentPage);
+  });
   function changePage(dir) {
     const total = Math.ceil(allPosts.length / POSTS_PER_PAGE);
     const next = currentPage + dir;

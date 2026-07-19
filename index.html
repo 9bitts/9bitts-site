@@ -50,17 +50,17 @@
 <!-- 1. HERO -->
 <section class="home-hero">
   <div class="home-hero-copy">
-    <p class="eyebrow">Leipzig · Melodic techno · Deep house</p>
-    <h1 class="home-brand">9bitts<span>electronic music for attention</span></h1>
-    <p class="lead" style="margin-bottom:2rem;max-width:28rem;">A small room where sound, image, and thought meet. Sets made to be heard from start to finish — and words for what the music leaves behind.</p>
+    <p class="eyebrow" data-i18n="home.eyebrow">Leipzig · Melodic techno · Deep house</p>
+    <h1 class="home-brand">9bitts<span data-i18n="home.tagline">electronic music for attention</span></h1>
+    <p class="lead" style="margin-bottom:2rem;max-width:28rem;" data-i18n="home.lead">A small room where sound, image, and thought meet. Sets made to be heard from start to finish — and words for what the music leaves behind.</p>
     <div style="display:flex;flex-wrap:wrap;gap:.75rem;">
-      <a href="#room" class="btn btn-primary">Play the latest set <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="/notes.html" class="btn btn-ghost">Read today's note</a>
+      <a href="#room" class="btn btn-primary"><span data-i18n="home.cta.play">Play the latest set</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/notes.html" class="btn btn-ghost" data-i18n="home.cta.note">Read today's note</a>
     </div>
   </div>
   <div class="home-hero-visual" aria-hidden="true">
     <div class="home-hero-visual-inner">
-      <div class="label">Now in the room</div>
+      <div class="label" data-i18n="home.now">Now in the room</div>
       <h2 data-hero-mix-title>Between Worlds — melodic house & techno</h2>
     </div>
   </div>
@@ -69,8 +69,8 @@
 <!-- 2. THE ROOM -->
 <section class="featured-mix" id="room">
   <div class="wrap reveal" id="featured-mix">
-    <p class="eyebrow">The room</p>
-    <h2 class="display">Press play.<br><em>Stay until the end.</em></h2>
+    <p class="eyebrow" data-i18n="home.room.eyebrow">The room</p>
+    <h2 class="display" data-i18n-html="home.room.title">Press play.<br><em>Stay until the end.</em></h2>
     <p class="lead" data-mix-lead>One featured set — sequenced with intention. Not a playlist. A journey.</p>
     <div class="mix-player">
       <div class="mix-meta" data-mix-meta>Featured · Melodic House & Techno · ~65 min</div>
@@ -79,9 +79,9 @@
         <iframe data-mix-iframe width="100%" height="60" title="Between Worlds on Mixcloud" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2F9bitts%2Fbetween-worlds-melodic-house-techno-mix-9bitts%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
       </div>
       <div style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:1rem;">
-        <a data-mix-youtube href="https://youtu.be/Q_aYWFX8vi0" target="_blank" rel="noopener" style="color:var(--gold);font-size:.9rem;text-decoration:none;">Watch on YouTube →</a>
-        <a data-mix-page href="/listen/between-worlds.html" style="color:rgba(255,255,255,.55);font-size:.9rem;text-decoration:none;">Open set page →</a>
-        <a href="/listen.html" style="color:rgba(255,255,255,.35);font-size:.9rem;text-decoration:none;">All sets →</a>
+        <a data-mix-youtube href="https://youtu.be/Q_aYWFX8vi0" target="_blank" rel="noopener" style="color:var(--gold);font-size:.9rem;text-decoration:none;" data-i18n="cta.youtube">Watch on YouTube →</a>
+        <a data-mix-page href="/listen/between-worlds.html" style="color:rgba(255,255,255,.55);font-size:.9rem;text-decoration:none;" data-i18n="cta.setPage">Open set page →</a>
+        <a href="/listen.html" style="color:rgba(255,255,255,.35);font-size:.9rem;text-decoration:none;" data-i18n="cta.allSets">All sets →</a>
       </div>
     </div>
   </div>
@@ -91,13 +91,13 @@
 <section class="notes-strip section">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Notes</p>
-      <h2 class="display">What is in the room<br><em>this week.</em></h2>
-      <p class="lead">Short dispatches — a listen, a thought, a visual. Updated often. Easy to return to.</p>
+      <p class="eyebrow" data-i18n="home.notes.eyebrow">Notes</p>
+      <h2 class="display" data-i18n-html="home.notes.title">What is in the room<br><em>this week.</em></h2>
+      <p class="lead" data-i18n="home.notes.lead">Short dispatches — a listen, a thought, a visual. Updated often. Easy to return to.</p>
     </div>
     <div class="notes-list" id="notes-strip-list"></div>
     <div class="section-cta reveal">
-      <a href="/notes.html" class="btn btn-ghost">All notes</a>
+      <a href="/notes.html" class="btn btn-ghost" data-i18n="home.notes.cta">All notes</a>
     </div>
   </div>
 </section>
@@ -106,29 +106,29 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Journal</p>
-      <h2 class="display">Longer thoughts<br><em>from the quiet side.</em></h2>
-      <p class="lead">Essays drawn from thinkers who looked closely — paired with the music that makes them land.</p>
+      <p class="eyebrow" data-i18n="home.journal.eyebrow">Journal</p>
+      <h2 class="display" data-i18n-html="home.journal.title">Longer thoughts<br><em>from the quiet side.</em></h2>
+      <p class="lead" data-i18n="home.journal.lead">Essays drawn from thinkers who looked closely — paired with the music that makes them land.</p>
     </div>
     <div class="card-grid" id="journal-teasers">
       <a class="soft-card reveal" href="/journal.html">
-        <span class="tag">Reflection</span>
-        <h3>Music, art, and the examined life</h3>
-        <p>Open the journal for essays on attention, craft, and what sound carries when it stops being entertainment.</p>
+        <span class="tag" data-i18n="home.journal.card1.tag">Reflection</span>
+        <h3 data-i18n="home.journal.card1.title">Music, art, and the examined life</h3>
+        <p data-i18n="home.journal.card1.body">Open the journal for essays on attention, craft, and what sound carries when it stops being entertainment.</p>
       </a>
       <a class="soft-card reveal" href="/music/the-unexamined-life-socrates.html">
         <span class="tag">Socrates</span>
-        <h3>The unexamined life</h3>
-        <p>He didn't ask questions to win arguments. He asked because most people were sleepwalking through their own existence.</p>
+        <h3 data-i18n="home.journal.card2.title">The unexamined life</h3>
+        <p data-i18n="home.journal.card2.body">He didn't ask questions to win arguments. He asked because most people were sleepwalking through their own existence.</p>
       </a>
       <a class="soft-card reveal" href="/music/loss-as-teacher-nick-cave.html">
         <span class="tag">Nick Cave</span>
-        <h3>Loss as teacher</h3>
-        <p>What grief taught one of music's most uncompromising voices — and what it asks of anyone who makes work.</p>
+        <h3 data-i18n="home.journal.card3.title">Loss as teacher</h3>
+        <p data-i18n="home.journal.card3.body">What grief taught one of music's most uncompromising voices — and what it asks of anyone who makes work.</p>
       </a>
     </div>
     <div class="section-cta reveal">
-      <a href="/journal.html" class="btn btn-ghost">Enter the journal</a>
+      <a href="/journal.html" class="btn btn-ghost" data-i18n="home.journal.cta">Enter the journal</a>
     </div>
   </div>
 </section>
@@ -137,19 +137,19 @@
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Around the sound</p>
-      <h2 class="display">The world that<br><em>holds the music.</em></h2>
+      <p class="eyebrow" data-i18n="home.around.eyebrow">Around the sound</p>
+      <h2 class="display" data-i18n-html="home.around.title">The world that<br><em>holds the music.</em></h2>
     </div>
     <div class="split-grid">
       <a href="/world.html" class="panel panel-dark reveal">
         <span class="tag">World</span>
-        <h3>Guide & artists</h3>
-        <p>A living encyclopedia of electronic music — and the people shaping it today.</p>
+        <h3 data-i18n="home.world.title">Guide & artists</h3>
+        <p data-i18n="home.world.body">A living encyclopedia of electronic music — and the people shaping it today.</p>
       </a>
       <a href="/visuals.html" class="panel panel-light reveal">
         <span class="tag">Visuals</span>
-        <h3>The visual side</h3>
-        <p>Photographs from the floor, the booth, the light. An archive in progress.</p>
+        <h3 data-i18n="home.visuals.title">The visual side</h3>
+        <p data-i18n="home.visuals.body">Photographs from the floor, the booth, the light. An archive in progress.</p>
       </a>
     </div>
   </div>
@@ -160,17 +160,17 @@
   <div class="wrap">
     <div class="belong-grid">
       <div class="reveal">
-        <p class="eyebrow">Stay in the room</p>
-        <h2>One thought.<br>One set.<br><em>Every week.</em></h2>
-        <p>Reflections on music and attention — delivered quietly. No noise. Just the work.</p>
+        <p class="eyebrow" data-i18n="home.belong.eyebrow">Stay in the room</p>
+        <h2 data-i18n-html="home.belong.title">One thought.<br>One set.<br><em>Every week.</em></h2>
+        <p data-i18n="home.belong.body">Reflections on music and attention — delivered quietly. No noise. Just the work.</p>
         <div class="belong-box"><div class="ml-embedded" data-form="av8S2o"></div></div>
       </div>
       <div class="reveal">
-        <p class="eyebrow">Keep the frequency alive</p>
-        <h2>If this music<br>means something<br><em>to you.</em></h2>
-        <p>9bitts is made by one person, with no label behind it. If a set or a note stayed with you, you can help keep the room open.</p>
-        <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener" class="btn btn-gold">Support the project</a>
-        <p class="belong-fine">Or take something with you → <a href="/objects.html">Objects</a></p>
+        <p class="eyebrow" data-i18n="home.support.eyebrow">Keep the frequency alive</p>
+        <h2 data-i18n-html="home.support.title">If this music<br>means something<br><em>to you.</em></h2>
+        <p data-i18n="home.support.body">9bitts is made by one person, with no label behind it. If a set or a note stayed with you, you can help keep the room open.</p>
+        <a href="https://paypal.me/DiegoAlbsPassos" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="cta.support">Support the project</a>
+        <p class="belong-fine"><span data-i18n="home.support.fine">Or take something with you →</span> <a href="/objects.html" data-i18n="nav.objects">Objects</a></p>
       </div>
     </div>
   </div>
@@ -181,17 +181,17 @@
     <img class="join-avatar" src="https://9bitts.dev/assets/diego.jpg" alt="Diego Albs" width="96" height="96">
     <div class="join-name">Diego Albs</div>
     <div class="join-role">9bitts · Leipzig</div>
-    <p class="eyebrow">Collaborate</p>
-    <h2>Want to be part<br>of <em>the room?</em></h2>
-    <p class="join-lead">Photographers and DJs who care about attention and atmosphere — write to me. Tell me who you are and what you make. I answer personally.</p>
+    <p class="eyebrow" data-i18n="join.eyebrow">Collaborate</p>
+    <h2 data-i18n-html="home.join.title">Want to be part<br>of <em>the room?</em></h2>
+    <p class="join-lead" data-i18n="home.join.lead">Photographers and DJs who care about attention and atmosphere — write to me. Tell me who you are and what you make. I answer personally.</p>
     <div class="join-tags">
-      <span class="join-tag">Photographers</span>
-      <span class="join-tag">DJs</span>
-      <span class="join-tag">Producers</span>
+      <span class="join-tag" data-i18n="join.photographers">Photographers</span>
+      <span class="join-tag" data-i18n="join.djs">DJs</span>
+      <span class="join-tag" data-i18n="join.producers">Producers</span>
     </div>
     <div class="join-actions">
-      <a class="btn btn-primary" href="mailto:diegoalbs@proton.me?subject=Participate%20in%209bitts%20%E2%80%94%20DJ%20%2F%20Photographer">Send an email</a>
-      <a class="btn btn-ghost" href="https://wa.me/4915208553328?text=Ol%C3%A1%2C%20vim%20pelo%209bitts.com%20e%20quero%20participar%20como%20fot%C3%B3grafo%20ou%20DJ." target="_blank" rel="noopener">Message on WhatsApp</a>
+      <a class="btn btn-primary" href="mailto:diegoalbs@proton.me?subject=Participate%20in%209bitts%20%E2%80%94%20DJ%20%2F%20Photographer" data-i18n="cta.email">Send an email</a>
+      <a class="btn btn-ghost" href="https://wa.me/4915208553328?text=Ol%C3%A1%2C%20vim%20pelo%209bitts.com%20e%20quero%20participar%20como%20fot%C3%B3grafo%20ou%20DJ." target="_blank" rel="noopener" data-i18n="cta.whatsapp">Message on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -250,6 +250,7 @@
   </button>
 </div>
 
+<script src="/js/i18n.js"></script>
 <script src="/js/site.js"></script>
 <script src="/js/notes.js"></script>
 <script src="/js/featured-mix.js"></script>

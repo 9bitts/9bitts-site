@@ -1,10 +1,20 @@
 (function () {
   const FEED = "/notes/index.json";
 
+  function t(key, vars) {
+    return window.i18n ? i18n.t(key, vars) : key;
+  }
+
+  function localeTag() {
+    const map = { en: "en-US", pt: "pt-BR", de: "de-DE" };
+    const lang = (window.i18n && i18n.lang) || "en";
+    return map[lang] || "en-US";
+  }
+
   function formatDate(iso) {
     if (!iso) return "";
     try {
-      return new Date(iso + "T12:00:00").toLocaleDateString("en-US", {
+      return new Date(iso + "T12:00:00").toLocaleDateString(localeTag(), {
         year: "numeric",
         month: "short",
         day: "numeric",
@@ -36,7 +46,7 @@
     try {
       const notes = await loadNotes();
       if (!notes.length) {
-        root.innerHTML = `<div class="note-card"><p class="body">The first note is on its way.</p></div>`;
+        root.innerHTML = `<div class="note-card"><p class="body">${esc(t("notes.empty"))}</p></div>`;
         return;
       }
       root.innerHTML = notes
@@ -51,7 +61,7 @@
           <div class="body"><p>${esc(n.body)}</p></div>
           ${
             n.link
-              ? `<a class="note-link" href="${esc(n.link)}">${esc(n.linkLabel || "Continue")} →</a>`
+              ? `<a class="note-link" href="${esc(n.link)}">${esc(n.linkLabel || t("notes.continue"))} →</a>`
               : ""
           }
         </article>`
@@ -61,7 +71,7 @@
         el.classList.add("visible");
       });
     } catch {
-      root.innerHTML = `<div class="note-card"><p class="body">Couldn't load notes right now. Check back soon.</p></div>`;
+      root.innerHTML = `<div class="note-card"><p class="body">${esc(t("notes.error"))}</p></div>`;
     }
   }
 
@@ -88,6 +98,11 @@
     }
   }
 
-  renderNotesPage();
-  renderNotesStrip();
+  function renderAll() {
+    renderNotesPage();
+    renderNotesStrip();
+  }
+
+  renderAll();
+  document.addEventListener("9bitts:langchange", renderAll);
 })();
