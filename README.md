@@ -7,7 +7,8 @@ Website for [9bitts.com](https://9bitts.com) — electronic music for attention.
 | Path | Role |
 |------|------|
 | `/` | Home — listen first, then notes, journal, world, belong |
-| `/listen.html` | All sets |
+| `/listen.html` | Catalog of sets (from `listen/index.json`) |
+| `/listen/{slug}.html` | Individual mix page (SEO) |
 | `/notes.html` | Short daily/weekly dispatches |
 | `/journal.html` | Long essays |
 | `/world.html` | Hub → guide + artists |
@@ -28,7 +29,7 @@ Edit `notes/index.json`. Add a new object at the **top** of the `notes` array:
   "type": "listen",
   "title": "Your title",
   "body": "Short text for the week.",
-  "link": "/listen.html",
+  "link": "/listen/between-worlds.html",
   "linkLabel": "Listen"
 }
 ```
@@ -36,3 +37,12 @@ Edit `notes/index.json`. Add a new object at the **top** of the `notes` array:
 `type` can be: `listen` · `thought` · `visual` · `studio`
 
 Notes appear on `/notes.html` and on the home page strip automatically after deploy.
+
+## Publishing a new mix
+
+1. Add the mix to `listen/index.json` (top of `mixes`; set `featured: true` to lead the home).
+2. Run `node scripts/generate-mix-pages.js`.
+3. Add the URL to `sitemap.xml`.
+4. Optional: prepend a Note linking to `/listen/{slug}.html`.
+
+Make/GitHub checklist: [`listen/AUTOMATION.md`](listen/AUTOMATION.md).

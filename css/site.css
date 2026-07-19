@@ -457,7 +457,9 @@ a { color: inherit; }
   display: grid; grid-template-columns: 5.5rem 1fr; gap: 1.25rem;
   background: var(--bg-card); border: 1px solid var(--line);
   border-radius: 8px; padding: 1.25rem; align-items: start;
+  text-decoration: none; color: inherit; transition: border-color 0.25s, transform 0.25s;
 }
+a.listen-item:hover { border-color: rgba(45, 95, 63, 0.35); transform: translateY(-2px); }
 .listen-cover {
   width: 5.5rem; height: 5.5rem; border-radius: 4px;
   background: linear-gradient(135deg, var(--accent), #1a2620);
@@ -478,9 +480,48 @@ a { color: inherit; }
   font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 500;
 }
 .listen-actions a:hover { text-decoration: underline; }
+.listen-open {
+  font-size: 0.85rem; color: var(--accent); font-weight: 500;
+}
 @media (max-width: 560px) {
   .listen-item { grid-template-columns: 1fr; }
 }
+
+/* MIX DETAIL PAGE */
+.mix-page { padding: calc(var(--nav-h) + 3rem) 1.75rem 5rem; max-width: 720px; }
+.mix-back {
+  display: inline-block; font-size: 0.85rem; color: var(--ink-mute);
+  text-decoration: none; margin-bottom: 2rem;
+}
+.mix-back:hover { color: var(--accent); }
+.mix-page-title { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.25rem; max-width: none; }
+.mix-page-lead { margin-bottom: 2rem; }
+.mix-page-cover {
+  width: 100%; aspect-ratio: 16/9; border-radius: 8px;
+  background: linear-gradient(145deg, #1a2620, #0e0e0e);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-style: italic; font-size: clamp(3rem, 10vw, 5rem);
+  color: rgba(200, 169, 126, 0.45); margin-bottom: 1.5rem;
+}
+.mix-player-box {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;
+}
+.mix-page-actions {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem;
+}
+.mix-page-more {
+  padding-top: 2rem; border-top: 1px solid var(--line);
+}
+.mix-page-more p {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-mute); margin-bottom: 1rem;
+}
+.mix-page-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+.mix-page-links a {
+  font-size: 0.9rem; color: var(--accent); text-decoration: none; font-weight: 500;
+}
+.mix-page-links a:hover { text-decoration: underline; }
 
 /* NOTES PAGE */
 .notes-feed { margin-top: 2rem; }

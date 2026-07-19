@@ -61,24 +61,27 @@
   <div class="home-hero-visual" aria-hidden="true">
     <div class="home-hero-visual-inner">
       <div class="label">Now in the room</div>
-      <h2>Between Worlds — melodic house & techno</h2>
+      <h2 data-hero-mix-title>Between Worlds — melodic house & techno</h2>
     </div>
   </div>
 </section>
 
 <!-- 2. THE ROOM -->
 <section class="featured-mix" id="room">
-  <div class="wrap reveal">
+  <div class="wrap reveal" id="featured-mix">
     <p class="eyebrow">The room</p>
     <h2 class="display">Press play.<br><em>Stay until the end.</em></h2>
-    <p class="lead">One featured set — sequenced with intention. Not a playlist. A journey.</p>
+    <p class="lead" data-mix-lead>One featured set — sequenced with intention. Not a playlist. A journey.</p>
     <div class="mix-player">
-      <div class="mix-meta">Featured · Melodic House & Techno · ~65 min</div>
-      <div class="mix-title-row">Between Worlds</div>
-      <iframe width="100%" height="60" title="Between Worlds on Mixcloud" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2F9bitts%2Fbetween-worlds-melodic-house-techno-mix-9bitts%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
+      <div class="mix-meta" data-mix-meta>Featured · Melodic House & Techno · ~65 min</div>
+      <div class="mix-title-row" data-mix-title>Between Worlds</div>
+      <div>
+        <iframe data-mix-iframe width="100%" height="60" title="Between Worlds on Mixcloud" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2F9bitts%2Fbetween-worlds-melodic-house-techno-mix-9bitts%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
+      </div>
       <div style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:1rem;">
-        <a href="https://youtu.be/Q_aYWFX8vi0" target="_blank" rel="noopener" style="color:var(--gold);font-size:.9rem;text-decoration:none;">Watch on YouTube →</a>
-        <a href="/listen.html" style="color:rgba(255,255,255,.45);font-size:.9rem;text-decoration:none;">All sets →</a>
+        <a data-mix-youtube href="https://youtu.be/Q_aYWFX8vi0" target="_blank" rel="noopener" style="color:var(--gold);font-size:.9rem;text-decoration:none;">Watch on YouTube →</a>
+        <a data-mix-page href="/listen/between-worlds.html" style="color:rgba(255,255,255,.55);font-size:.9rem;text-decoration:none;">Open set page →</a>
+        <a href="/listen.html" style="color:rgba(255,255,255,.35);font-size:.9rem;text-decoration:none;">All sets →</a>
       </div>
     </div>
   </div>
@@ -249,5 +252,6 @@
 
 <script src="/js/site.js"></script>
 <script src="/js/notes.js"></script>
+<script src="/js/featured-mix.js"></script>
 </body>
 </html>
